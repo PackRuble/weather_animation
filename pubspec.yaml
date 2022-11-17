@@ -1,0 +1,22 @@
+name: weather_animation
+description: The package contains beautiful weather animations. Easy setup with the weather configurator!
+homepage: https://github.com/PackRuble/weather_animation/
+
+version: 2.0.0
+
+environment:
+#  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.18.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  json_annotation: ^4.7.0
+  freezed_annotation: ^2.2.0
+
+dev_dependencies:
+  freezed: ^2.2.1
+  json_serializable: ^6.5.4
+  build_runner: ^2.3.2
+  lint: ^1.10.0

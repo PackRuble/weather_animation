@@ -1,0 +1,14 @@
+include: package:lint/analysis_options_package.yaml
+
+analyzer:
+  errors:
+    invalid_annotation_target: ignore
+
+linter:
+  rules:
+    use_super_parameters: false
+    sort_pub_dependencies: false
+    avoid_bool_literals_in_conditional_expressions: false
+    avoid_relative_lib_imports: false
+    always_use_package_imports: false
+    avoid_multiple_declarations_per_line: false
