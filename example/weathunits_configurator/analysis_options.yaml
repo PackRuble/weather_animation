@@ -1,0 +1,16 @@
+
+include: package:lint/analysis_options.yaml
+
+linter:
+  # Instead of disabling a lint rule it can also be suppressed:
+  # `// ignore: name_of_lint` - a single line of code
+  # `// ignore_for_file: name_of_lint` - syntax on the line or in the file
+
+  rules:
+    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
+
+    avoid_relative_lib_imports: false
+    always_use_package_imports: false
+    use_super_parameters: false
+    sort_pub_dependencies: false
+
