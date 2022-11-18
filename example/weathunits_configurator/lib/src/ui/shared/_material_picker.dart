@@ -333,14 +333,17 @@ class _MaterialPickerState extends State<MaterialPicker> {
       );
     } else {
       return SizedBox(
-        width: 500,
+        // width: 500,
         height: 300,
         child: Column(
           children: <Widget>[
-            _colorList(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: _colorList(),
+            ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.zero,
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: _shadingList(),
               ),
             ),
