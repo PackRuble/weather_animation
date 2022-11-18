@@ -25,10 +25,7 @@ class ConfigSection extends ConsumerWidget {
 
     // at null we show backgroundConfig
     if (currentConfig == null) {
-      child = const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: BackgroundConfigWidget(),
-      );
+      child = const BackgroundConfigWidget();
     } else {
       final Map<String, dynamic> data = configNotifier.rawWeathConfig!;
 
@@ -126,21 +123,22 @@ class ConfigSection extends ConsumerWidget {
 
       child = ListView(
         key: ValueKey(currentConfig.id),
+        padding: const EdgeInsets.all(8.0),
         children: children,
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          Text('Configurator', style: theme.textTheme.headlineSmall),
-          const Divider(),
-          Flexible(
-            child: child,
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        const SizedBox(height: 4.0),
+        Text('Configurator', style: theme.textTheme.headlineSmall),
+        const SizedBox(height: 4.0),
+        const Divider(thickness: 1.0, height: 0.0),
+        const SizedBox(height: 4.0),
+        Flexible(
+          child: child,
+        ),
+      ],
     );
   }
 }
@@ -170,7 +168,7 @@ class _ColorPick extends ConsumerWidget {
           minVerticalPadding: 0.0,
           // tileColor: color,
           leading: Text('<${value.runtimeType}>'),
-          title: Text('$field: Color(hex: ${color.hexMaterial})'),
+          title: Text('$field: Color(${color.hexMaterial})'),
           trailing: IconButton(
             icon: const Icon(Icons.copy_rounded),
             onPressed: () async {

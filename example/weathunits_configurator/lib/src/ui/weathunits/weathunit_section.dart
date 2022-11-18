@@ -16,65 +16,70 @@ class WeathunitSection extends ConsumerWidget {
 
     final scenes = ref.watch(listWeathunitProvider);
 
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text('Stack of Weathunits', style: theme.textTheme.headlineSmall),
-          const Divider(),
-          const _TileBgWidget(),
-          if (scenes.isEmpty)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const SizedBox(height: 4.0),
+        Text('Stack of Weathunits', style: theme.textTheme.headlineSmall),
+        const SizedBox(height: 4.0),
+        const Divider(thickness: 1.0, height: 0.0),
+        const SizedBox(height: 4.0),
+        const _TileBgWidget(),
+        if (scenes.isEmpty)
+          Padding(
+            padding: const EdgeInsets.only(top: 50.0),
+            child: Center(
               child: Text(
                 '➕Add Weathunit to Stack',
                 style: theme.textTheme.titleMedium,
               ),
             ),
-          Expanded(
-            child: ReorderableList(
-              itemBuilder: (BuildContext context, int index) {
-                final item = scenes[index];
-
-                return Material(
-                  color: Colors.transparent,
-                  key: ValueKey(item.id),
-                  child: _TileSceneWidget(index, item),
-                );
-              },
-              itemCount: scenes.length,
-              onReorder: ref.read(listWeathunitProvider.notifier).move,
-            ),
           ),
-          const SizedBox(height: 4),
-          ElevatedButton.icon(
-            icon: const Icon(Icons.add_rounded),
-            label: const Text('Add weather unit'),
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return SimpleDialog(
-                    children: [
-                      for (final e in TypeWeather.values)
-                        ListTile(
-                          onTap: () {
-                            ref.read(listWeathunitProvider.notifier).add(e);
-                            Navigator.pop(context);
-                          },
-                          title: Text(e.name),
-                        )
-                    ],
-                  );
-                },
+        Expanded(
+          child: ReorderableList(
+            itemBuilder: (BuildContext context, int index) {
+              final item = scenes[index];
+
+              return Material(
+                color: Colors.transparent,
+                key: ValueKey(item.id),
+                child: _TileSceneWidget(index, item),
               );
             },
+            itemCount: scenes.length,
+            onReorder: ref.read(listWeathunitProvider.notifier).move,
+            padding: const EdgeInsets.all(2.0),
           ),
-          const Divider(),
-          const ToolBarWidget(),
-        ],
-      ),
+        ),
+        const SizedBox(height: 8.0),
+        ElevatedButton.icon(
+          icon: const Icon(Icons.add_rounded),
+          label: const Text('Add weather unit'),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return SimpleDialog(
+                  children: [
+                    for (final e in TypeWeather.values)
+                      ListTile(
+                        onTap: () {
+                          ref.read(listWeathunitProvider.notifier).add(e);
+                          Navigator.pop(context);
+                        },
+                        title: Text(e.name),
+                      )
+                  ],
+                );
+              },
+            );
+          },
+        ),
+        const SizedBox(height: 8.0),
+        const Divider(thickness: 1.0, height: 0.0),
+        const SizedBox(height: 4.0),
+        const ToolBarWidget(),
+      ],
     );
   }
 }
@@ -90,18 +95,21 @@ class _TileBgWidget extends ConsumerWidget {
 
     final selected = ref.watch(selectedWeathunitProvider) == null;
 
-    return ListTile(
-      selected: selected,
-      selectedTileColor: theme.primaryColor.withOpacity(0.3),
-      onTap: () {
-        // at null we show backgroundConfig
-        ref.read(selectedWeathunitProvider.notifier).state = null;
-      },
-      trailing: Icon(
-        Icons.chevron_right,
-        color: theme.iconTheme.color,
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: ListTile(
+        selected: selected,
+        selectedTileColor: theme.primaryColor.withOpacity(0.3),
+        onTap: () {
+          // at null we show backgroundConfig
+          ref.read(selectedWeathunitProvider.notifier).state = null;
+        },
+        trailing: Icon(
+          Icons.chevron_right,
+          color: theme.iconTheme.color,
+        ),
+        title: const Text('Background'),
       ),
-      title: const Text('Background'),
     );
   }
 }

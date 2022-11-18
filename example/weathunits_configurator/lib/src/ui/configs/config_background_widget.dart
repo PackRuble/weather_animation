@@ -68,12 +68,15 @@ class BackgroundConfigWidget extends ConsumerWidget {
     return Column(
       children: [
         if (colors.length >= 2)
-          SwitchListTile(
-            title: const Text('Change the corner of the gradient'),
-            value: ref.watch(BackgroundColorsNotifier.isLeftCornerGradient),
-            onChanged: (bool value) => ref
-                .read(BackgroundColorsNotifier.isLeftCornerGradient.notifier)
-                .state = value,
+          Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: SwitchListTile(
+              title: const Text('Change the corner of the gradient'),
+              value: ref.watch(BackgroundColorsNotifier.isLeftCornerGradient),
+              onChanged: (bool value) => ref
+                  .read(BackgroundColorsNotifier.isLeftCornerGradient.notifier)
+                  .state = value,
+            ),
           ),
         Expanded(
           child: ReorderableList(
@@ -90,9 +93,6 @@ class BackgroundConfigWidget extends ConsumerWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       if (isSelectedTile)
-                        // Visibility(
-                        //   visible: selectedTileIndex != null,
-                        //   child:
                         _AnimatedIconDelete(
                           onPressed: () {
                             ref
@@ -100,7 +100,6 @@ class BackgroundConfigWidget extends ConsumerWidget {
                                 .state = null;
                           },
                         ),
-                      // ),
                       ReorderableDragStartListener(
                         index: index,
                         child: Tooltip(
@@ -114,7 +113,7 @@ class BackgroundConfigWidget extends ConsumerWidget {
                       ),
                     ],
                   ),
-                  title: Text('Color(hex: ${item.hexMaterial})'),
+                  title: Text('Color(${item.hexMaterial})'),
                   selected: isSelectedTile,
                   selectedTileColor: theme.primaryColor.withOpacity(0.3),
                   onTap: () {
@@ -139,6 +138,7 @@ class BackgroundConfigWidget extends ConsumerWidget {
               );
             },
             itemCount: colors.length,
+            padding: const EdgeInsets.all(2.0),
             onReorder: (int old, int newIndex) {
               if (ref.read(_selectedTileIndexProvider.notifier).state == old) {
                 if (old < newIndex) {
@@ -153,6 +153,7 @@ class BackgroundConfigWidget extends ConsumerWidget {
             },
           ),
         ),
+        const SizedBox(height: 8.0),
         ElevatedButton(
           onPressed: () {
             final selectedColor = ref.read(_selectedPickerProvider);
@@ -162,8 +163,12 @@ class BackgroundConfigWidget extends ConsumerWidget {
           },
           child: const Text('Add color'),
         ),
-        const Divider(),
-        const _PickerWidget(),
+        const SizedBox(height: 8.0),
+        const Divider(thickness: 1.0, height: 0.0),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: _PickerWidget(),
+        ),
       ],
     );
   }

@@ -119,6 +119,7 @@ class SizerWidget extends ConsumerWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
+        const SizedBox(width: 4.0),
         const _AspectRatioWidget(),
         Expanded(
           child: Column(

@@ -30,21 +30,20 @@ class ToolBarWidget extends ConsumerWidget {
           padding: const EdgeInsets.all(4.0),
           child: Row(
             children: [
-              const SizedBox(width: 4),
+              const SizedBox(width: 4.0),
               CContainer(
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: const [
                     _CopyCodeButton(),
-                    SizedBox(width: 8),
                     _FullscreenButton(),
                     _UpdateForceButton(),
                   ],
                 ),
               ),
-              const SizedBox(width: 4),
+              const SizedBox(width: 8.0),
               const CContainer(child: ThemeModeSwitch()),
-              const SizedBox(width: 4),
+              const SizedBox(width: 4.0),
             ],
           ),
         ),

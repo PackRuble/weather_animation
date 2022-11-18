@@ -15,13 +15,11 @@ class EditorScenesApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const title = 'Weather backgrounds';
-
     final themeMode = ref.watch(themeModeProvider);
 
     return MaterialApp(
       key: ref.watch(MainController.forcedUpdate),
-      title: title,
+      title: 'Weather backgrounds',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       darkTheme: AppTheme.darkTheme,
