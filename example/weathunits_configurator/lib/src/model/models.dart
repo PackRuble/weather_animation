@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:weather_animation_bg/weather_animation_bg.dart';
+import 'package:weather_animation/weather_animation.dart';
 
 enum TypeWeather { sun, rain, thunder, snow, cloud, wind }
 

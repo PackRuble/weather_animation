@@ -20,8 +20,8 @@ dependencies:
 
   flex_color_scheme: ^6.0.1
 
-  weather_animation_bg:
-    path: '../../../weather_animation_bg'
+  weather_animation:
+    path: ../../../weather_animation
 
 dev_dependencies:
   lint: ^1.10.0

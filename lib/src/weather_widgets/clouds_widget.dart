@@ -48,16 +48,18 @@ class _CloudWidgetState extends State<CloudWidget>
     return Positioned(
       left: _config.x,
       top: _config.y,
-      child: SlideTransition(
-        position: slideAnimation,
-        child: ScaleTransition(
-          scale: scaleAnimation,
-          child: _config.widgetCloud ?? // todo correct size widget
-              Icon(
-                _config.icon,
-                color: _config.color,
-                size: _config.size,
-              ),
+      child: SizedBox.shrink(
+        child: SlideTransition(
+          position: slideAnimation,
+          child: ScaleTransition(
+            scale: scaleAnimation,
+            child: _config.widgetCloud ?? // todo correct size widget
+                Icon(
+                  _config.icon,
+                  color: _config.color,
+                  size: _config.size,
+                ),
+          ),
         ),
       ),
     );
@@ -74,7 +76,6 @@ class _CloudWidgetState extends State<CloudWidget>
     if (oldConfig.x != nowConfig.x ||
         oldConfig.y != nowConfig.y ||
         oldConfig.icon != nowConfig.icon ||
-        // oldConfig.size != nowConfig.size ||
         oldConfig.color != nowConfig.color) {
       _config = nowConfig;
       return;

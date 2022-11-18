@@ -15,3 +15,14 @@ Weathunits configurator is an application for creating a variety of weather cond
 * full screen view of the resulting weather picture
 * emergency button :)
 * customizable interface, light/dark application theme
+
+### How to use
+
+Build your project on whatever you like. Tested the builds on: windows, web, android.
+
+```shell
+flutter build windows
+```
+```shell
+flutter build apk 
+```

@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nanoid/nanoid.dart';
-import 'package:weather_animation_bg/weather_animation_bg.dart';
+import 'package:weather_animation/weather_animation.dart';
 
 import '../model/models.dart';
 

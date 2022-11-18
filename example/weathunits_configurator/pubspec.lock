@@ -137,10 +137,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
-  weather_animation_bg:
+  weather_animation:
     dependency: "direct main"
     description:
-      path: "../../../weather_animation_bg"
+      path: "../.."
       relative: true
     source: path
     version: "2.0.0"

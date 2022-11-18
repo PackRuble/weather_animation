@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:weather_animation_bg/weather_animation_bg.dart';
+import 'package:weather_animation/weather_animation.dart';
 
 import '../../controllers/main_controller.dart';
 import '../../controllers/weathunits_controller.dart';
@@ -19,11 +19,10 @@ class SceneSection extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         Flexible(
-          child: Padding(
-            padding: EdgeInsets.all(6.0),
-            child: _WeathersOnScene(),
-          ),
-        ),
+            child: Padding(
+          padding: EdgeInsets.all(6.0),
+          child: _WeathersOnScene(),
+        )),
         Divider(height: 0, thickness: 1.0),
         Padding(
           padding: EdgeInsets.all(4.0),
