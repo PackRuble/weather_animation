@@ -23,9 +23,11 @@ class ColorPickerWidget extends ConsumerStatefulWidget {
 class _ColorPickerWidgetState extends ConsumerState<ColorPickerWidget> {
   late Color pickerColor = widget.color ?? Colors.amber.shade100;
 
-  void onColorChanged(Color color) {
-    setState(() => pickerColor = color);
-    widget.onColorChanged?.call(color);
+  void onColorChanged(Color color, [int? alpha]) {
+    final Color newColor = color.withAlpha(alpha ?? pickerColor.alpha);
+
+    setState(() => pickerColor = newColor);
+    widget.onColorChanged?.call(newColor);
   }
 
   @override
@@ -49,7 +51,10 @@ class _ColorPickerWidgetState extends ConsumerState<ColorPickerWidget> {
                   fullThumbColor: false,
                   TrackType.alpha,
                   HSVColor.fromColor(pickerColor),
-                  (HSVColor color) => onColorChanged(color.toColor()),
+                  (HSVColor color) {
+                    final newColor = color.toColor();
+                    onColorChanged(newColor, newColor.alpha);
+                  },
                 ),
               );
             },
