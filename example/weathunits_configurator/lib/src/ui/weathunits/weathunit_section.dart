@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../controllers/weathunits_controller.dart';
 import '../../model/models.dart';
+import '../shared/selector_preset_scene.dart';
 import '../shared/tool_bar_widget.dart';
 
 class WeathunitSection extends ConsumerWidget {
@@ -52,28 +53,36 @@ class WeathunitSection extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 8.0),
-        ElevatedButton.icon(
-          icon: const Icon(Icons.add_rounded),
-          label: const Text('Add weather unit'),
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return SimpleDialog(
-                  children: [
-                    for (final e in TypeWeather.values)
-                      ListTile(
-                        onTap: () {
-                          ref.read(listWeathunitProvider.notifier).add(e);
-                          Navigator.pop(context);
-                        },
-                        title: Text(e.name),
-                      )
-                  ],
-                );
-              },
-            );
-          },
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const PresetScenesDropButton(),
+            Flexible(
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.add_rounded),
+                label: const Text('Add weather unit'),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return SimpleDialog(
+                        children: [
+                          for (final e in TypeWeather.values)
+                            ListTile(
+                              onTap: () {
+                                ref.read(listWeathunitProvider.notifier).add(e);
+                                Navigator.pop(context);
+                              },
+                              title: Text(e.name),
+                            )
+                        ],
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 8.0),
         const Divider(thickness: 1.0, height: 0.0),

@@ -59,6 +59,6 @@ String getCode(WidgetRef ref) {
 
   return content.replaceAllMapped(RegExp(r'IconData\([A-Z0-9+]*\)'), (match) {
     final code = match[0]!.split('+')[1].replaceFirst(')', '');
-    return 'IconData(${int.parse(code, radix: 16)})';
+    return "IconData(${int.parse(code, radix: 16)}, fontFamily: 'MaterialIcons')";
   });
 }

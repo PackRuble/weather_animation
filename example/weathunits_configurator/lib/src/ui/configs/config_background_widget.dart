@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weathunits_configurator/src/controllers/main_controller.dart';
 import 'package:weathunits_configurator/src/extension/hex_color.dart';
 
 import '../shared/color_picker_widget.dart';
@@ -16,11 +17,14 @@ final backgroundColorsProvider =
 );
 
 class BackgroundColorsNotifier extends StateNotifier<List<Color>> {
-  BackgroundColorsNotifier(this._ref) : super([]);
+  BackgroundColorsNotifier(this._ref)
+      : super(_ref.watch(MainController.selectedWidgetScene)?.colors ?? []);
 
   final Ref _ref;
 
-  static final isLeftCornerGradient = StateProvider<bool>((ref) => false);
+  static final isLeftCornerGradient = StateProvider<bool>((ref) =>
+      ref.watch(MainController.selectedWidgetScene)?.isLeftCornerGradient ??
+      false);
 
   void add(Color color) {
     state = [...state, color];

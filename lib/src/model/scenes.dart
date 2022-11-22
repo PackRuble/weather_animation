@@ -124,7 +124,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 250.0,
                 color: Color(0x65212121),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 20.0,
                 y: 35.0,
@@ -140,7 +140,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 160.0,
                 color: Color(0x77212121),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 140.0,
                 y: 130.0,
@@ -195,7 +195,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 count: 30,
                 size: 20.0,
                 color: Color(0xb3ffffff),
-                icon: IconData(57399),
+                icon: IconData(57399, fontFamily: 'MaterialIcons'),
                 widgetSnowflake: null,
                 areaXStart: 42.0,
                 areaXEnd: 240.0,
@@ -214,7 +214,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 250.0,
                 color: Color(0xa8fafafa),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 20.0,
                 y: 3.0,
@@ -230,7 +230,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 160.0,
                 color: Color(0xa8fafafa),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 140.0,
                 y: 97.0,
@@ -259,7 +259,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 count: 30,
                 size: 20.0,
                 color: Color(0xb3ffffff),
-                icon: IconData(57399),
+                icon: IconData(57399, fontFamily: 'MaterialIcons'),
                 widgetSnowflake: null,
                 areaXStart: 42.0,
                 areaXEnd: 240.0,
@@ -278,7 +278,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 250.0,
                 color: Color(0xa8fafafa),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 20.0,
                 y: 3.0,
@@ -294,7 +294,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 160.0,
                 color: Color(0xa8fafafa),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 140.0,
                 y: 97.0,
@@ -338,7 +338,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 250.0,
                 color: Color(0xa8fafafa),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 20.0,
                 y: 3.0,
@@ -369,7 +369,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 count: 30,
                 size: 20.0,
                 color: Color(0xb3ffffff),
-                icon: IconData(57399),
+                icon: IconData(57399, fontFamily: 'MaterialIcons'),
                 widgetSnowflake: null,
                 areaXStart: 21.0,
                 areaXEnd: 195.0,
@@ -409,7 +409,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 160.0,
                 color: Color(0xa8fafafa),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 140.0,
                 y: 97.0,
@@ -483,7 +483,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 250.0,
                 color: Color(0xad90a4ae),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 20.0,
                 y: 3.0,
@@ -513,7 +513,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 160.0,
                 color: Color(0xb1607d8b),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 140.0,
                 y: 97.0,
@@ -561,7 +561,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 270.0,
                 color: Color(0xcdbdbdbd),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 119.0,
                 y: -50.0,
@@ -577,7 +577,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 250.0,
                 color: Color(0x92fafafa),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 20.0,
                 y: 3.0,
@@ -593,7 +593,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
             cloudConfig: CloudConfig(
                 size: 160.0,
                 color: Color(0xb5fafafa),
-                icon: IconData(63056),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
                 widgetCloud: null,
                 x: 140.0,
                 y: 97.0,

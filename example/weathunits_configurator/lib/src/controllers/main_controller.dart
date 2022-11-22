@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weather_animation/weather_animation.dart';
 
 /// Class represent controller.
 class MainController {
@@ -17,7 +18,7 @@ class MainController {
   static final onFullScreen = StateProvider<bool>((ref) => false);
 
   /// Size canvas.
-  static final sizeCanvas = StateProvider<Size>(
+  static final sizeCanvas = Provider<Size>(
     (ref) => Size(
       ref.watch(widthCanvas),
       ref.watch(heightCanvas),
@@ -27,15 +28,24 @@ class MainController {
 
   /// Width canvas.
   static final widthCanvas = StateProvider<double>(
-    (_) => 350.0,
+    (ref) => ref.watch(selectedWidgetScene)?.sizeCanvas.width ?? 350.0,
     name: 'widthCanvas',
   );
 
   /// Height canvas.
   static final heightCanvas = StateProvider<double>(
-    (_) => 540.0,
+    (ref) => ref.watch(selectedWidgetScene)?.sizeCanvas.height ?? 540.0,
     name: 'heightCanvas',
   );
+
+  static final selectedWidgetScene = Provider<WrapperScene?>(
+      (ref) => ref.watch(selectedScene)?.getWeather() as WrapperScene?);
+
+  static final selectedScene =
+      StateProvider<WeatherScene?>((_) => WeatherScene.scorchingSun);
+
+  static final allScenes =
+      Provider<List<WeatherScene>>((_) => WeatherScene.values);
 
   static final forcedUpdate = Provider<UniqueKey>((ref) => UniqueKey());
 }

@@ -141,12 +141,6 @@ class _SliderWidgetState extends State<SliderWidget> {
   void _stopTimer() => _timer?.cancel();
 
   @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
@@ -250,6 +244,20 @@ class _SliderWidgetState extends State<SliderWidget> {
         ],
       ),
     );
+  }
+
+  @override
+  void didUpdateWidget(covariant SliderWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.value != widget.value) {
+      _value = widget.value;
+    }
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
   }
 }
 
