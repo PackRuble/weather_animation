@@ -14,6 +14,8 @@ class SnowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      fit: StackFit.expand,
+      clipBehavior: Clip.none,
       children: [
         for (int i = 0; i < snowConfig.count; i++)
           SnowflakeWidget(

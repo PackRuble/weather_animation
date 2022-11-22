@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 import '../model/configs.dart';
 
-class ThundersWidget extends StatelessWidget {
-  const ThundersWidget({
+class ThunderWidget extends StatelessWidget {
+  const ThunderWidget({
     Key? key,
     this.thunderConfig = const ThunderConfig(),
   }) : super(key: key);
@@ -21,22 +21,22 @@ class ThundersWidget extends StatelessWidget {
         SingleThunder(
           thunderConfig: thunderConfig.copyWith(
             points: const [
-              Offset(110, 210),
-              Offset(120, 240),
-              Offset(106, 260),
-              Offset(133, 340),
-              Offset(105, 348),
-              Offset(120, 400)
+              Offset(160, 210),
+              Offset(170, 240),
+              Offset(156, 260),
+              Offset(183, 340),
+              Offset(155, 348),
+              Offset(170, 400)
             ],
           ),
         ),
         SingleThunder(
           thunderConfig: thunderConfig.copyWith(
             points: const [
-              Offset(210, 215),
-              Offset(228, 285),
-              Offset(212, 295),
-              Offset(225, 335)
+              Offset(230, 215),
+              Offset(248, 285),
+              Offset(232, 295),
+              Offset(245, 335)
             ],
           ),
         ),

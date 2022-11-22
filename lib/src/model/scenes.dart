@@ -38,7 +38,7 @@ enum WeatherScene {
   ///
   /// Season: autumn-winter
   /// Designation: raw, to patter, shower sleet, strong wind, foul
-  /// Widgets: [RainsWidget], [SnowWidget], [CloudWidget], [WindWidget]
+  /// Widgets: [RainWidget], [SnowWidget], [CloudWidget], [WindWidget]
   showerSleet,
 
   /// Terrifying weather. Rain pours down like a bucket, thunderstorms, strong
@@ -46,15 +46,18 @@ enum WeatherScene {
   ///
   /// Season: spring, summer, autumn
   /// Designation: gale-force wind, thunderstorm, lightning, to darken
-  /// Widgets: [WindWidget], [RainsWidget], [ThundersWidget], [CloudWidget]
+  /// Widgets: [WindWidget], [RainWidget], [ThunderWidget], [CloudWidget]
   stormy,
 
   /// The rain and the sky covered with clouds.
   ///
   /// Season: spring, summer, autumn
   /// Designation: rain, rain clouds, overcast, unpredictable
-  /// Widgets: [RainsWidget], [CloudWidget]
+  /// Widgets: [RainWidget], [CloudWidget]
   rainyOvercast,
+
+  /// Each weather element in this package is represented.
+  weatherEvery,
   ;
 
   Widget getWeather() => getWeatherScene(this);
@@ -62,6 +65,112 @@ enum WeatherScene {
 
 Widget getWeatherScene(WeatherScene weatherScene) {
   switch (weatherScene) {
+    case WeatherScene.weatherEvery:
+      return const WrapperScene(
+        sizeCanvas: Size(350.0, 540.0),
+        isLeftCornerGradient: true,
+        colors: [
+          Color(0xff1976d2),
+          Color(0xffe1f5fe),
+        ],
+        children: [
+          SunWidget(
+            sunConfig: SunConfig(
+                width: 360.0,
+                blurSigma: 13.0,
+                blurStyle: BlurStyle.solid,
+                isLeftLocation: true,
+                coreColor: Color(0xffff9800),
+                midColor: Color(0xffffee58),
+                outColor: Color(0xffffa726),
+                animMidMill: 1500,
+                animOutMill: 1500),
+          ),
+          WindWidget(
+            windConfig: WindConfig(
+                width: 6.0,
+                y: 300.0,
+                windGap: 14.0,
+                blurSigma: 13.0,
+                color: Color(0xff607d8b),
+                slideXStart: 0.0,
+                slideXEnd: 350.0,
+                pauseStartMill: 50,
+                pauseEndMill: 6000,
+                slideDurMill: 1000,
+                blurStyle: BlurStyle.solid),
+          ),
+          RainWidget(
+            rainConfig: RainConfig(
+                count: 10,
+                lengthDrop: 12.0,
+                widthDrop: 4.0,
+                color: Color(0x9978909c),
+                isRoundedEndsDrop: true,
+                widgetRainDrop: null,
+                fallRangeMinDurMill: 500,
+                fallRangeMaxDurMill: 1500,
+                areaXStart: 120.0,
+                areaXEnd: 190.0,
+                areaYStart: 215.0,
+                areaYEnd: 540.0,
+                slideX: 2.0,
+                slideY: 0.0,
+                slideDurMill: 2000,
+                slideCurve: Cubic(0.40, 0.00, 0.20, 1.00),
+                fallCurve: Cubic(0.55, 0.09, 0.68, 0.53),
+                fadeCurve: Cubic(0.95, 0.05, 0.80, 0.04)),
+          ),
+          SnowWidget(
+            snowConfig: SnowConfig(
+                count: 20,
+                size: 20.0,
+                color: Color(0xb3ffffff),
+                icon: IconData(57399, fontFamily: 'MaterialIcons'),
+                widgetSnowflake: null,
+                areaXStart: 90.0,
+                areaXEnd: 230.0,
+                areaYStart: 200.0,
+                areaYEnd: 540.0,
+                waveRangeMin: 20.0,
+                waveRangeMax: 110.0,
+                waveMinSec: 5,
+                waveMaxSec: 20,
+                waveCurve: Cubic(0.45, 0.05, 0.55, 0.95),
+                fadeCurve: Cubic(0.60, 0.04, 0.98, 0.34),
+                fallMinSec: 10,
+                fallMaxSec: 60),
+          ),
+          CloudWidget(
+            cloudConfig: CloudConfig(
+                size: 250.0,
+                color: Color(0xaaffffff),
+                icon: IconData(63056, fontFamily: 'MaterialIcons'),
+                widgetCloud: null,
+                x: 70.0,
+                y: 5.0,
+                scaleBegin: 1.0,
+                scaleEnd: 1.1,
+                scaleCurve: Cubic(0.40, 0.00, 0.20, 1.00),
+                slideX: 11.0,
+                slideY: 5.0,
+                slideDurMill: 2000,
+                slideCurve: Cubic(0.40, 0.00, 0.20, 1.00)),
+          ),
+          ThunderWidget(
+            thunderConfig: ThunderConfig(
+                thunderWidth: 10.0,
+                blurSigma: 13.0,
+                blurStyle: BlurStyle.solid,
+                color: Color(0x99ffee58),
+                flashStartMill: 50,
+                flashEndMill: 300,
+                pauseStartMill: 50,
+                pauseEndMill: 6000,
+                points: [Offset(110.0, 210.0), Offset(120.0, 240.0)]),
+          ),
+        ],
+      );
     case WeatherScene.scorchingSun:
       return const WrapperScene(
         sizeCanvas: Size(350.0, 540.0),
@@ -116,7 +225,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 color: Color(0xff607d8b),
                 width: 5.0,
                 y: 208.0,
-                windGust: 10.0,
+                windGap: 10.0,
                 blurSigma: 6.0,
                 blurStyle: BlurStyle.solid),
           ),
@@ -162,7 +271,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 color: Color(0xff607d8b),
                 width: 7.0,
                 y: 300.0,
-                windGust: 15.0,
+                windGap: 15.0,
                 blurSigma: 7.0,
                 blurStyle: BlurStyle.solid),
           ),
@@ -330,7 +439,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 color: Color(0xff607d8b),
                 width: 5.0,
                 y: 208.0,
-                windGust: 10.0,
+                windGap: 10.0,
                 blurSigma: 6.0,
                 blurStyle: BlurStyle.solid),
           ),
@@ -360,7 +469,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 color: Color(0xff607d8b),
                 width: 7.0,
                 y: 300.0,
-                windGust: 15.0,
+                windGap: 15.0,
                 blurSigma: 7.0,
                 blurStyle: BlurStyle.solid),
           ),
@@ -384,7 +493,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 fallMinSec: 10,
                 fallMaxSec: 60),
           ),
-          RainsWidget(
+          RainWidget(
             rainConfig: RainConfig(
                 count: 10,
                 color: Color(0x9978909c),
@@ -442,11 +551,11 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 color: Color(0xff607d8b),
                 width: 5.0,
                 y: 208.0,
-                windGust: 10.0,
+                windGap: 10.0,
                 blurSigma: 6.0,
                 blurStyle: BlurStyle.solid),
           ),
-          RainsWidget(
+          RainWidget(
             rainConfig: RainConfig(
                 count: 40,
                 color: Color(0x9978909c),
@@ -467,7 +576,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 fallCurve: Cubic(0.55, 0.09, 0.68, 0.53),
                 fadeCurve: Cubic(0.95, 0.05, 0.80, 0.04)),
           ),
-          ThundersWidget(
+          ThunderWidget(
             thunderConfig: ThunderConfig(
                 thunderWidth: 11.0,
                 color: Color(0x99ffee58),
@@ -505,7 +614,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
                 color: Color(0xff607d8b),
                 width: 7.0,
                 y: 300.0,
-                windGust: 15.0,
+                windGap: 15.0,
                 blurSigma: 7.0,
                 blurStyle: BlurStyle.solid),
           ),
@@ -536,7 +645,7 @@ Widget getWeatherScene(WeatherScene weatherScene) {
           Color(0xffcfd8dc),
         ],
         children: [
-          RainsWidget(
+          RainWidget(
             rainConfig: RainConfig(
                 count: 30,
                 color: Color(0xff9e9e9e),

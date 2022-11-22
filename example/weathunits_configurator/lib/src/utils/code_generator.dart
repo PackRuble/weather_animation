@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weather_animation/weather_animation.dart';
 import 'package:weathunits_configurator/src/extension/hex_color.dart';
 
 import '../controllers/main_controller.dart';
@@ -17,17 +18,17 @@ String getCode(WidgetRef ref) {
       () {
             switch (unit.type) {
               case TypeWeather.sun:
-                return 'SunWidget(sunConfig';
+                return '$SunWidget(sunConfig';
               case TypeWeather.rain:
-                return 'RainsWidget(rainConfig';
+                return '$RainWidget(rainConfig';
               case TypeWeather.thunder:
-                return 'ThundersWidget(thunderConfig';
+                return '$ThunderWidget(thunderConfig';
               case TypeWeather.snow:
-                return 'SnowWidget(snowConfig';
+                return '$SnowWidget(snowConfig';
               case TypeWeather.cloud:
-                return 'CloudWidget(cloudConfig';
+                return '$CloudWidget(cloudConfig';
               case TypeWeather.wind:
-                return 'WindWidget(windConfig';
+                return '$WindWidget(windConfig';
             }
           }() +
           ': ${unit.config},),\n',

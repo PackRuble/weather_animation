@@ -97,7 +97,7 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
             listenable: slideAnimation,
             point: slideAnimation,
             windColor: _config.color,
-            windGust: _config.windGust,
+            windGust: _config.windGap,
             windSlideY: _config.y,
             windWidth: _config.width,
             blurStyle: _config.blurStyle,
@@ -115,7 +115,7 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
 
     // rebuild only what is used in the `build` method
     if (oldConfig.color != newConfig.color ||
-        oldConfig.windGust != newConfig.windGust ||
+        oldConfig.windGap != newConfig.windGap ||
         oldConfig.y != newConfig.y ||
         oldConfig.width != newConfig.width ||
         oldConfig.blurStyle != newConfig.blurStyle ||

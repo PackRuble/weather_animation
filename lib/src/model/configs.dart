@@ -10,9 +10,6 @@ part 'configs.g.dart';
 /// flutter pub run build_runner build json_serializable
 /// ```
 
-/// TODO:
-/// расположить в порядке важности
-
 /// Convert [Color] to/from json.
 class ColorSerializer implements JsonConverter<Color, String> {
   const ColorSerializer();
@@ -81,11 +78,9 @@ class SnowConfig extends WeatherConfig with _$SnowConfig {
   @Assert('waveRangeMin > 0', 'waveRangeMin must be greater than 0')
   @Assert('waveRangeMax >= waveRangeMin',
       'waveRangeMax must be greater than waveRangeMin')
-  // todo testing more and add more assets...
-
   const factory SnowConfig({
     /// Number of snowflakes.
-    @Default(50) int count,
+    @Default(20) int count,
 
     /// Snowflake size.
     @Default(20.0) double size,
@@ -101,16 +96,16 @@ class SnowConfig extends WeatherConfig with _$SnowConfig {
     @JsonKey(ignore: true) Widget? widgetSnowflake,
 
     /// The X-axis zone where the snowflakes start to fall (in pixels).
-    @Default(30.0) double areaXStart,
+    @Default(90.0) double areaXStart,
 
     /// The X-axis zone where the snowflakes end to fall (in pixels).
-    @Default(220.0) double areaXEnd,
+    @Default(230.0) double areaXEnd,
 
     /// The Y-axis zone where the snowflakes start to fall (in pixels).
     @Default(200.0) double areaYStart,
 
     /// The Y-axis zone where the snowflakes end to fall (in pixels).
-    @Default(620.0) double areaYEnd,
+    @Default(540.0) double areaYEnd,
 
     /// Minimum deviation from the direction of snowflake fall (in pixels).
     @Default(20.0) double waveRangeMin,
@@ -151,7 +146,7 @@ class CloudConfig extends WeatherConfig with _$CloudConfig {
     @Default(250.0) double size,
 
     /// The color of the cloud.
-    @Default(Color.fromARGB(179, 255, 255, 255)) Color color,
+    @Default(Color.fromARGB(170, 255, 255, 255)) Color color,
 
     /// Cloud icon. You can use a custom widget [widgetCloud].
     @Default(Icons.cloud_rounded) @JsonKey(ignore: true) IconData icon,
@@ -161,10 +156,10 @@ class CloudConfig extends WeatherConfig with _$CloudConfig {
     @JsonKey(ignore: true) Widget? widgetCloud,
 
     /// The coordinate of cloud displacement along the x-axis (in pixels).
-    @Default(20.0) double x,
+    @Default(70.0) double x,
 
     /// The coordinate of cloud displacement along the x-axis (in pixels).
-    @Default(0.0) double y,
+    @Default(5.0) double y,
 
     /// The scale factor of the widget at the beginning of the animation.
     @Default(1.0) double scaleBegin,
@@ -179,7 +174,7 @@ class CloudConfig extends WeatherConfig with _$CloudConfig {
     @Default(11.0) double slideX,
 
     /// Offset of the widget along the Y-axis during the slide animation (in pixels).
-    @Default(0.0) double slideY,
+    @Default(5.0) double slideY,
 
     /// Shift duration (in milliseconds).
     @Default(2000) int slideDurMill,
@@ -198,16 +193,16 @@ class RainConfig extends WeatherConfig with _$RainConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   const factory RainConfig({
     /// The number of raindrops.
-    @Default(20) int count,
+    @Default(10) int count,
+
+    /// Raindrop length.
+    @Default(12.0) double lengthDrop,
+
+    /// Raindrop width.
+    @Default(4.0) double widthDrop,
 
     /// The color of a raindrop.
     @Default(Color.fromARGB(153, 120, 144, 156)) Color color,
-
-    /// Raindrop length.
-    @Default(16.0) double lengthDrop,
-
-    /// Raindrop width.
-    @Default(5.0) double widthDrop,
 
     /// Rounded drop ends. Otherwise, the ends be square.
     @Default(true) bool isRoundedEndsDrop,
@@ -223,16 +218,16 @@ class RainConfig extends WeatherConfig with _$RainConfig {
     @Default(1500) int fallRangeMaxDurMill,
 
     /// The X-axis zone where start to fall (in pixels).
-    @Default(55.0) double areaXStart,
+    @Default(120.0) double areaXStart,
 
     /// The X-axis zone where end to fall (in pixels).
-    @Default(215.0) double areaXEnd,
+    @Default(190.0) double areaXEnd,
 
     /// The Y-axis zone where to fall (in pixels).
     @Default(215.0) double areaYStart,
 
     /// The Y-axis zone where end to fall (in pixels).
-    @Default(620.0) double areaYEnd,
+    @Default(540.0) double areaYEnd,
 
     /// Offset of the widget along the X-axis during the slide animation (in pixels).
     @Default(2.0) double slideX,
@@ -259,13 +254,14 @@ class ThunderConfig extends WeatherConfig with _$ThunderConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   const factory ThunderConfig({
     @Default(10.0) double thunderWidth,
+    @Default(13.0) double blurSigma,
+    @Default(BlurStyle.solid) @JsonKey(ignore: true) BlurStyle blurStyle,
     @Default(Color.fromARGB(153, 255, 238, 88)) Color color,
     @Default(50) int flashStartMill,
     @Default(300) int flashEndMill,
     @Default(50) int pauseStartMill,
     @Default(6000) int pauseEndMill,
-    @Default(BlurStyle.solid) @JsonKey(ignore: true) BlurStyle blurStyle,
-    @Default(10.0) double blurSigma,
+
     @Default([Offset(110, 210), Offset(120, 240)])
     @JsonKey(ignore: true)
         List<Offset> points,
@@ -275,21 +271,21 @@ class ThunderConfig extends WeatherConfig with _$ThunderConfig {
       _$ThunderConfigFromJson(json);
 }
 
-/// Configuration of the Thunder.
+/// Configuration of the Wind.
 @freezed
 class WindConfig extends WeatherConfig with _$WindConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   const factory WindConfig({
+    @Default(6.0) double width,
+    @Default(300.0) double y,
+    @Default(14.0) double windGap,
+    @Default(8.0) double blurSigma,
+    @Default(Color.fromARGB(255, 96, 125, 139)) Color color,
+    @Default(0.0) double slideXStart,
+    @Default(500.0) double slideXEnd,
     @Default(50) int pauseStartMill,
     @Default(6000) int pauseEndMill,
     @Default(1000) int slideDurMill,
-    @Default(0.0) double slideXStart,
-    @Default(500.0) double slideXEnd,
-    @Default(Color.fromARGB(255, 96, 125, 139)) Color color,
-    @Default(8.0) double width,
-    @Default(300.0) double y,
-    @Default(15.0) double windGust,
-    @Default(8.0) double blurSigma,
     @Default(BlurStyle.solid) @JsonKey(ignore: true) BlurStyle blurStyle,
   }) = _WindConfig;
 

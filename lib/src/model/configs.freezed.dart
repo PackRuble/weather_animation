@@ -740,15 +740,15 @@ class __$$_SnowflakeConfigCopyWithImpl<$Res>
 @JsonSerializable(converters: [ColorSerializer()])
 class _$_SnowflakeConfig implements _SnowflakeConfig {
   const _$_SnowflakeConfig(
-      {this.count = 50,
+      {this.count = 20,
       this.size = 20.0,
       this.color = const Color.fromARGB(179, 255, 255, 255),
-      @JsonKey(ignore: true) this.icon = Icons.ac_unit,
+      @JsonKey(ignore: true) this.icon = Icons.ac_unit_rounded,
       @JsonKey(ignore: true) this.widgetSnowflake,
-      this.areaXStart = 30.0,
-      this.areaXEnd = 220.0,
+      this.areaXStart = 90.0,
+      this.areaXEnd = 230.0,
       this.areaYStart = 200.0,
-      this.areaYEnd = 620.0,
+      this.areaYEnd = 540.0,
       this.waveRangeMin = 20.0,
       this.waveRangeMax = 110.0,
       this.waveMinSec = 5,
@@ -1306,16 +1306,16 @@ class __$$_CloudConfigCopyWithImpl<$Res>
 class _$_CloudConfig implements _CloudConfig {
   const _$_CloudConfig(
       {this.size = 250.0,
-      this.color = const Color.fromARGB(179, 255, 255, 255),
+      this.color = const Color.fromARGB(170, 255, 255, 255),
       @JsonKey(ignore: true) this.icon = Icons.cloud_rounded,
       @JsonKey(ignore: true) this.widgetCloud,
-      this.x = 20.0,
-      this.y = 150.0,
+      this.x = 70.0,
+      this.y = 5.0,
       this.scaleBegin = 1.0,
       this.scaleEnd = 1.1,
       @JsonKey(ignore: true) this.scaleCurve = Curves.fastOutSlowIn,
       this.slideX = 11.0,
-      this.slideY = 0.0,
+      this.slideY = 5.0,
       this.slideDurMill = 2000,
       @JsonKey(ignore: true) this.slideCurve = Curves.fastOutSlowIn});
 
@@ -1542,14 +1542,14 @@ mixin _$RainConfig {
   /// The number of raindrops.
   int get count => throw _privateConstructorUsedError;
 
-  /// The color of a raindrop.
-  Color get color => throw _privateConstructorUsedError;
-
   /// Raindrop length.
   double get lengthDrop => throw _privateConstructorUsedError;
 
   /// Raindrop width.
   double get widthDrop => throw _privateConstructorUsedError;
+
+  /// The color of a raindrop.
+  Color get color => throw _privateConstructorUsedError;
 
   /// Rounded drop ends. Otherwise, the ends be square.
   bool get isRoundedEndsDrop => throw _privateConstructorUsedError;
@@ -1608,9 +1608,9 @@ abstract class $RainConfigCopyWith<$Res> {
   @useResult
   $Res call(
       {int count,
-      Color color,
       double lengthDrop,
       double widthDrop,
+      Color color,
       bool isRoundedEndsDrop,
       @JsonKey(ignore: true) Widget? widgetRainDrop,
       int fallRangeMinDurMill,
@@ -1641,9 +1641,9 @@ class _$RainConfigCopyWithImpl<$Res, $Val extends RainConfig>
   @override
   $Res call({
     Object? count = null,
-    Object? color = null,
     Object? lengthDrop = null,
     Object? widthDrop = null,
+    Object? color = null,
     Object? isRoundedEndsDrop = null,
     Object? widgetRainDrop = freezed,
     Object? fallRangeMinDurMill = null,
@@ -1664,10 +1664,6 @@ class _$RainConfigCopyWithImpl<$Res, $Val extends RainConfig>
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as Color,
       lengthDrop: null == lengthDrop
           ? _value.lengthDrop
           : lengthDrop // ignore: cast_nullable_to_non_nullable
@@ -1676,6 +1672,10 @@ class _$RainConfigCopyWithImpl<$Res, $Val extends RainConfig>
           ? _value.widthDrop
           : widthDrop // ignore: cast_nullable_to_non_nullable
               as double,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as Color,
       isRoundedEndsDrop: null == isRoundedEndsDrop
           ? _value.isRoundedEndsDrop
           : isRoundedEndsDrop // ignore: cast_nullable_to_non_nullable
@@ -1746,9 +1746,9 @@ abstract class _$$_RainConfigCopyWith<$Res>
   @useResult
   $Res call(
       {int count,
-      Color color,
       double lengthDrop,
       double widthDrop,
+      Color color,
       bool isRoundedEndsDrop,
       @JsonKey(ignore: true) Widget? widgetRainDrop,
       int fallRangeMinDurMill,
@@ -1777,9 +1777,9 @@ class __$$_RainConfigCopyWithImpl<$Res>
   @override
   $Res call({
     Object? count = null,
-    Object? color = null,
     Object? lengthDrop = null,
     Object? widthDrop = null,
+    Object? color = null,
     Object? isRoundedEndsDrop = null,
     Object? widgetRainDrop = freezed,
     Object? fallRangeMinDurMill = null,
@@ -1800,10 +1800,6 @@ class __$$_RainConfigCopyWithImpl<$Res>
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as Color,
       lengthDrop: null == lengthDrop
           ? _value.lengthDrop
           : lengthDrop // ignore: cast_nullable_to_non_nullable
@@ -1812,6 +1808,10 @@ class __$$_RainConfigCopyWithImpl<$Res>
           ? _value.widthDrop
           : widthDrop // ignore: cast_nullable_to_non_nullable
               as double,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as Color,
       isRoundedEndsDrop: null == isRoundedEndsDrop
           ? _value.isRoundedEndsDrop
           : isRoundedEndsDrop // ignore: cast_nullable_to_non_nullable
@@ -1877,18 +1877,18 @@ class __$$_RainConfigCopyWithImpl<$Res>
 @JsonSerializable(converters: [ColorSerializer()])
 class _$_RainConfig implements _RainConfig {
   const _$_RainConfig(
-      {this.count = 20,
+      {this.count = 10,
+      this.lengthDrop = 12.0,
+      this.widthDrop = 4.0,
       this.color = const Color.fromARGB(153, 120, 144, 156),
-      this.lengthDrop = 16.0,
-      this.widthDrop = 5.0,
       this.isRoundedEndsDrop = true,
       @JsonKey(ignore: true) this.widgetRainDrop,
       this.fallRangeMinDurMill = 500,
       this.fallRangeMaxDurMill = 1500,
-      this.areaXStart = 55.0,
-      this.areaXEnd = 215.0,
+      this.areaXStart = 120.0,
+      this.areaXEnd = 190.0,
       this.areaYStart = 215.0,
-      this.areaYEnd = 620.0,
+      this.areaYEnd = 540.0,
       this.slideX = 2.0,
       this.slideY = 0.0,
       this.slideDurMill = 2000,
@@ -1904,11 +1904,6 @@ class _$_RainConfig implements _RainConfig {
   @JsonKey()
   final int count;
 
-  /// The color of a raindrop.
-  @override
-  @JsonKey()
-  final Color color;
-
   /// Raindrop length.
   @override
   @JsonKey()
@@ -1918,6 +1913,11 @@ class _$_RainConfig implements _RainConfig {
   @override
   @JsonKey()
   final double widthDrop;
+
+  /// The color of a raindrop.
+  @override
+  @JsonKey()
+  final Color color;
 
   /// Rounded drop ends. Otherwise, the ends be square.
   @override
@@ -1988,7 +1988,7 @@ class _$_RainConfig implements _RainConfig {
 
   @override
   String toString() {
-    return 'RainConfig(count: $count, color: $color, lengthDrop: $lengthDrop, widthDrop: $widthDrop, isRoundedEndsDrop: $isRoundedEndsDrop, widgetRainDrop: $widgetRainDrop, fallRangeMinDurMill: $fallRangeMinDurMill, fallRangeMaxDurMill: $fallRangeMaxDurMill, areaXStart: $areaXStart, areaXEnd: $areaXEnd, areaYStart: $areaYStart, areaYEnd: $areaYEnd, slideX: $slideX, slideY: $slideY, slideDurMill: $slideDurMill, slideCurve: $slideCurve, fallCurve: $fallCurve, fadeCurve: $fadeCurve)';
+    return 'RainConfig(count: $count, lengthDrop: $lengthDrop, widthDrop: $widthDrop, color: $color, isRoundedEndsDrop: $isRoundedEndsDrop, widgetRainDrop: $widgetRainDrop, fallRangeMinDurMill: $fallRangeMinDurMill, fallRangeMaxDurMill: $fallRangeMaxDurMill, areaXStart: $areaXStart, areaXEnd: $areaXEnd, areaYStart: $areaYStart, areaYEnd: $areaYEnd, slideX: $slideX, slideY: $slideY, slideDurMill: $slideDurMill, slideCurve: $slideCurve, fallCurve: $fallCurve, fadeCurve: $fadeCurve)';
   }
 
   @override
@@ -1997,11 +1997,11 @@ class _$_RainConfig implements _RainConfig {
         (other.runtimeType == runtimeType &&
             other is _$_RainConfig &&
             (identical(other.count, count) || other.count == count) &&
-            (identical(other.color, color) || other.color == color) &&
             (identical(other.lengthDrop, lengthDrop) ||
                 other.lengthDrop == lengthDrop) &&
             (identical(other.widthDrop, widthDrop) ||
                 other.widthDrop == widthDrop) &&
+            (identical(other.color, color) || other.color == color) &&
             (identical(other.isRoundedEndsDrop, isRoundedEndsDrop) ||
                 other.isRoundedEndsDrop == isRoundedEndsDrop) &&
             (identical(other.widgetRainDrop, widgetRainDrop) ||
@@ -2035,9 +2035,9 @@ class _$_RainConfig implements _RainConfig {
   int get hashCode => Object.hash(
       runtimeType,
       count,
-      color,
       lengthDrop,
       widthDrop,
+      color,
       isRoundedEndsDrop,
       widgetRainDrop,
       fallRangeMinDurMill,
@@ -2070,9 +2070,9 @@ class _$_RainConfig implements _RainConfig {
 abstract class _RainConfig implements RainConfig {
   const factory _RainConfig(
       {final int count,
-      final Color color,
       final double lengthDrop,
       final double widthDrop,
+      final Color color,
       final bool isRoundedEndsDrop,
       @JsonKey(ignore: true) final Widget? widgetRainDrop,
       final int fallRangeMinDurMill,
@@ -2097,16 +2097,16 @@ abstract class _RainConfig implements RainConfig {
   int get count;
   @override
 
-  /// The color of a raindrop.
-  Color get color;
-  @override
-
   /// Raindrop length.
   double get lengthDrop;
   @override
 
   /// Raindrop width.
   double get widthDrop;
+  @override
+
+  /// The color of a raindrop.
+  Color get color;
   @override
 
   /// Rounded drop ends. Otherwise, the ends be square.
@@ -2177,14 +2177,14 @@ ThunderConfig _$ThunderConfigFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ThunderConfig {
   double get thunderWidth => throw _privateConstructorUsedError;
+  double get blurSigma => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  BlurStyle get blurStyle => throw _privateConstructorUsedError;
   Color get color => throw _privateConstructorUsedError;
   int get flashStartMill => throw _privateConstructorUsedError;
   int get flashEndMill => throw _privateConstructorUsedError;
   int get pauseStartMill => throw _privateConstructorUsedError;
   int get pauseEndMill => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  BlurStyle get blurStyle => throw _privateConstructorUsedError;
-  double get blurSigma => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   List<Offset> get points => throw _privateConstructorUsedError;
 
@@ -2202,13 +2202,13 @@ abstract class $ThunderConfigCopyWith<$Res> {
   @useResult
   $Res call(
       {double thunderWidth,
+      double blurSigma,
+      @JsonKey(ignore: true) BlurStyle blurStyle,
       Color color,
       int flashStartMill,
       int flashEndMill,
       int pauseStartMill,
       int pauseEndMill,
-      @JsonKey(ignore: true) BlurStyle blurStyle,
-      double blurSigma,
       @JsonKey(ignore: true) List<Offset> points});
 }
 
@@ -2226,13 +2226,13 @@ class _$ThunderConfigCopyWithImpl<$Res, $Val extends ThunderConfig>
   @override
   $Res call({
     Object? thunderWidth = null,
+    Object? blurSigma = null,
+    Object? blurStyle = null,
     Object? color = null,
     Object? flashStartMill = null,
     Object? flashEndMill = null,
     Object? pauseStartMill = null,
     Object? pauseEndMill = null,
-    Object? blurStyle = null,
-    Object? blurSigma = null,
     Object? points = null,
   }) {
     return _then(_value.copyWith(
@@ -2240,6 +2240,14 @@ class _$ThunderConfigCopyWithImpl<$Res, $Val extends ThunderConfig>
           ? _value.thunderWidth
           : thunderWidth // ignore: cast_nullable_to_non_nullable
               as double,
+      blurSigma: null == blurSigma
+          ? _value.blurSigma
+          : blurSigma // ignore: cast_nullable_to_non_nullable
+              as double,
+      blurStyle: null == blurStyle
+          ? _value.blurStyle
+          : blurStyle // ignore: cast_nullable_to_non_nullable
+              as BlurStyle,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -2260,14 +2268,6 @@ class _$ThunderConfigCopyWithImpl<$Res, $Val extends ThunderConfig>
           ? _value.pauseEndMill
           : pauseEndMill // ignore: cast_nullable_to_non_nullable
               as int,
-      blurStyle: null == blurStyle
-          ? _value.blurStyle
-          : blurStyle // ignore: cast_nullable_to_non_nullable
-              as BlurStyle,
-      blurSigma: null == blurSigma
-          ? _value.blurSigma
-          : blurSigma // ignore: cast_nullable_to_non_nullable
-              as double,
       points: null == points
           ? _value.points
           : points // ignore: cast_nullable_to_non_nullable
@@ -2286,13 +2286,13 @@ abstract class _$$_ThunderConfigCopyWith<$Res>
   @useResult
   $Res call(
       {double thunderWidth,
+      double blurSigma,
+      @JsonKey(ignore: true) BlurStyle blurStyle,
       Color color,
       int flashStartMill,
       int flashEndMill,
       int pauseStartMill,
       int pauseEndMill,
-      @JsonKey(ignore: true) BlurStyle blurStyle,
-      double blurSigma,
       @JsonKey(ignore: true) List<Offset> points});
 }
 
@@ -2308,13 +2308,13 @@ class __$$_ThunderConfigCopyWithImpl<$Res>
   @override
   $Res call({
     Object? thunderWidth = null,
+    Object? blurSigma = null,
+    Object? blurStyle = null,
     Object? color = null,
     Object? flashStartMill = null,
     Object? flashEndMill = null,
     Object? pauseStartMill = null,
     Object? pauseEndMill = null,
-    Object? blurStyle = null,
-    Object? blurSigma = null,
     Object? points = null,
   }) {
     return _then(_$_ThunderConfig(
@@ -2322,6 +2322,14 @@ class __$$_ThunderConfigCopyWithImpl<$Res>
           ? _value.thunderWidth
           : thunderWidth // ignore: cast_nullable_to_non_nullable
               as double,
+      blurSigma: null == blurSigma
+          ? _value.blurSigma
+          : blurSigma // ignore: cast_nullable_to_non_nullable
+              as double,
+      blurStyle: null == blurStyle
+          ? _value.blurStyle
+          : blurStyle // ignore: cast_nullable_to_non_nullable
+              as BlurStyle,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -2342,14 +2350,6 @@ class __$$_ThunderConfigCopyWithImpl<$Res>
           ? _value.pauseEndMill
           : pauseEndMill // ignore: cast_nullable_to_non_nullable
               as int,
-      blurStyle: null == blurStyle
-          ? _value.blurStyle
-          : blurStyle // ignore: cast_nullable_to_non_nullable
-              as BlurStyle,
-      blurSigma: null == blurSigma
-          ? _value.blurSigma
-          : blurSigma // ignore: cast_nullable_to_non_nullable
-              as double,
       points: null == points
           ? _value._points
           : points // ignore: cast_nullable_to_non_nullable
@@ -2364,13 +2364,13 @@ class __$$_ThunderConfigCopyWithImpl<$Res>
 class _$_ThunderConfig implements _ThunderConfig {
   const _$_ThunderConfig(
       {this.thunderWidth = 10.0,
+      this.blurSigma = 13.0,
+      @JsonKey(ignore: true) this.blurStyle = BlurStyle.solid,
       this.color = const Color.fromARGB(153, 255, 238, 88),
       this.flashStartMill = 50,
       this.flashEndMill = 300,
       this.pauseStartMill = 50,
       this.pauseEndMill = 6000,
-      @JsonKey(ignore: true) this.blurStyle = BlurStyle.solid,
-      this.blurSigma = 10.0,
       @JsonKey(ignore: true) final List<Offset> points = const [
         Offset(110, 210),
         Offset(120, 240)
@@ -2383,6 +2383,12 @@ class _$_ThunderConfig implements _ThunderConfig {
   @override
   @JsonKey()
   final double thunderWidth;
+  @override
+  @JsonKey()
+  final double blurSigma;
+  @override
+  @JsonKey(ignore: true)
+  final BlurStyle blurStyle;
   @override
   @JsonKey()
   final Color color;
@@ -2398,12 +2404,6 @@ class _$_ThunderConfig implements _ThunderConfig {
   @override
   @JsonKey()
   final int pauseEndMill;
-  @override
-  @JsonKey(ignore: true)
-  final BlurStyle blurStyle;
-  @override
-  @JsonKey()
-  final double blurSigma;
   final List<Offset> _points;
   @override
   @JsonKey(ignore: true)
@@ -2414,7 +2414,7 @@ class _$_ThunderConfig implements _ThunderConfig {
 
   @override
   String toString() {
-    return 'ThunderConfig(thunderWidth: $thunderWidth, color: $color, flashStartMill: $flashStartMill, flashEndMill: $flashEndMill, pauseStartMill: $pauseStartMill, pauseEndMill: $pauseEndMill, blurStyle: $blurStyle, blurSigma: $blurSigma, points: $points)';
+    return 'ThunderConfig(thunderWidth: $thunderWidth, blurSigma: $blurSigma, blurStyle: $blurStyle, color: $color, flashStartMill: $flashStartMill, flashEndMill: $flashEndMill, pauseStartMill: $pauseStartMill, pauseEndMill: $pauseEndMill, points: $points)';
   }
 
   @override
@@ -2424,6 +2424,10 @@ class _$_ThunderConfig implements _ThunderConfig {
             other is _$_ThunderConfig &&
             (identical(other.thunderWidth, thunderWidth) ||
                 other.thunderWidth == thunderWidth) &&
+            (identical(other.blurSigma, blurSigma) ||
+                other.blurSigma == blurSigma) &&
+            (identical(other.blurStyle, blurStyle) ||
+                other.blurStyle == blurStyle) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.flashStartMill, flashStartMill) ||
                 other.flashStartMill == flashStartMill) &&
@@ -2433,10 +2437,6 @@ class _$_ThunderConfig implements _ThunderConfig {
                 other.pauseStartMill == pauseStartMill) &&
             (identical(other.pauseEndMill, pauseEndMill) ||
                 other.pauseEndMill == pauseEndMill) &&
-            (identical(other.blurStyle, blurStyle) ||
-                other.blurStyle == blurStyle) &&
-            (identical(other.blurSigma, blurSigma) ||
-                other.blurSigma == blurSigma) &&
             const DeepCollectionEquality().equals(other._points, _points));
   }
 
@@ -2445,13 +2445,13 @@ class _$_ThunderConfig implements _ThunderConfig {
   int get hashCode => Object.hash(
       runtimeType,
       thunderWidth,
+      blurSigma,
+      blurStyle,
       color,
       flashStartMill,
       flashEndMill,
       pauseStartMill,
       pauseEndMill,
-      blurStyle,
-      blurSigma,
       const DeepCollectionEquality().hash(_points));
 
   @JsonKey(ignore: true)
@@ -2471,13 +2471,13 @@ class _$_ThunderConfig implements _ThunderConfig {
 abstract class _ThunderConfig implements ThunderConfig {
   const factory _ThunderConfig(
       {final double thunderWidth,
+      final double blurSigma,
+      @JsonKey(ignore: true) final BlurStyle blurStyle,
       final Color color,
       final int flashStartMill,
       final int flashEndMill,
       final int pauseStartMill,
       final int pauseEndMill,
-      @JsonKey(ignore: true) final BlurStyle blurStyle,
-      final double blurSigma,
       @JsonKey(ignore: true) final List<Offset> points}) = _$_ThunderConfig;
 
   factory _ThunderConfig.fromJson(Map<String, dynamic> json) =
@@ -2485,6 +2485,11 @@ abstract class _ThunderConfig implements ThunderConfig {
 
   @override
   double get thunderWidth;
+  @override
+  double get blurSigma;
+  @override
+  @JsonKey(ignore: true)
+  BlurStyle get blurStyle;
   @override
   Color get color;
   @override
@@ -2495,11 +2500,6 @@ abstract class _ThunderConfig implements ThunderConfig {
   int get pauseStartMill;
   @override
   int get pauseEndMill;
-  @override
-  @JsonKey(ignore: true)
-  BlurStyle get blurStyle;
-  @override
-  double get blurSigma;
   @override
   @JsonKey(ignore: true)
   List<Offset> get points;
@@ -2515,16 +2515,16 @@ WindConfig _$WindConfigFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WindConfig {
+  double get width => throw _privateConstructorUsedError;
+  double get y => throw _privateConstructorUsedError;
+  double get windGap => throw _privateConstructorUsedError;
+  double get blurSigma => throw _privateConstructorUsedError;
+  Color get color => throw _privateConstructorUsedError;
+  double get slideXStart => throw _privateConstructorUsedError;
+  double get slideXEnd => throw _privateConstructorUsedError;
   int get pauseStartMill => throw _privateConstructorUsedError;
   int get pauseEndMill => throw _privateConstructorUsedError;
   int get slideDurMill => throw _privateConstructorUsedError;
-  double get slideXStart => throw _privateConstructorUsedError;
-  double get slideXEnd => throw _privateConstructorUsedError;
-  Color get color => throw _privateConstructorUsedError;
-  double get width => throw _privateConstructorUsedError;
-  double get y => throw _privateConstructorUsedError;
-  double get windGust => throw _privateConstructorUsedError;
-  double get blurSigma => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   BlurStyle get blurStyle => throw _privateConstructorUsedError;
 
@@ -2541,16 +2541,16 @@ abstract class $WindConfigCopyWith<$Res> {
       _$WindConfigCopyWithImpl<$Res, WindConfig>;
   @useResult
   $Res call(
-      {int pauseStartMill,
-      int pauseEndMill,
-      int slideDurMill,
+      {double width,
+      double y,
+      double windGap,
+      double blurSigma,
+      Color color,
       double slideXStart,
       double slideXEnd,
-      Color color,
-      double width,
-      double y,
-      double windGust,
-      double blurSigma,
+      int pauseStartMill,
+      int pauseEndMill,
+      int slideDurMill,
       @JsonKey(ignore: true) BlurStyle blurStyle});
 }
 
@@ -2567,19 +2567,47 @@ class _$WindConfigCopyWithImpl<$Res, $Val extends WindConfig>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? width = null,
+    Object? y = null,
+    Object? windGap = null,
+    Object? blurSigma = null,
+    Object? color = null,
+    Object? slideXStart = null,
+    Object? slideXEnd = null,
     Object? pauseStartMill = null,
     Object? pauseEndMill = null,
     Object? slideDurMill = null,
-    Object? slideXStart = null,
-    Object? slideXEnd = null,
-    Object? color = null,
-    Object? width = null,
-    Object? y = null,
-    Object? windGust = null,
-    Object? blurSigma = null,
     Object? blurStyle = null,
   }) {
     return _then(_value.copyWith(
+      width: null == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      y: null == y
+          ? _value.y
+          : y // ignore: cast_nullable_to_non_nullable
+              as double,
+      windGap: null == windGap
+          ? _value.windGap
+          : windGap // ignore: cast_nullable_to_non_nullable
+              as double,
+      blurSigma: null == blurSigma
+          ? _value.blurSigma
+          : blurSigma // ignore: cast_nullable_to_non_nullable
+              as double,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as Color,
+      slideXStart: null == slideXStart
+          ? _value.slideXStart
+          : slideXStart // ignore: cast_nullable_to_non_nullable
+              as double,
+      slideXEnd: null == slideXEnd
+          ? _value.slideXEnd
+          : slideXEnd // ignore: cast_nullable_to_non_nullable
+              as double,
       pauseStartMill: null == pauseStartMill
           ? _value.pauseStartMill
           : pauseStartMill // ignore: cast_nullable_to_non_nullable
@@ -2592,34 +2620,6 @@ class _$WindConfigCopyWithImpl<$Res, $Val extends WindConfig>
           ? _value.slideDurMill
           : slideDurMill // ignore: cast_nullable_to_non_nullable
               as int,
-      slideXStart: null == slideXStart
-          ? _value.slideXStart
-          : slideXStart // ignore: cast_nullable_to_non_nullable
-              as double,
-      slideXEnd: null == slideXEnd
-          ? _value.slideXEnd
-          : slideXEnd // ignore: cast_nullable_to_non_nullable
-              as double,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as Color,
-      width: null == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as double,
-      y: null == y
-          ? _value.y
-          : y // ignore: cast_nullable_to_non_nullable
-              as double,
-      windGust: null == windGust
-          ? _value.windGust
-          : windGust // ignore: cast_nullable_to_non_nullable
-              as double,
-      blurSigma: null == blurSigma
-          ? _value.blurSigma
-          : blurSigma // ignore: cast_nullable_to_non_nullable
-              as double,
       blurStyle: null == blurStyle
           ? _value.blurStyle
           : blurStyle // ignore: cast_nullable_to_non_nullable
@@ -2637,16 +2637,16 @@ abstract class _$$_WindConfigCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int pauseStartMill,
-      int pauseEndMill,
-      int slideDurMill,
+      {double width,
+      double y,
+      double windGap,
+      double blurSigma,
+      Color color,
       double slideXStart,
       double slideXEnd,
-      Color color,
-      double width,
-      double y,
-      double windGust,
-      double blurSigma,
+      int pauseStartMill,
+      int pauseEndMill,
+      int slideDurMill,
       @JsonKey(ignore: true) BlurStyle blurStyle});
 }
 
@@ -2661,19 +2661,47 @@ class __$$_WindConfigCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? width = null,
+    Object? y = null,
+    Object? windGap = null,
+    Object? blurSigma = null,
+    Object? color = null,
+    Object? slideXStart = null,
+    Object? slideXEnd = null,
     Object? pauseStartMill = null,
     Object? pauseEndMill = null,
     Object? slideDurMill = null,
-    Object? slideXStart = null,
-    Object? slideXEnd = null,
-    Object? color = null,
-    Object? width = null,
-    Object? y = null,
-    Object? windGust = null,
-    Object? blurSigma = null,
     Object? blurStyle = null,
   }) {
     return _then(_$_WindConfig(
+      width: null == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      y: null == y
+          ? _value.y
+          : y // ignore: cast_nullable_to_non_nullable
+              as double,
+      windGap: null == windGap
+          ? _value.windGap
+          : windGap // ignore: cast_nullable_to_non_nullable
+              as double,
+      blurSigma: null == blurSigma
+          ? _value.blurSigma
+          : blurSigma // ignore: cast_nullable_to_non_nullable
+              as double,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as Color,
+      slideXStart: null == slideXStart
+          ? _value.slideXStart
+          : slideXStart // ignore: cast_nullable_to_non_nullable
+              as double,
+      slideXEnd: null == slideXEnd
+          ? _value.slideXEnd
+          : slideXEnd // ignore: cast_nullable_to_non_nullable
+              as double,
       pauseStartMill: null == pauseStartMill
           ? _value.pauseStartMill
           : pauseStartMill // ignore: cast_nullable_to_non_nullable
@@ -2686,34 +2714,6 @@ class __$$_WindConfigCopyWithImpl<$Res>
           ? _value.slideDurMill
           : slideDurMill // ignore: cast_nullable_to_non_nullable
               as int,
-      slideXStart: null == slideXStart
-          ? _value.slideXStart
-          : slideXStart // ignore: cast_nullable_to_non_nullable
-              as double,
-      slideXEnd: null == slideXEnd
-          ? _value.slideXEnd
-          : slideXEnd // ignore: cast_nullable_to_non_nullable
-              as double,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as Color,
-      width: null == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as double,
-      y: null == y
-          ? _value.y
-          : y // ignore: cast_nullable_to_non_nullable
-              as double,
-      windGust: null == windGust
-          ? _value.windGust
-          : windGust // ignore: cast_nullable_to_non_nullable
-              as double,
-      blurSigma: null == blurSigma
-          ? _value.blurSigma
-          : blurSigma // ignore: cast_nullable_to_non_nullable
-              as double,
       blurStyle: null == blurStyle
           ? _value.blurStyle
           : blurStyle // ignore: cast_nullable_to_non_nullable
@@ -2727,21 +2727,42 @@ class __$$_WindConfigCopyWithImpl<$Res>
 @JsonSerializable(converters: [ColorSerializer()])
 class _$_WindConfig implements _WindConfig {
   const _$_WindConfig(
-      {this.pauseStartMill = 50,
-      this.pauseEndMill = 6000,
-      this.slideDurMill = 1000,
+      {this.width = 6.0,
+      this.y = 300.0,
+      this.windGap = 14.0,
+      this.blurSigma = 8.0,
+      this.color = const Color.fromARGB(255, 96, 125, 139),
       this.slideXStart = 0.0,
       this.slideXEnd = 500.0,
-      this.color = const Color.fromARGB(255, 96, 125, 139),
-      this.width = 8.0,
-      this.y = 300.0,
-      this.windGust = 15.0,
-      this.blurSigma = 8.0,
+      this.pauseStartMill = 50,
+      this.pauseEndMill = 6000,
+      this.slideDurMill = 1000,
       @JsonKey(ignore: true) this.blurStyle = BlurStyle.solid});
 
   factory _$_WindConfig.fromJson(Map<String, dynamic> json) =>
       _$$_WindConfigFromJson(json);
 
+  @override
+  @JsonKey()
+  final double width;
+  @override
+  @JsonKey()
+  final double y;
+  @override
+  @JsonKey()
+  final double windGap;
+  @override
+  @JsonKey()
+  final double blurSigma;
+  @override
+  @JsonKey()
+  final Color color;
+  @override
+  @JsonKey()
+  final double slideXStart;
+  @override
+  @JsonKey()
+  final double slideXEnd;
   @override
   @JsonKey()
   final int pauseStartMill;
@@ -2752,33 +2773,12 @@ class _$_WindConfig implements _WindConfig {
   @JsonKey()
   final int slideDurMill;
   @override
-  @JsonKey()
-  final double slideXStart;
-  @override
-  @JsonKey()
-  final double slideXEnd;
-  @override
-  @JsonKey()
-  final Color color;
-  @override
-  @JsonKey()
-  final double width;
-  @override
-  @JsonKey()
-  final double y;
-  @override
-  @JsonKey()
-  final double windGust;
-  @override
-  @JsonKey()
-  final double blurSigma;
-  @override
   @JsonKey(ignore: true)
   final BlurStyle blurStyle;
 
   @override
   String toString() {
-    return 'WindConfig(pauseStartMill: $pauseStartMill, pauseEndMill: $pauseEndMill, slideDurMill: $slideDurMill, slideXStart: $slideXStart, slideXEnd: $slideXEnd, color: $color, width: $width, y: $y, windGust: $windGust, blurSigma: $blurSigma, blurStyle: $blurStyle)';
+    return 'WindConfig(width: $width, y: $y, windGap: $windGap, blurSigma: $blurSigma, color: $color, slideXStart: $slideXStart, slideXEnd: $slideXEnd, pauseStartMill: $pauseStartMill, pauseEndMill: $pauseEndMill, slideDurMill: $slideDurMill, blurStyle: $blurStyle)';
   }
 
   @override
@@ -2786,23 +2786,22 @@ class _$_WindConfig implements _WindConfig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WindConfig &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.y, y) || other.y == y) &&
+            (identical(other.windGap, windGap) || other.windGap == windGap) &&
+            (identical(other.blurSigma, blurSigma) ||
+                other.blurSigma == blurSigma) &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.slideXStart, slideXStart) ||
+                other.slideXStart == slideXStart) &&
+            (identical(other.slideXEnd, slideXEnd) ||
+                other.slideXEnd == slideXEnd) &&
             (identical(other.pauseStartMill, pauseStartMill) ||
                 other.pauseStartMill == pauseStartMill) &&
             (identical(other.pauseEndMill, pauseEndMill) ||
                 other.pauseEndMill == pauseEndMill) &&
             (identical(other.slideDurMill, slideDurMill) ||
                 other.slideDurMill == slideDurMill) &&
-            (identical(other.slideXStart, slideXStart) ||
-                other.slideXStart == slideXStart) &&
-            (identical(other.slideXEnd, slideXEnd) ||
-                other.slideXEnd == slideXEnd) &&
-            (identical(other.color, color) || other.color == color) &&
-            (identical(other.width, width) || other.width == width) &&
-            (identical(other.y, y) || other.y == y) &&
-            (identical(other.windGust, windGust) ||
-                other.windGust == windGust) &&
-            (identical(other.blurSigma, blurSigma) ||
-                other.blurSigma == blurSigma) &&
             (identical(other.blurStyle, blurStyle) ||
                 other.blurStyle == blurStyle));
   }
@@ -2811,16 +2810,16 @@ class _$_WindConfig implements _WindConfig {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      width,
+      y,
+      windGap,
+      blurSigma,
+      color,
+      slideXStart,
+      slideXEnd,
       pauseStartMill,
       pauseEndMill,
       slideDurMill,
-      slideXStart,
-      slideXEnd,
-      color,
-      width,
-      y,
-      windGust,
-      blurSigma,
       blurStyle);
 
   @JsonKey(ignore: true)
@@ -2839,41 +2838,41 @@ class _$_WindConfig implements _WindConfig {
 
 abstract class _WindConfig implements WindConfig {
   const factory _WindConfig(
-      {final int pauseStartMill,
-      final int pauseEndMill,
-      final int slideDurMill,
+      {final double width,
+      final double y,
+      final double windGap,
+      final double blurSigma,
+      final Color color,
       final double slideXStart,
       final double slideXEnd,
-      final Color color,
-      final double width,
-      final double y,
-      final double windGust,
-      final double blurSigma,
+      final int pauseStartMill,
+      final int pauseEndMill,
+      final int slideDurMill,
       @JsonKey(ignore: true) final BlurStyle blurStyle}) = _$_WindConfig;
 
   factory _WindConfig.fromJson(Map<String, dynamic> json) =
       _$_WindConfig.fromJson;
 
   @override
-  int get pauseStartMill;
+  double get width;
   @override
-  int get pauseEndMill;
+  double get y;
   @override
-  int get slideDurMill;
+  double get windGap;
+  @override
+  double get blurSigma;
+  @override
+  Color get color;
   @override
   double get slideXStart;
   @override
   double get slideXEnd;
   @override
-  Color get color;
+  int get pauseStartMill;
   @override
-  double get width;
+  int get pauseEndMill;
   @override
-  double get y;
-  @override
-  double get windGust;
-  @override
-  double get blurSigma;
+  int get slideDurMill;
   @override
   @JsonKey(ignore: true)
   BlurStyle get blurStyle;

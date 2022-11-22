@@ -45,23 +45,27 @@ class _CloudWidgetState extends State<CloudWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: _config.x,
-      top: _config.y,
-      child: SizedBox.shrink(
-        child: SlideTransition(
-          position: slideAnimation,
-          child: ScaleTransition(
-            scale: scaleAnimation,
-            child: _config.widgetCloud ?? // todo correct size widget
-                Icon(
-                  _config.icon,
-                  color: _config.color,
-                  size: _config.size,
-                ),
+    return Stack(
+      fit: StackFit.expand,
+      clipBehavior: Clip.none,
+      children: [
+        Positioned(
+          left: _config.x,
+          top: _config.y,
+          child: SlideTransition(
+            position: slideAnimation,
+            child: ScaleTransition(
+              scale: scaleAnimation,
+              child: _config.widgetCloud ?? // todo correct size widget
+                  Icon(
+                    _config.icon,
+                    color: _config.color,
+                    size: _config.size,
+                  ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 
@@ -91,37 +95,5 @@ class _CloudWidgetState extends State<CloudWidget>
   void dispose() {
     controller.dispose();
     super.dispose();
-  }
-}
-
-class CloudsTwoWidget extends StatelessWidget {
-  const CloudsTwoWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: const [
-        CloudWidget(
-          cloudConfig: CloudConfig(
-            size: 250,
-            scaleBegin: 1.0,
-            scaleEnd: 1.08,
-            slideDurMill: 3000,
-            slideX: 12.5,
-          ),
-        ),
-        CloudWidget(
-          cloudConfig: CloudConfig(
-            // transform: Matrix4.rotationX(0.6),
-            y: 150.0,
-            size: 160,
-            scaleBegin: 1.0,
-            scaleEnd: 1.1,
-            slideDurMill: 2000,
-            slideX: 25,
-          ),
-        ),
-      ],
-    );
   }
 }

@@ -19,10 +19,11 @@ class SceneSection extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         Flexible(
-            child: Padding(
-          padding: EdgeInsets.all(6.0),
-          child: _WeathersOnScene(),
-        )),
+          child: Padding(
+            padding: EdgeInsets.all(6.0),
+            child: _WeathersOnScene(),
+          ),
+        ),
         Divider(height: 0, thickness: 1.0),
         Padding(
           padding: EdgeInsets.all(4.0),
@@ -91,9 +92,9 @@ class _WeatherWidgetOnScene extends ConsumerWidget {
       case TypeWeather.sun:
         return SunWidget(sunConfig: unit.config as SunConfig);
       case TypeWeather.rain:
-        return RainsWidget(rainConfig: unit.config as RainConfig);
+        return RainWidget(rainConfig: unit.config as RainConfig);
       case TypeWeather.thunder:
-        return ThundersWidget(thunderConfig: unit.config as ThunderConfig);
+        return ThunderWidget(thunderConfig: unit.config as ThunderConfig);
       case TypeWeather.snow:
         return SnowWidget(snowConfig: unit.config as SnowConfig);
       case TypeWeather.cloud:

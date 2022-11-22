@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../model/configs.dart';
 
-class RainsWidget extends StatelessWidget {
-  const RainsWidget({Key? key, this.rainConfig = const RainConfig()})
+class RainWidget extends StatelessWidget {
+  const RainWidget({Key? key, this.rainConfig = const RainConfig()})
       : super(key: key);
 
   final RainConfig rainConfig;
@@ -14,6 +14,7 @@ class RainsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
+      clipBehavior: Clip.none,
       children: [
         for (int i = 0; i < rainConfig.count; i++)
           RainDropWidget(

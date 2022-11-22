@@ -145,16 +145,16 @@ List<Weathunit> _parseWeathunit(WrapperScene scene) {
             config: (item as SunWidget).sunConfig,
             id: nanoid(),
           );
-        case RainsWidget:
+        case RainWidget:
           return Weathunit(
             type: TypeWeather.rain,
-            config: (item as RainsWidget).rainConfig,
+            config: (item as RainWidget).rainConfig,
             id: nanoid(),
           );
-        case ThundersWidget:
+        case ThunderWidget:
           return Weathunit(
             type: TypeWeather.thunder,
-            config: (item as ThundersWidget).thunderConfig,
+            config: (item as ThunderWidget).thunderConfig,
             id: nanoid(),
           );
         case SnowWidget:
