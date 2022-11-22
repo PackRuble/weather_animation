@@ -42,7 +42,7 @@ class MainController {
       (ref) => ref.watch(selectedScene)?.getWeather() as WrapperScene?);
 
   static final selectedScene =
-      StateProvider<WeatherScene?>((_) => WeatherScene.scorchingSun);
+      StateProvider<WeatherScene?>((_) => WeatherScene.sunset);
 
   static final allScenes =
       Provider<List<WeatherScene>>((_) => WeatherScene.values);
