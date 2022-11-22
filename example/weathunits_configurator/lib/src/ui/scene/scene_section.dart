@@ -68,7 +68,8 @@ class _WeathersOnScene extends ConsumerWidget {
                   ),
           ),
           children: [
-            for (final unit in scene) _WeatherWidgetOnScene(unit),
+            for (final unit in scene)
+              _WeatherWidgetOnScene(key: ValueKey(unit.id), unit),
           ],
         );
       },
