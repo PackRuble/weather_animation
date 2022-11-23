@@ -50,28 +50,30 @@ class _WeathersOnScene extends ConsumerWidget {
         final isBeyondCanvas = sizeConstraints.height < sizeCanvas.height ||
             sizeConstraints.width < sizeCanvas.width;
 
-        return WrapperScene(
-          sizeCanvas: sizeCanvas, // desired canvas size
-          colors: ref.watch(backgroundColorsProvider),
-          isLeftCornerGradient:
-              ref.watch(BackgroundColorsNotifier.isLeftCornerGradient),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.0),
-            border: isBeyondCanvas
-                ? Border.all(
-                    color: Colors.red,
-                    strokeAlign: StrokeAlign.outside,
-                    width: 4.0,
-                  )
-                : Border.all(
-                    width: 0.5,
-                    strokeAlign: StrokeAlign.outside,
-                  ),
+        return Center(
+          child: WrapperScene(
+            sizeCanvas: sizeCanvas, // desired canvas size
+            colors: ref.watch(backgroundColorsProvider),
+            isLeftCornerGradient:
+                ref.watch(BackgroundColorsNotifier.isLeftCornerGradient),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16.0),
+              border: isBeyondCanvas
+                  ? Border.all(
+                      color: Colors.red,
+                      strokeAlign: StrokeAlign.outside,
+                      width: 4.0,
+                    )
+                  : Border.all(
+                      width: 0.5,
+                      strokeAlign: StrokeAlign.outside,
+                    ),
+            ),
+            children: [
+              for (final unit in scene)
+                _WeatherWidgetOnScene(key: ValueKey(unit.id), unit),
+            ],
           ),
-          children: [
-            for (final unit in scene)
-              _WeatherWidgetOnScene(key: ValueKey(unit.id), unit),
-          ],
         );
       },
     );
