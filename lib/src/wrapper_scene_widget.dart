@@ -10,8 +10,7 @@ import 'background_widget.dart';
 class WrapperScene extends StatelessWidget {
   const WrapperScene({
     Key? key,
-    this.sizeCanvas = const Size(350.0, 600.0),
-    this.align = Alignment.center,
+    this.sizeCanvas = const Size(350.0, 540.0),
     this.decoration = const BoxDecoration(),
     this.clip = Clip.antiAlias,
     this.isLeftCornerGradient,
@@ -19,15 +18,10 @@ class WrapperScene extends StatelessWidget {
     required this.colors,
   }) : super(key: key);
 
-  /// Widget size. Default to [Size.infinite].
+  /// Widget size. Default to [Size(350.0, 540.0)].
+  ///
+  /// Specify this size to determine the size of this widget (canvas).
   final Size sizeCanvas;
-
-  /// Position relative to parental constraints.
-  ///
-  /// Has no effect on [sizeCanvas] = [Size.infinite].
-  ///
-  /// Default to [Alignment.center].
-  final Alignment align;
 
   /// Cropping parts that go beyond the contours [sizeCanvas].
   final Clip clip;
@@ -40,6 +34,7 @@ class WrapperScene extends StatelessWidget {
   /// Any other widgets can be presented to your liking.
   final List<Widget> children;
 
+  /// Specify whether the gradient starts on the left side.
   final bool? isLeftCornerGradient;
 
   /// Scene background colors. See [BackgroundWidget] for more details.
@@ -47,34 +42,31 @@ class WrapperScene extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        constraints: BoxConstraints.tight(sizeCanvas),
-        alignment: align,
-        clipBehavior: clip,
-        decoration: decoration,
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            final Size sizeConstraints = constraints.biggest;
+    return Container(
+      constraints: BoxConstraints.tight(sizeCanvas),
+      clipBehavior: clip,
+      decoration: decoration,
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          final Size sizeConstraints = constraints.biggest;
 
-            final double scaleTrue = math.min(
-              sizeConstraints.height / sizeCanvas.height,
-              sizeConstraints.width / sizeCanvas.width,
-            );
+          final double scaleTrue = math.min(
+            sizeConstraints.height / sizeCanvas.height,
+            sizeConstraints.width / sizeCanvas.width,
+          );
 
-            return BackgroundWidget(
-              colors: colors,
-              isLeftCorner: isLeftCornerGradient,
-              child: Transform.scale(
-                alignment: Alignment.topLeft,
-                scale: scaleTrue,
-                child: Stack(
-                  children: children,
-                ),
+          return BackgroundWidget(
+            colors: colors,
+            isLeftCorner: isLeftCornerGradient,
+            child: Transform.scale(
+              alignment: Alignment.topLeft,
+              scale: scaleTrue,
+              child: Stack(
+                children: children,
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
