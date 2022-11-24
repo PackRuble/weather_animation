@@ -1,6 +1,6 @@
 name: weather_animation
 description: The package contains beautiful weather animations. Easy setup with the weather configurator!
-homepage: https://github.com/PackRuble/weather_animation/
+repository: https://github.com/PackRuble/weather_animation
 
 version: 2.0.0
 

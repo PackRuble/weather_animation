@@ -1,11 +1,16 @@
 include: package:lint/analysis_options_package.yaml
 
 analyzer:
+  exclude:
+    - '**.g.dart'
+    - '**.freezed.dart'
+
   errors:
     invalid_annotation_target: ignore
 
 linter:
   rules:
+    require_trailing_commas: false
     use_super_parameters: false
     sort_pub_dependencies: false
     avoid_bool_literals_in_conditional_expressions: false

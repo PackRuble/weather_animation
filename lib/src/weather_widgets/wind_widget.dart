@@ -94,14 +94,15 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
       opacity: fadeAnimation,
       child: CustomPaint(
         painter: WindPainter(
-            listenable: slideAnimation,
-            point: slideAnimation,
-            windColor: _config.color,
-            windGust: _config.windGap,
-            windSlideY: _config.y,
-            windWidth: _config.width,
-            blurStyle: _config.blurStyle,
-            blurSigma: _config.blurSigma),
+          listenable: slideAnimation,
+          point: slideAnimation,
+          windColor: _config.color,
+          windGust: _config.windGap,
+          windSlideY: _config.y,
+          windWidth: _config.width,
+          blurStyle: _config.blurStyle,
+          blurSigma: _config.blurSigma,
+        ),
       ),
     );
   }
@@ -146,16 +147,16 @@ class WindPainter extends CustomPainter {
   BlurStyle blurStyle;
   Color windColor;
 
-  WindPainter(
-      {required Listenable listenable,
-      required this.point,
-      required this.windGust,
-      required this.windSlideY,
-      required this.windWidth,
-      required this.windColor,
-      required this.blurSigma,
-      required this.blurStyle})
-      : super(repaint: listenable);
+  WindPainter({
+    required Listenable listenable,
+    required this.point,
+    required this.windGust,
+    required this.windSlideY,
+    required this.windWidth,
+    required this.windColor,
+    required this.blurSigma,
+    required this.blurStyle,
+  }) : super(repaint: listenable);
 
   @override
   void paint(Canvas canvas, Size size) {
