@@ -18,7 +18,7 @@ class ThunderWidget extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        SingleThunder(
+        SingleThunderWidget(
           thunderConfig: thunderConfig.copyWith(
             points: const [
               Offset(160, 210),
@@ -30,7 +30,7 @@ class ThunderWidget extends StatelessWidget {
             ],
           ),
         ),
-        SingleThunder(
+        SingleThunderWidget(
           thunderConfig: thunderConfig.copyWith(
             points: const [
               Offset(230, 215),
@@ -45,8 +45,8 @@ class ThunderWidget extends StatelessWidget {
   }
 }
 
-class SingleThunder extends StatefulWidget {
-  const SingleThunder({
+class SingleThunderWidget extends StatefulWidget {
+  const SingleThunderWidget({
     Key? key,
     this.thunderConfig = const ThunderConfig(),
   }) : super(key: key);
@@ -54,10 +54,10 @@ class SingleThunder extends StatefulWidget {
   final ThunderConfig thunderConfig;
 
   @override
-  State<StatefulWidget> createState() => SingleThunderState();
+  State<StatefulWidget> createState() => SingleThunderWidgetState();
 }
 
-class SingleThunderState extends State<SingleThunder>
+class SingleThunderWidgetState extends State<SingleThunderWidget>
     with TickerProviderStateMixin {
   late AnimationController fadeController, pauseController;
   late Animation<double> fadeAnimation, pauseAnimation;
@@ -136,7 +136,7 @@ class SingleThunderState extends State<SingleThunder>
     return FadeTransition(
       opacity: fadeAnimation,
       child: CustomPaint(
-        painter: ThunderPainter(
+        painter: _ThunderPainter(
           points: _config.points,
           color: _config.color,
           blurStyle: _config.blurStyle,
@@ -148,7 +148,7 @@ class SingleThunderState extends State<SingleThunder>
   }
 
   @override
-  void didUpdateWidget(covariant SingleThunder oldWidget) {
+  void didUpdateWidget(covariant SingleThunderWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     final oldConfig = oldWidget.thunderConfig;
@@ -178,14 +178,14 @@ class SingleThunderState extends State<SingleThunder>
   }
 }
 
-class ThunderPainter extends CustomPainter {
+class _ThunderPainter extends CustomPainter {
   final Paint _paint = Paint();
   List<Offset> points;
   final Color color;
   final BlurStyle blurStyle;
   final double width, blurSigma;
 
-  ThunderPainter({
+  _ThunderPainter({
     required this.blurStyle,
     required this.blurSigma,
     required this.points,

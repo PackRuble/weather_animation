@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// The widget is used to customize the background of the weathers widget scene.
 class BackgroundWidget extends StatelessWidget {
   const BackgroundWidget({
     Key? key,
@@ -9,9 +10,10 @@ class BackgroundWidget extends StatelessWidget {
   })  : isLeftCorner = isLeftCorner ?? false,
         super(key: key);
 
-  /// You must specify 2 or more colors to get a gradient.
+  /// List of colors for creating a linear gradient.
   final List<Color> colors;
 
+  /// Gradient direction.
   final bool isLeftCorner;
 
   final Widget child;

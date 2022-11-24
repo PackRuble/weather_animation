@@ -93,7 +93,7 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
     return FadeTransition(
       opacity: fadeAnimation,
       child: CustomPaint(
-        painter: WindPainter(
+        painter: _WindPainter(
           listenable: slideAnimation,
           point: slideAnimation,
           windColor: _config.color,
@@ -140,14 +140,14 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
   }
 }
 
-class WindPainter extends CustomPainter {
+class _WindPainter extends CustomPainter {
   final Paint _paint = Paint();
   Animation<double> point;
   double windGust, windSlideY, windWidth, blurSigma;
   BlurStyle blurStyle;
   Color windColor;
 
-  WindPainter({
+  _WindPainter({
     required Listenable listenable,
     required this.point,
     required this.windGust,

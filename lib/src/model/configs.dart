@@ -6,9 +6,13 @@ part 'configs.g.dart';
 
 // ignore_for_file: invalid_annotation_target
 
-/// ```shell
-/// flutter pub run build_runner build json_serializable
-/// ```
+// After editing this file, run the script:
+// ```shell
+// flutter pub run build_runner build
+// ```
+//
+// The `configs.freezed.dart` and `configs.g.dart` files should be version controlled
+// and should not be manually edited.
 
 /// Convert [Color] to/from json.
 class ColorSerializer implements JsonConverter<Color, String> {
@@ -261,7 +265,6 @@ class ThunderConfig extends WeatherConfig with _$ThunderConfig {
     @Default(300) int flashEndMill,
     @Default(50) int pauseStartMill,
     @Default(6000) int pauseEndMill,
-
     @Default([Offset(110, 210), Offset(120, 240)])
     @JsonKey(ignore: true)
         List<Offset> points,

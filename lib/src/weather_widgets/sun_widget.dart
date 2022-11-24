@@ -91,7 +91,7 @@ class _SunWidgetState extends State<SunWidget> with TickerProviderStateMixin {
         Transform.scale(
           scaleX: widget.sunConfig.isLeftLocation ? 1 : -1,
           child: CustomPaint(
-            painter: SunPainter(
+            painter: _SunPainter(
               color: color,
               radius: radius,
               width: _sunWidth * (2 / 9),
@@ -155,7 +155,7 @@ class _SunWidgetState extends State<SunWidget> with TickerProviderStateMixin {
   }
 }
 
-class SunPainter extends CustomPainter {
+class _SunPainter extends CustomPainter {
   final bool useCenter;
   final Color color;
   final double radius;
@@ -166,7 +166,7 @@ class SunPainter extends CustomPainter {
   final double blurSigma;
   final _paint = Paint();
 
-  SunPainter({
+  _SunPainter({
     required this.useFill,
     this.useCenter = false,
     Listenable? repaintListener,

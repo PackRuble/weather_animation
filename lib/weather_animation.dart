@@ -3,7 +3,7 @@
 // Use of this source code is governed by the license found in the LICENSE file.
 
 /// Delightful animation of weather conditions with flutter capabilities.
-library weather_animation_bg;
+library weather_animation;
 
 // ignore_for_file: directives_ordering
 

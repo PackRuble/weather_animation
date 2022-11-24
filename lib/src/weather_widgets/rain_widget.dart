@@ -126,25 +126,14 @@ class _RainDropWidgetState extends State<RainDropWidget>
 
   @override
   Widget build(BuildContext context) {
-    // final double length = _config.lengthDrop;
-    // final double width = _config.widthDrop;
-
-    // for test
-    // Icon(
-    //   Icons.water_drop_rounded,
-    //   size: width,
-    //   color: _config.color,
-    // )
-
     final widget = _config.widgetRainDrop ??
         CustomPaint(
-          painter: RainPainter(
+          painter: _RainPainter(
             color: _config.color,
             dropLength: _config.lengthDrop,
             dropWidth: _config.widthDrop,
             isRoundedEnds: _config.isRoundedEndsDrop,
           ),
-          // size: Size(width, length),
         );
 
     return Positioned(
@@ -193,7 +182,7 @@ class _RainDropWidgetState extends State<RainDropWidget>
   }
 }
 
-class RainPainter extends CustomPainter {
+class _RainPainter extends CustomPainter {
   final Paint _paint = Paint();
 
   final double dropLength;
@@ -201,7 +190,7 @@ class RainPainter extends CustomPainter {
   final Color color;
   final bool isRoundedEnds;
 
-  RainPainter({
+  _RainPainter({
     required this.dropLength,
     required this.dropWidth,
     required this.color,
