@@ -3,15 +3,13 @@
 [![repo_star_badge]][repo_star]
 ![GitHub code size in bytes][code_size_badge]
 
-[//]: # (TODO <img height="100" src="assets/weather_icons/@4/10d.png" width="100"/>)
+![all_scenes](images/all_scenes.wmv)
+
+![all_scenes](images/all_scenes_scr.png)
 
 ## 🌇 weather_animation
 
 Create weather scenes and animate as your heart desires. Simple and free.
-
-[//]: # (+ todo add main gif)
-
-[//]: # (+ todo add gif configurator)
 
 ## Motivation
 
@@ -26,13 +24,13 @@ Create weather scenes and animate as your heart desires. Simple and free.
 - [About the library](#-weather_animation)
 - [Motivation](#motivation)
 - [How to use simply?](#how-to-use-simply)
-  - [Use `WeatherScene`](#)
-  - [Use `WrapperScene`](#)
-  - [Use `weather_configurator` app](#)
+  - [Use `WeatherScene`](#use-weatherscene)
+  - [Use `WrapperScene`](#use-wrapperscene)
+  - [Use `weather_configurator` app](#use-weather_configurator-app)
 - [Library structure](#library-structure)
-  - [Configuration files `...Config`]()
-  - [About `WrapperScene`]()
-  - [About `BackgroundWidget`]()
+  - [Configuration files `...Config`](#configuration-files-config)
+  - [About `WrapperScene`](#about-wrapperscene)
+  - [About `BackgroundWidget`](#about-backgroundwidget)
 - [Additional information](#additional-information)
 
 ## How to use simply?

@@ -19,3 +19,7 @@ dev_dependencies:
   json_serializable: ^6.5.4
   build_runner: ^2.3.2
   lint: ^1.10.0
+
+screenshots:
+  - description: 'Preset weather scenes'
+    path: images/all_scenes_scr.png
