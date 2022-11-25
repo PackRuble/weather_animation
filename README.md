@@ -3,9 +3,7 @@
 [![repo_star_badge]][repo_star]
 ![GitHub code size in bytes][code_size_badge]
 
-![all_scenes](images/all_scenes.wmv)
-
-![all_scenes](images/all_scenes_scr.png)
+![all_scenes](images/all_scenes.gif)
 
 ## 🌇 weather_animation
 
