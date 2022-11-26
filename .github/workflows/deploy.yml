@@ -1,0 +1,88 @@
+
+name: Build & Deploy weathunits_configurator
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  push:
+    branches: [master]
+    paths:
+      - 'example/weathunits_configurator'
+      - '!**.md' # ignore the readme files
+
+jobs:
+  build:
+    name: 'Build web app'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Install Flutter and Dart SDK'
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+#      - name: 'Show Dart SDK version'
+#        run: dart --version
+#
+#      - name: 'Show Flutter SDK version'
+#        run: flutter --version
+
+      - name: 'Flutter enable Web'
+        run: flutter config --enable-web
+
+      - name: 'Get dependencies'
+        run: flutter pub get
+        working-directory: 'example/weathunits_configurator'
+#        working-directory: ./example/weathunits_configurator
+
+#      - name: 'Analyze Dart source'
+#        run: dart analyze
+
+#      - name: 'Show outdated packages'
+#        run: flutter pub outdated
+
+#      - name: 'Verify that Dart formatting is used, fail if not'
+#        run: dart format --output=none --set-exit-if-changed .
+
+      - name: 'Flutter clean before build'
+        run: |
+          flutter clean
+          cd 'example/weathunits_configurator'
+          flutter clean
+
+      - name: 'Build web app'
+        run: |
+          cd example/weathunits_configurator
+          flutter build web --web-renderer=canvaskit --base-href='/weathunits_configurator/' --release
+
+      - name: 'Deploy web app'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: 'example/weathunits_configurator/build/web'
+
+#      - name: 'Upload web build files'
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: 'Web-release'
+#          path: ./build/web
+#
+#  deploy:
+#    name: 'Deploy web app'
+#    needs: build
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: 'Download web release'
+#        uses: actions/download-artifact@v2
+#        with:
+#          name: web-release
+#
+#      - name: 'Deploy to GitHub Pages'
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./build/web
