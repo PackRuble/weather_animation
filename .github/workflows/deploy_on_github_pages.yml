@@ -11,9 +11,12 @@ on:
       - 'example/weathunits_configurator'
       - '!**.md' # ignore the readme files
 
+permissions:
+  contents: write
+
 jobs:
-  build:
-    name: 'Build web app'
+  build-and-deploy:
+    name: 'Build & Deploy web app'
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +26,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          cache: true
+#          cache: true
 
 #      - name: 'Show Dart SDK version'
 #        run: dart --version
@@ -48,11 +51,11 @@ jobs:
 #      - name: 'Verify that Dart formatting is used, fail if not'
 #        run: dart format --output=none --set-exit-if-changed .
 
-      - name: 'Flutter clean before build'
-        run: |
-          flutter clean
-          cd 'example/weathunits_configurator'
-          flutter clean
+#      - name: 'Flutter clean before build'
+#        run: |
+#          flutter clean
+#          cd 'example/weathunits_configurator'
+#          flutter clean
 
       - name: 'Build web app'
         run: |
