@@ -90,6 +90,8 @@ SunWidget(
 - online in web
 - offline after build project on your gadget
 
+Learn more [here](https://github.com/PackRuble/weather_animation/tree/master/example/weathunits_configurator#whats-that).
+
 ## Library structure
 
 The only point of using the library is to import the following file:
