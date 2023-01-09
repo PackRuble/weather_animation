@@ -11,10 +11,8 @@ on:
 #      - 'example/weathunits_configurator'
 #      - '!**.md' # ignore the readme files
 
-permissions:
-  contents: write
-
 jobs:
+
   build-and-deploy:
     name: 'Build & Deploy web app'
     runs-on: ubuntu-latest
@@ -26,7 +24,8 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-#          cache: true
+          flutter-version: 3.3.9
+          cache: true
 
 #      - name: 'Show Dart SDK version'
 #        run: dart --version
@@ -39,8 +38,7 @@ jobs:
 
       - name: 'Get dependencies'
         run: flutter pub get
-        working-directory: 'example/weathunits_configurator'
-#        working-directory: ./example/weathunits_configurator
+        working-directory: example/weathunits_configurator
 
 #      - name: 'Analyze Dart source'
 #        run: dart analyze
@@ -51,21 +49,24 @@ jobs:
 #      - name: 'Verify that Dart formatting is used, fail if not'
 #        run: dart format --output=none --set-exit-if-changed .
 
-#      - name: 'Flutter clean before build'
-#        run: |
-#          flutter clean
-#          cd 'example/weathunits_configurator'
-#          flutter clean
+      - name: 'Flutter clean before build'
+        run: |
+          flutter clean
+          cd 'example/weathunits_configurator'
+          flutter clean
 
       - name: 'Build web app'
         run: |
           cd example/weathunits_configurator
-          flutter build web --web-renderer=canvaskit --base-href='/weathunits_configurator/' --release
+          flutter build web --base-href='/weather_animation/' --web-renderer=canvaskit --release
 
       - name: 'Deploy web app'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           folder: 'example/weathunits_configurator/build/web'
+#          target-folder: .
+          single-commit: true
 
 #      - name: 'Upload web build files'
 #        uses: actions/upload-artifact@v2
