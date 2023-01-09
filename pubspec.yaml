@@ -23,6 +23,6 @@ dev_dependencies:
 
 screenshots:
   - description: 'Preset weather scenes'
-    path: images/all_scenes.gif
+    path: images/all_scenes_scr.png
   - description: 'Weather configurator'
     path: example/weathunits_configurator/assets/weather_configurator_screen.png
