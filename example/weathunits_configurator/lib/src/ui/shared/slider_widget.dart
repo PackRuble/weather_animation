@@ -3,8 +3,21 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-extension DoubleExt on double {
-  int getCountDecimal() => toString().split('.')[1].length;
+// number maybe only == (100.0, 10.0, 1.0, 0.1, 0.01)
+int _getCountDecimal(num value) {
+  // for web platform
+  //
+  // Expression	  Native toString()	  Web toString()
+  // 1	          "1"	                "1"
+  // 1.0	        "1.0"	              "1"
+  // (0.5 + 0.5)	"1.0"	              "1"
+  // 1.5	        "1.5"	              "1.5"
+  //
+  // more https://dart.dev/guides/language/numbers
+  if (value is int) return 1;
+
+  // for other platform
+  return value.toString().split('.')[1].length;
 }
 
 class SliderWidget extends StatefulWidget {
@@ -121,7 +134,7 @@ class _SliderWidgetState extends State<SliderWidget> {
 
   void onChanged(double value) {
     setState(() {
-      final countDecimal = _interval.getCountDecimal();
+      final countDecimal = _getCountDecimal(_interval);
 
       _value =
           double.parse(value.clamp(_min, _max).toStringAsFixed(countDecimal));
