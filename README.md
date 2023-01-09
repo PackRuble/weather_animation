@@ -1,6 +1,8 @@
-[![pub_badge]][pub]
-[![license_badge]][license]
-[![repo_star_badge]][repo_star]
+[![telegram_badge]][telegram_link]
+[![pub_badge]][pub_link]
+[![configurator_badge]][configurator_link]
+[![repo_star_badge]][repo_star_link]
+[![license_badge]][license_link]
 ![GitHub code size in bytes][code_size_badge]
 
 ![all_scenes](images/all_scenes.gif)
@@ -8,6 +10,8 @@
 ## 🌇 weather_animation
 
 Create weather scenes and animate as your heart desires. Simple and free.
+
+Try the [Weathunits configurator][configurator_link] for setting weather scenes directly in the WEB!
 
 ## Motivation
 
@@ -19,17 +23,20 @@ Create weather scenes and animate as your heart desires. Simple and free.
 
 ## Table of Contents
 
-- [About the library](#-weather_animation)
-- [Motivation](#motivation)
-- [How to use simply?](#how-to-use-simply)
-  - [Use `WeatherScene`](#use-weatherscene)
-  - [Use `WrapperScene`](#use-wrapperscene)
-  - [Use `weather_configurator` app](#use-weather_configurator-app)
-- [Library structure](#library-structure)
-  - [Configuration files `...Config`](#configuration-files-config)
-  - [About `WrapperScene`](#about-wrapperscene)
-  - [About `BackgroundWidget`](#about-backgroundwidget)
-- [Additional information](#additional-information)
+<!-- TOC -->
+  * [🌇 weather_animation](#-weather_animation)
+  * [Motivation](#motivation)
+  * [Table of Contents](#table-of-contents)
+  * [How to use simply?](#how-to-use-simply)
+    * [Use `WeatherScene`](#use-weatherscene)
+    * [Use `WrapperScene`](#use-wrapperscene)
+    * [Use `weather_configurator` app](#use-weather_configurator-app)
+  * [Library structure](#library-structure)
+    * [Configuration files `...Config`](#configuration-files-config)
+    * [About `WrapperScene`](#about-wrapperscene)
+    * [About `BackgroundWidget`](#about-backgroundwidget)
+  * [Additional information](#additional-information)
+<!-- TOC -->
 
 ## How to use simply?
 
@@ -38,7 +45,7 @@ Import the library:
 import 'package:weather_animation/weather_animation.dart';
 ```
 
-#### Use `WeatherScene`
+### Use `WeatherScene`
 
 Check the provided list of ready-made weather scenes in the `WeatherScene` enumeration and select 
 the desired one:
@@ -49,7 +56,8 @@ Widget build(BuildContext context) {
 }
 ```
 
-#### Use `WrapperScene`
+### Use `WrapperScene`
+
 Specify a list of weather widgets and a list of colors to create a beautiful background gradient:
 ```dart
 @override
@@ -67,6 +75,7 @@ Widget build(BuildContext context) {
     );
 }
 ```
+
 If necessary, specify a configuration file to fine-tune the weather widget:
 ```dart
 ...
@@ -86,11 +95,12 @@ SunWidget(
 ...
 ```
 
-#### Use `weather_configurator` app
-- online in web
-- offline after build project on your gadget
+### Use `weather_configurator` app
 
-Learn more [here](https://github.com/PackRuble/weather_animation/tree/master/example/weathunits_configurator#whats-that).
+- online in web --> [Weathunits configurator][configurator_link]
+- offline after build project on your gadget (path `example/weathunits_configurator`. Learn more [here](https://github.com/PackRuble/weather_animation/tree/master/example/weathunits_configurator/))
+
+![](example/weathunits_configurator/assets/weather_configurator_screen.png)
 
 ## Library structure
 
@@ -114,26 +124,25 @@ The following weather widgets are available:
 
 Each weather widget accepts an optional configuration parameter to fine-tune the widget.
 
-#### Configuration files `...Config`
+### Configuration files `...Config`
+
 - have correctly `toString`, `operator ==`, `hashCode`
 - have a `copyWith` method to clone the object
 - have de/serialization handling (`toJson` and `fromJson`). Note: not all fields
 - are inherited from class `WeatherConfig`
 
-#### About `WrapperScene`
+### About `WrapperScene`
+
 Also, there is a `WrapperScene` widget for quick scene adjustment, which allows you to scale the 
 weather scene relative to the specified canvas dimensions. Has a clipper and scene widget decoration.
 
-#### About `BackgroundWidget`
+### About `BackgroundWidget`
 The `BackgroundWidget` class allows you to create a color background in the form of a linear gradient.
 Specify the desired colors and you're done.
 
 ## Additional information
 Made with ❤️. Enjoy it!
 
----
-
-###### tags: weather, animation, weather conditions, weather scenes
 
 <!-- Links -->
 [pub_badge]: https://img.shields.io/pub/v/weather_animation.svg?style=plastic
@@ -141,6 +150,18 @@ Made with ❤️. Enjoy it!
 [code_size_badge]: https://img.shields.io/github/languages/code-size/PackRuble/weather_animation?style=plastic
 [repo_star_badge]: https://img.shields.io/github/stars/PackRuble/weather_animation?style=plastic
 
-[pub]: https://pub.dev/packages/weather_animation
-[license]: https://github.com/PackRuble/weather_animation/blob/master/LICENSE
-[repo_star]: https://github.com/PackRuble/weather_animation
+[pub_link]: https://pub.dev/packages/weather_animation
+[license_link]: https://github.com/PackRuble/weather_animation/blob/master/LICENSE
+[repo_star_link]: https://github.com/PackRuble/weather_animation
+
+[telegram_badge]: https://img.shields.io/badge/telegram-❤️-252850?style=plastic&logo=telegram
+[telegram_link]: https://t.me/+AkGV73kZi_Q1YTMy
+
+[configurator_badge]: https://img.shields.io/badge/🎄web%E2%80%90app-try-CB6586?style=plastic
+[configurator_link]: https://packruble.github.io/weather_animation/
+
+---
+
+<h6>
+🏷 tags: weather, animation, weather conditions, weather scenes
+</h6>

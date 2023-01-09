@@ -1,8 +1,9 @@
 name: weather_animation
 description: The package contains beautiful weather animations. Easy setup with the weather configurator!
+homepage: https://t.me/+AkGV73kZi_Q1YTMy
 repository: https://github.com/PackRuble/weather_animation
 
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -18,8 +19,10 @@ dev_dependencies:
   freezed: ^2.2.1
   json_serializable: ^6.5.4
   build_runner: ^2.3.2
-  lint: ^1.10.0
+  lint: ^2.0.1
 
 screenshots:
   - description: 'Preset weather scenes'
-    path: images/all_scenes_scr.png
+    path: images/all_scenes.gif
+  - description: 'Weather configurator'
+    path: example/weathunits_configurator/assets/weather_configurator_screen.png
