@@ -19,7 +19,7 @@ class EditorScenesApp extends ConsumerWidget {
 
     return MaterialApp(
       key: ref.watch(MainController.forcedUpdate),
-      title: 'Weather backgrounds',
+      title: 'Weathunits configurator',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       darkTheme: AppTheme.darkTheme,

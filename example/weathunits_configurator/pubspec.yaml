@@ -1,8 +1,8 @@
 name: weathunits_configurator
-description: Simple examples of using weather_animation_bg.
+description: Handy configurator for creating weather scenes.
 publish_to: none
 
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
@@ -24,7 +24,7 @@ dependencies:
     path: ../../../weather_animation
 
 dev_dependencies:
-  lint: ^1.10.0
+  lint: ^2.0.1
 
 flutter:
   uses-material-design: true
