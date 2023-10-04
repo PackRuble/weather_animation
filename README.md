@@ -3,7 +3,7 @@
 [![configurator_badge]][configurator_link]
 [![repo_star_badge]][repo_star_link]
 [![license_badge]][license_link]
-![GitHub code size in bytes][code_size_badge]
+[![code_size_badge]][repo_link]
 
 ![all_scenes](images/all_scenes.gif)
 
@@ -24,13 +24,13 @@ Try the [Weathunits configurator][configurator_link] for setting weather scenes 
 ## Table of Contents
 
 <!-- TOC -->
-  * [🌇 weather_animation](#-weather_animation)
+  * [🌇 weather_animation](#-weatheranimation)
   * [Motivation](#motivation)
   * [Table of Contents](#table-of-contents)
   * [How to use simply?](#how-to-use-simply)
     * [Use `WeatherScene`](#use-weatherscene)
     * [Use `WrapperScene`](#use-wrapperscene)
-    * [Use `weather_configurator` app](#use-weather_configurator-app)
+    * [Use `weather_configurator` app](#use-weatherconfigurator-app)
   * [Library structure](#library-structure)
     * [Configuration files `...Config`](#configuration-files-config)
     * [About `WrapperScene`](#about-wrapperscene)
@@ -146,18 +146,21 @@ Made with ❤️. Enjoy it!
 
 <!-- Links -->
 [pub_badge]: https://img.shields.io/pub/v/weather_animation.svg?style=plastic
-[license_badge]: https://img.shields.io/github/license/PackRuble/weather_animation?style=plastic
-[code_size_badge]: https://img.shields.io/github/languages/code-size/PackRuble/weather_animation?style=plastic
-[repo_star_badge]: https://img.shields.io/github/stars/PackRuble/weather_animation?style=plastic
-
 [pub_link]: https://pub.dev/packages/weather_animation
+
+[license_badge]: https://img.shields.io/github/license/PackRuble/weather_animation?style=plastic
 [license_link]: https://github.com/PackRuble/weather_animation/blob/master/LICENSE
-[repo_star_link]: https://github.com/PackRuble/weather_animation
+
+[code_size_badge]: https://img.shields.io/github/languages/code-size/PackRuble/weather_animation?style=plastic
+[repo_link]: https://github.com/PackRuble/weather_animation
 
 [telegram_badge]: https://img.shields.io/badge/telegram-❤️-252850?style=plastic&logo=telegram
 [telegram_link]: https://t.me/+AkGV73kZi_Q1YTMy
 
-[configurator_badge]: https://img.shields.io/badge/🎄web%E2%80%90app-try-CB6586?style=plastic
+[repo_star_badge]: https://img.shields.io/github/stars/PackRuble/weather_animation?style=plastic
+[repo_star_link]: https://github.com/PackRuble/weather_animation/network/dependents
+
+[configurator_badge]: https://img.shields.io/badge/🎄playground-web%E2%80%90app-CB6586?style=plastic
 [configurator_link]: https://packruble.github.io/weather_animation/
 
 ---
