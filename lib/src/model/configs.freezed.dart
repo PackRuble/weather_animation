@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'configs.dart';
 
@@ -33,7 +33,7 @@ mixin _$SunConfig {
   double get blurSigma => throw _privateConstructorUsedError;
 
   /// The style argument controls the kind of effect to draw; see BlurStyle.
-  @JsonKey(ignore: true)
+  @ignoreJson
   BlurStyle get blurStyle => throw _privateConstructorUsedError;
 
   /// The location of the sun on the screen. By default, the top left corner.
@@ -69,7 +69,7 @@ abstract class $SunConfigCopyWith<$Res> {
   $Res call(
       {double width,
       double blurSigma,
-      @JsonKey(ignore: true) BlurStyle blurStyle,
+      @ignoreJson BlurStyle blurStyle,
       bool isLeftLocation,
       Color coreColor,
       Color midColor,
@@ -143,16 +143,17 @@ class _$SunConfigCopyWithImpl<$Res, $Val extends SunConfig>
 }
 
 /// @nodoc
-abstract class _$$_SunConfigCopyWith<$Res> implements $SunConfigCopyWith<$Res> {
-  factory _$$_SunConfigCopyWith(
-          _$_SunConfig value, $Res Function(_$_SunConfig) then) =
-      __$$_SunConfigCopyWithImpl<$Res>;
+abstract class _$$SunConfigImplCopyWith<$Res>
+    implements $SunConfigCopyWith<$Res> {
+  factory _$$SunConfigImplCopyWith(
+          _$SunConfigImpl value, $Res Function(_$SunConfigImpl) then) =
+      __$$SunConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {double width,
       double blurSigma,
-      @JsonKey(ignore: true) BlurStyle blurStyle,
+      @ignoreJson BlurStyle blurStyle,
       bool isLeftLocation,
       Color coreColor,
       Color midColor,
@@ -162,11 +163,11 @@ abstract class _$$_SunConfigCopyWith<$Res> implements $SunConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SunConfigCopyWithImpl<$Res>
-    extends _$SunConfigCopyWithImpl<$Res, _$_SunConfig>
-    implements _$$_SunConfigCopyWith<$Res> {
-  __$$_SunConfigCopyWithImpl(
-      _$_SunConfig _value, $Res Function(_$_SunConfig) _then)
+class __$$SunConfigImplCopyWithImpl<$Res>
+    extends _$SunConfigCopyWithImpl<$Res, _$SunConfigImpl>
+    implements _$$SunConfigImplCopyWith<$Res> {
+  __$$SunConfigImplCopyWithImpl(
+      _$SunConfigImpl _value, $Res Function(_$SunConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -182,7 +183,7 @@ class __$$_SunConfigCopyWithImpl<$Res>
     Object? animMidMill = null,
     Object? animOutMill = null,
   }) {
-    return _then(_$_SunConfig(
+    return _then(_$SunConfigImpl(
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -226,11 +227,11 @@ class __$$_SunConfigCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(converters: [ColorSerializer()])
-class _$_SunConfig implements _SunConfig {
-  const _$_SunConfig(
+class _$SunConfigImpl implements _SunConfig {
+  const _$SunConfigImpl(
       {this.width = 360.0,
       this.blurSigma = 13.0,
-      @JsonKey(ignore: true) this.blurStyle = BlurStyle.solid,
+      @ignoreJson this.blurStyle = BlurStyle.solid,
       this.isLeftLocation = true,
       this.coreColor = const Color.fromARGB(255, 255, 152, 0),
       this.midColor = const Color.fromARGB(255, 255, 238, 88),
@@ -238,8 +239,8 @@ class _$_SunConfig implements _SunConfig {
       this.animMidMill = 1500,
       this.animOutMill = 1500});
 
-  factory _$_SunConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_SunConfigFromJson(json);
+  factory _$SunConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SunConfigImplFromJson(json);
 
   /// The width of the sun (in pixels).
   @override
@@ -259,7 +260,7 @@ class _$_SunConfig implements _SunConfig {
 
   /// The style argument controls the kind of effect to draw; see BlurStyle.
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final BlurStyle blurStyle;
 
   /// The location of the sun on the screen. By default, the top left corner.
@@ -302,7 +303,7 @@ class _$_SunConfig implements _SunConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SunConfig &&
+            other is _$SunConfigImpl &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.blurSigma, blurSigma) ||
                 other.blurSigma == blurSigma) &&
@@ -330,12 +331,12 @@ class _$_SunConfig implements _SunConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SunConfigCopyWith<_$_SunConfig> get copyWith =>
-      __$$_SunConfigCopyWithImpl<_$_SunConfig>(this, _$identity);
+  _$$SunConfigImplCopyWith<_$SunConfigImpl> get copyWith =>
+      __$$SunConfigImplCopyWithImpl<_$SunConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SunConfigToJson(
+    return _$$SunConfigImplToJson(
       this,
     );
   }
@@ -345,16 +346,16 @@ abstract class _SunConfig implements SunConfig {
   const factory _SunConfig(
       {final double width,
       final double blurSigma,
-      @JsonKey(ignore: true) final BlurStyle blurStyle,
+      @ignoreJson final BlurStyle blurStyle,
       final bool isLeftLocation,
       final Color coreColor,
       final Color midColor,
       final Color outColor,
       final int animMidMill,
-      final int animOutMill}) = _$_SunConfig;
+      final int animOutMill}) = _$SunConfigImpl;
 
   factory _SunConfig.fromJson(Map<String, dynamic> json) =
-      _$_SunConfig.fromJson;
+      _$SunConfigImpl.fromJson;
 
   @override
 
@@ -373,7 +374,7 @@ abstract class _SunConfig implements SunConfig {
   @override
 
   /// The style argument controls the kind of effect to draw; see BlurStyle.
-  @JsonKey(ignore: true)
+  @ignoreJson
   BlurStyle get blurStyle;
   @override
 
@@ -402,7 +403,7 @@ abstract class _SunConfig implements SunConfig {
   int get animOutMill;
   @override
   @JsonKey(ignore: true)
-  _$$_SunConfigCopyWith<_$_SunConfig> get copyWith =>
+  _$$SunConfigImplCopyWith<_$SunConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -422,12 +423,12 @@ mixin _$SnowConfig {
   Color get color => throw _privateConstructorUsedError;
 
   /// Snowflake icon. You can use a custom widget [widgetSnowflake].
-  @JsonKey(ignore: true)
+  @ignoreJson
   IconData get icon => throw _privateConstructorUsedError;
 
   /// Specify the snowflake widget. In this case, the fields [sizeSnowflake],
   /// [snowColor] and [iconDataSnowflake] be ignored.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Widget? get widgetSnowflake => throw _privateConstructorUsedError;
 
   /// The X-axis zone where the snowflakes start to fall (in pixels).
@@ -455,12 +456,12 @@ mixin _$SnowConfig {
   int get waveMaxSec => throw _privateConstructorUsedError;
 
   /// An parametric animation easing curve. Specify to create a wave effect.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get waveCurve => throw _privateConstructorUsedError;
 
   /// An parametric animation easing curve. Specify how fast the snowflakes will
   /// disappear.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get fadeCurve => throw _privateConstructorUsedError;
 
   /// Minimum snowflake fall time (in seconds).
@@ -485,8 +486,8 @@ abstract class $SnowConfigCopyWith<$Res> {
       {int count,
       double size,
       Color color,
-      @JsonKey(ignore: true) IconData icon,
-      @JsonKey(ignore: true) Widget? widgetSnowflake,
+      @ignoreJson IconData icon,
+      @ignoreJson Widget? widgetSnowflake,
       double areaXStart,
       double areaXEnd,
       double areaYStart,
@@ -495,8 +496,8 @@ abstract class $SnowConfigCopyWith<$Res> {
       double waveRangeMax,
       int waveMinSec,
       int waveMaxSec,
-      @JsonKey(ignore: true) Curve waveCurve,
-      @JsonKey(ignore: true) Curve fadeCurve,
+      @ignoreJson Curve waveCurve,
+      @ignoreJson Curve fadeCurve,
       int fallMinSec,
       int fallMaxSec});
 }
@@ -606,19 +607,19 @@ class _$SnowConfigCopyWithImpl<$Res, $Val extends SnowConfig>
 }
 
 /// @nodoc
-abstract class _$$_SnowflakeConfigCopyWith<$Res>
+abstract class _$$SnowflakeConfigImplCopyWith<$Res>
     implements $SnowConfigCopyWith<$Res> {
-  factory _$$_SnowflakeConfigCopyWith(
-          _$_SnowflakeConfig value, $Res Function(_$_SnowflakeConfig) then) =
-      __$$_SnowflakeConfigCopyWithImpl<$Res>;
+  factory _$$SnowflakeConfigImplCopyWith(_$SnowflakeConfigImpl value,
+          $Res Function(_$SnowflakeConfigImpl) then) =
+      __$$SnowflakeConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {int count,
       double size,
       Color color,
-      @JsonKey(ignore: true) IconData icon,
-      @JsonKey(ignore: true) Widget? widgetSnowflake,
+      @ignoreJson IconData icon,
+      @ignoreJson Widget? widgetSnowflake,
       double areaXStart,
       double areaXEnd,
       double areaYStart,
@@ -627,18 +628,18 @@ abstract class _$$_SnowflakeConfigCopyWith<$Res>
       double waveRangeMax,
       int waveMinSec,
       int waveMaxSec,
-      @JsonKey(ignore: true) Curve waveCurve,
-      @JsonKey(ignore: true) Curve fadeCurve,
+      @ignoreJson Curve waveCurve,
+      @ignoreJson Curve fadeCurve,
       int fallMinSec,
       int fallMaxSec});
 }
 
 /// @nodoc
-class __$$_SnowflakeConfigCopyWithImpl<$Res>
-    extends _$SnowConfigCopyWithImpl<$Res, _$_SnowflakeConfig>
-    implements _$$_SnowflakeConfigCopyWith<$Res> {
-  __$$_SnowflakeConfigCopyWithImpl(
-      _$_SnowflakeConfig _value, $Res Function(_$_SnowflakeConfig) _then)
+class __$$SnowflakeConfigImplCopyWithImpl<$Res>
+    extends _$SnowConfigCopyWithImpl<$Res, _$SnowflakeConfigImpl>
+    implements _$$SnowflakeConfigImplCopyWith<$Res> {
+  __$$SnowflakeConfigImplCopyWithImpl(
+      _$SnowflakeConfigImpl _value, $Res Function(_$SnowflakeConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -662,7 +663,7 @@ class __$$_SnowflakeConfigCopyWithImpl<$Res>
     Object? fallMinSec = null,
     Object? fallMaxSec = null,
   }) {
-    return _then(_$_SnowflakeConfig(
+    return _then(_$SnowflakeConfigImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -738,13 +739,13 @@ class __$$_SnowflakeConfigCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(converters: [ColorSerializer()])
-class _$_SnowflakeConfig implements _SnowflakeConfig {
-  const _$_SnowflakeConfig(
+class _$SnowflakeConfigImpl implements _SnowflakeConfig {
+  const _$SnowflakeConfigImpl(
       {this.count = 20,
       this.size = 20.0,
       this.color = const Color.fromARGB(179, 255, 255, 255),
-      @JsonKey(ignore: true) this.icon = Icons.ac_unit_rounded,
-      @JsonKey(ignore: true) this.widgetSnowflake,
+      @ignoreJson this.icon = Icons.ac_unit_rounded,
+      @ignoreJson this.widgetSnowflake,
       this.areaXStart = 90.0,
       this.areaXEnd = 230.0,
       this.areaYStart = 200.0,
@@ -753,16 +754,16 @@ class _$_SnowflakeConfig implements _SnowflakeConfig {
       this.waveRangeMax = 110.0,
       this.waveMinSec = 5,
       this.waveMaxSec = 20,
-      @JsonKey(ignore: true) this.waveCurve = Curves.easeInOutSine,
-      @JsonKey(ignore: true) this.fadeCurve = Curves.easeInCirc,
+      @ignoreJson this.waveCurve = Curves.easeInOutSine,
+      @ignoreJson this.fadeCurve = Curves.easeInCirc,
       this.fallMinSec = 10,
       this.fallMaxSec = 60})
       : assert(waveRangeMin > 0, 'waveRangeMin must be greater than 0'),
         assert(waveRangeMax >= waveRangeMin,
             'waveRangeMax must be greater than waveRangeMin');
 
-  factory _$_SnowflakeConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_SnowflakeConfigFromJson(json);
+  factory _$SnowflakeConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SnowflakeConfigImplFromJson(json);
 
   /// Number of snowflakes.
   @override
@@ -781,13 +782,13 @@ class _$_SnowflakeConfig implements _SnowflakeConfig {
 
   /// Snowflake icon. You can use a custom widget [widgetSnowflake].
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final IconData icon;
 
   /// Specify the snowflake widget. In this case, the fields [sizeSnowflake],
   /// [snowColor] and [iconDataSnowflake] be ignored.
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Widget? widgetSnowflake;
 
   /// The X-axis zone where the snowflakes start to fall (in pixels).
@@ -832,13 +833,13 @@ class _$_SnowflakeConfig implements _SnowflakeConfig {
 
   /// An parametric animation easing curve. Specify to create a wave effect.
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Curve waveCurve;
 
   /// An parametric animation easing curve. Specify how fast the snowflakes will
   /// disappear.
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Curve fadeCurve;
 
   /// Minimum snowflake fall time (in seconds).
@@ -860,7 +861,7 @@ class _$_SnowflakeConfig implements _SnowflakeConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SnowflakeConfig &&
+            other is _$SnowflakeConfigImpl &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.size, size) || other.size == size) &&
             (identical(other.color, color) || other.color == color) &&
@@ -918,12 +919,13 @@ class _$_SnowflakeConfig implements _SnowflakeConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SnowflakeConfigCopyWith<_$_SnowflakeConfig> get copyWith =>
-      __$$_SnowflakeConfigCopyWithImpl<_$_SnowflakeConfig>(this, _$identity);
+  _$$SnowflakeConfigImplCopyWith<_$SnowflakeConfigImpl> get copyWith =>
+      __$$SnowflakeConfigImplCopyWithImpl<_$SnowflakeConfigImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SnowflakeConfigToJson(
+    return _$$SnowflakeConfigImplToJson(
       this,
     );
   }
@@ -934,8 +936,8 @@ abstract class _SnowflakeConfig implements SnowConfig {
       {final int count,
       final double size,
       final Color color,
-      @JsonKey(ignore: true) final IconData icon,
-      @JsonKey(ignore: true) final Widget? widgetSnowflake,
+      @ignoreJson final IconData icon,
+      @ignoreJson final Widget? widgetSnowflake,
       final double areaXStart,
       final double areaXEnd,
       final double areaYStart,
@@ -944,13 +946,13 @@ abstract class _SnowflakeConfig implements SnowConfig {
       final double waveRangeMax,
       final int waveMinSec,
       final int waveMaxSec,
-      @JsonKey(ignore: true) final Curve waveCurve,
-      @JsonKey(ignore: true) final Curve fadeCurve,
+      @ignoreJson final Curve waveCurve,
+      @ignoreJson final Curve fadeCurve,
       final int fallMinSec,
-      final int fallMaxSec}) = _$_SnowflakeConfig;
+      final int fallMaxSec}) = _$SnowflakeConfigImpl;
 
   factory _SnowflakeConfig.fromJson(Map<String, dynamic> json) =
-      _$_SnowflakeConfig.fromJson;
+      _$SnowflakeConfigImpl.fromJson;
 
   @override
 
@@ -967,13 +969,13 @@ abstract class _SnowflakeConfig implements SnowConfig {
   @override
 
   /// Snowflake icon. You can use a custom widget [widgetSnowflake].
-  @JsonKey(ignore: true)
+  @ignoreJson
   IconData get icon;
   @override
 
   /// Specify the snowflake widget. In this case, the fields [sizeSnowflake],
   /// [snowColor] and [iconDataSnowflake] be ignored.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Widget? get widgetSnowflake;
   @override
 
@@ -1010,13 +1012,13 @@ abstract class _SnowflakeConfig implements SnowConfig {
   @override
 
   /// An parametric animation easing curve. Specify to create a wave effect.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get waveCurve;
   @override
 
   /// An parametric animation easing curve. Specify how fast the snowflakes will
   /// disappear.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get fadeCurve;
   @override
 
@@ -1028,7 +1030,7 @@ abstract class _SnowflakeConfig implements SnowConfig {
   int get fallMaxSec;
   @override
   @JsonKey(ignore: true)
-  _$$_SnowflakeConfigCopyWith<_$_SnowflakeConfig> get copyWith =>
+  _$$SnowflakeConfigImplCopyWith<_$SnowflakeConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1045,12 +1047,12 @@ mixin _$CloudConfig {
   Color get color => throw _privateConstructorUsedError;
 
   /// Cloud icon. You can use a custom widget [widgetCloud].
-  @JsonKey(ignore: true)
+  @ignoreJson
   IconData get icon => throw _privateConstructorUsedError;
 
   /// Specify the cloud widget. In this case, the fields [icon] and
   /// [color] be ignored.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Widget? get widgetCloud => throw _privateConstructorUsedError;
 
   /// The coordinate of cloud displacement along the x-axis (in pixels).
@@ -1066,7 +1068,7 @@ mixin _$CloudConfig {
   double get scaleEnd => throw _privateConstructorUsedError;
 
   /// Animation curve for [ScaleTransition].
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get scaleCurve => throw _privateConstructorUsedError;
 
   /// Offset of the widget along the X-axis during the slide animation (in pixels).
@@ -1079,7 +1081,7 @@ mixin _$CloudConfig {
   int get slideDurMill => throw _privateConstructorUsedError;
 
   /// Animation curve for [SlideTransition].
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get slideCurve => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1097,17 +1099,17 @@ abstract class $CloudConfigCopyWith<$Res> {
   $Res call(
       {double size,
       Color color,
-      @JsonKey(ignore: true) IconData icon,
-      @JsonKey(ignore: true) Widget? widgetCloud,
+      @ignoreJson IconData icon,
+      @ignoreJson Widget? widgetCloud,
       double x,
       double y,
       double scaleBegin,
       double scaleEnd,
-      @JsonKey(ignore: true) Curve scaleCurve,
+      @ignoreJson Curve scaleCurve,
       double slideX,
       double slideY,
       int slideDurMill,
-      @JsonKey(ignore: true) Curve slideCurve});
+      @ignoreJson Curve slideCurve});
 }
 
 /// @nodoc
@@ -1195,35 +1197,35 @@ class _$CloudConfigCopyWithImpl<$Res, $Val extends CloudConfig>
 }
 
 /// @nodoc
-abstract class _$$_CloudConfigCopyWith<$Res>
+abstract class _$$CloudConfigImplCopyWith<$Res>
     implements $CloudConfigCopyWith<$Res> {
-  factory _$$_CloudConfigCopyWith(
-          _$_CloudConfig value, $Res Function(_$_CloudConfig) then) =
-      __$$_CloudConfigCopyWithImpl<$Res>;
+  factory _$$CloudConfigImplCopyWith(
+          _$CloudConfigImpl value, $Res Function(_$CloudConfigImpl) then) =
+      __$$CloudConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {double size,
       Color color,
-      @JsonKey(ignore: true) IconData icon,
-      @JsonKey(ignore: true) Widget? widgetCloud,
+      @ignoreJson IconData icon,
+      @ignoreJson Widget? widgetCloud,
       double x,
       double y,
       double scaleBegin,
       double scaleEnd,
-      @JsonKey(ignore: true) Curve scaleCurve,
+      @ignoreJson Curve scaleCurve,
       double slideX,
       double slideY,
       int slideDurMill,
-      @JsonKey(ignore: true) Curve slideCurve});
+      @ignoreJson Curve slideCurve});
 }
 
 /// @nodoc
-class __$$_CloudConfigCopyWithImpl<$Res>
-    extends _$CloudConfigCopyWithImpl<$Res, _$_CloudConfig>
-    implements _$$_CloudConfigCopyWith<$Res> {
-  __$$_CloudConfigCopyWithImpl(
-      _$_CloudConfig _value, $Res Function(_$_CloudConfig) _then)
+class __$$CloudConfigImplCopyWithImpl<$Res>
+    extends _$CloudConfigCopyWithImpl<$Res, _$CloudConfigImpl>
+    implements _$$CloudConfigImplCopyWith<$Res> {
+  __$$CloudConfigImplCopyWithImpl(
+      _$CloudConfigImpl _value, $Res Function(_$CloudConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1243,7 +1245,7 @@ class __$$_CloudConfigCopyWithImpl<$Res>
     Object? slideDurMill = null,
     Object? slideCurve = null,
   }) {
-    return _then(_$_CloudConfig(
+    return _then(_$CloudConfigImpl(
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -1303,24 +1305,24 @@ class __$$_CloudConfigCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(converters: [ColorSerializer()])
-class _$_CloudConfig implements _CloudConfig {
-  const _$_CloudConfig(
+class _$CloudConfigImpl implements _CloudConfig {
+  const _$CloudConfigImpl(
       {this.size = 250.0,
       this.color = const Color.fromARGB(170, 255, 255, 255),
-      @JsonKey(ignore: true) this.icon = Icons.cloud_rounded,
-      @JsonKey(ignore: true) this.widgetCloud,
+      @ignoreJson this.icon = Icons.cloud_rounded,
+      @ignoreJson this.widgetCloud,
       this.x = 70.0,
       this.y = 5.0,
       this.scaleBegin = 1.0,
       this.scaleEnd = 1.1,
-      @JsonKey(ignore: true) this.scaleCurve = Curves.fastOutSlowIn,
+      @ignoreJson this.scaleCurve = Curves.fastOutSlowIn,
       this.slideX = 11.0,
       this.slideY = 5.0,
       this.slideDurMill = 2000,
-      @JsonKey(ignore: true) this.slideCurve = Curves.fastOutSlowIn});
+      @ignoreJson this.slideCurve = Curves.fastOutSlowIn});
 
-  factory _$_CloudConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_CloudConfigFromJson(json);
+  factory _$CloudConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CloudConfigImplFromJson(json);
 
   /// Cloud size.
   @override
@@ -1334,13 +1336,13 @@ class _$_CloudConfig implements _CloudConfig {
 
   /// Cloud icon. You can use a custom widget [widgetCloud].
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final IconData icon;
 
   /// Specify the cloud widget. In this case, the fields [icon] and
   /// [color] be ignored.
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Widget? widgetCloud;
 
   /// The coordinate of cloud displacement along the x-axis (in pixels).
@@ -1365,7 +1367,7 @@ class _$_CloudConfig implements _CloudConfig {
 
   /// Animation curve for [ScaleTransition].
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Curve scaleCurve;
 
   /// Offset of the widget along the X-axis during the slide animation (in pixels).
@@ -1385,7 +1387,7 @@ class _$_CloudConfig implements _CloudConfig {
 
   /// Animation curve for [SlideTransition].
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Curve slideCurve;
 
   @override
@@ -1397,7 +1399,7 @@ class _$_CloudConfig implements _CloudConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CloudConfig &&
+            other is _$CloudConfigImpl &&
             (identical(other.size, size) || other.size == size) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.icon, icon) || other.icon == icon) &&
@@ -1440,12 +1442,12 @@ class _$_CloudConfig implements _CloudConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CloudConfigCopyWith<_$_CloudConfig> get copyWith =>
-      __$$_CloudConfigCopyWithImpl<_$_CloudConfig>(this, _$identity);
+  _$$CloudConfigImplCopyWith<_$CloudConfigImpl> get copyWith =>
+      __$$CloudConfigImplCopyWithImpl<_$CloudConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CloudConfigToJson(
+    return _$$CloudConfigImplToJson(
       this,
     );
   }
@@ -1455,20 +1457,20 @@ abstract class _CloudConfig implements CloudConfig {
   const factory _CloudConfig(
       {final double size,
       final Color color,
-      @JsonKey(ignore: true) final IconData icon,
-      @JsonKey(ignore: true) final Widget? widgetCloud,
+      @ignoreJson final IconData icon,
+      @ignoreJson final Widget? widgetCloud,
       final double x,
       final double y,
       final double scaleBegin,
       final double scaleEnd,
-      @JsonKey(ignore: true) final Curve scaleCurve,
+      @ignoreJson final Curve scaleCurve,
       final double slideX,
       final double slideY,
       final int slideDurMill,
-      @JsonKey(ignore: true) final Curve slideCurve}) = _$_CloudConfig;
+      @ignoreJson final Curve slideCurve}) = _$CloudConfigImpl;
 
   factory _CloudConfig.fromJson(Map<String, dynamic> json) =
-      _$_CloudConfig.fromJson;
+      _$CloudConfigImpl.fromJson;
 
   @override
 
@@ -1481,13 +1483,13 @@ abstract class _CloudConfig implements CloudConfig {
   @override
 
   /// Cloud icon. You can use a custom widget [widgetCloud].
-  @JsonKey(ignore: true)
+  @ignoreJson
   IconData get icon;
   @override
 
   /// Specify the cloud widget. In this case, the fields [icon] and
   /// [color] be ignored.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Widget? get widgetCloud;
   @override
 
@@ -1508,7 +1510,7 @@ abstract class _CloudConfig implements CloudConfig {
   @override
 
   /// Animation curve for [ScaleTransition].
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get scaleCurve;
   @override
 
@@ -1525,11 +1527,11 @@ abstract class _CloudConfig implements CloudConfig {
   @override
 
   /// Animation curve for [SlideTransition].
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get slideCurve;
   @override
   @JsonKey(ignore: true)
-  _$$_CloudConfigCopyWith<_$_CloudConfig> get copyWith =>
+  _$$CloudConfigImplCopyWith<_$CloudConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1556,7 +1558,7 @@ mixin _$RainConfig {
 
   /// Specify the cloud widget. In this case, the fields [count] and
   /// [color], [lengthDrop], [widthDrop], and []  be ignored.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Widget? get widgetRainDrop => throw _privateConstructorUsedError;
 
   /// Minimum duration time of the fall effect (in milliseconds).
@@ -1587,11 +1589,11 @@ mixin _$RainConfig {
   int get slideDurMill => throw _privateConstructorUsedError;
 
   /// Animation curve for [SlideTransition].
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get slideCurve => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get fallCurve => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get fadeCurve => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1612,7 +1614,7 @@ abstract class $RainConfigCopyWith<$Res> {
       double widthDrop,
       Color color,
       bool isRoundedEndsDrop,
-      @JsonKey(ignore: true) Widget? widgetRainDrop,
+      @ignoreJson Widget? widgetRainDrop,
       int fallRangeMinDurMill,
       int fallRangeMaxDurMill,
       double areaXStart,
@@ -1622,9 +1624,9 @@ abstract class $RainConfigCopyWith<$Res> {
       double slideX,
       double slideY,
       int slideDurMill,
-      @JsonKey(ignore: true) Curve slideCurve,
-      @JsonKey(ignore: true) Curve fallCurve,
-      @JsonKey(ignore: true) Curve fadeCurve});
+      @ignoreJson Curve slideCurve,
+      @ignoreJson Curve fallCurve,
+      @ignoreJson Curve fadeCurve});
 }
 
 /// @nodoc
@@ -1737,11 +1739,11 @@ class _$RainConfigCopyWithImpl<$Res, $Val extends RainConfig>
 }
 
 /// @nodoc
-abstract class _$$_RainConfigCopyWith<$Res>
+abstract class _$$RainConfigImplCopyWith<$Res>
     implements $RainConfigCopyWith<$Res> {
-  factory _$$_RainConfigCopyWith(
-          _$_RainConfig value, $Res Function(_$_RainConfig) then) =
-      __$$_RainConfigCopyWithImpl<$Res>;
+  factory _$$RainConfigImplCopyWith(
+          _$RainConfigImpl value, $Res Function(_$RainConfigImpl) then) =
+      __$$RainConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1750,7 +1752,7 @@ abstract class _$$_RainConfigCopyWith<$Res>
       double widthDrop,
       Color color,
       bool isRoundedEndsDrop,
-      @JsonKey(ignore: true) Widget? widgetRainDrop,
+      @ignoreJson Widget? widgetRainDrop,
       int fallRangeMinDurMill,
       int fallRangeMaxDurMill,
       double areaXStart,
@@ -1760,17 +1762,17 @@ abstract class _$$_RainConfigCopyWith<$Res>
       double slideX,
       double slideY,
       int slideDurMill,
-      @JsonKey(ignore: true) Curve slideCurve,
-      @JsonKey(ignore: true) Curve fallCurve,
-      @JsonKey(ignore: true) Curve fadeCurve});
+      @ignoreJson Curve slideCurve,
+      @ignoreJson Curve fallCurve,
+      @ignoreJson Curve fadeCurve});
 }
 
 /// @nodoc
-class __$$_RainConfigCopyWithImpl<$Res>
-    extends _$RainConfigCopyWithImpl<$Res, _$_RainConfig>
-    implements _$$_RainConfigCopyWith<$Res> {
-  __$$_RainConfigCopyWithImpl(
-      _$_RainConfig _value, $Res Function(_$_RainConfig) _then)
+class __$$RainConfigImplCopyWithImpl<$Res>
+    extends _$RainConfigCopyWithImpl<$Res, _$RainConfigImpl>
+    implements _$$RainConfigImplCopyWith<$Res> {
+  __$$RainConfigImplCopyWithImpl(
+      _$RainConfigImpl _value, $Res Function(_$RainConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1795,7 +1797,7 @@ class __$$_RainConfigCopyWithImpl<$Res>
     Object? fallCurve = null,
     Object? fadeCurve = null,
   }) {
-    return _then(_$_RainConfig(
+    return _then(_$RainConfigImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -1875,14 +1877,14 @@ class __$$_RainConfigCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(converters: [ColorSerializer()])
-class _$_RainConfig implements _RainConfig {
-  const _$_RainConfig(
+class _$RainConfigImpl implements _RainConfig {
+  const _$RainConfigImpl(
       {this.count = 10,
       this.lengthDrop = 12.0,
       this.widthDrop = 4.0,
       this.color = const Color.fromARGB(153, 120, 144, 156),
       this.isRoundedEndsDrop = true,
-      @JsonKey(ignore: true) this.widgetRainDrop,
+      @ignoreJson this.widgetRainDrop,
       this.fallRangeMinDurMill = 500,
       this.fallRangeMaxDurMill = 1500,
       this.areaXStart = 120.0,
@@ -1892,12 +1894,12 @@ class _$_RainConfig implements _RainConfig {
       this.slideX = 2.0,
       this.slideY = 0.0,
       this.slideDurMill = 2000,
-      @JsonKey(ignore: true) this.slideCurve = Curves.fastOutSlowIn,
-      @JsonKey(ignore: true) this.fallCurve = Curves.easeInQuad,
-      @JsonKey(ignore: true) this.fadeCurve = Curves.easeInExpo});
+      @ignoreJson this.slideCurve = Curves.fastOutSlowIn,
+      @ignoreJson this.fallCurve = Curves.easeInQuad,
+      @ignoreJson this.fadeCurve = Curves.easeInExpo});
 
-  factory _$_RainConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_RainConfigFromJson(json);
+  factory _$RainConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RainConfigImplFromJson(json);
 
   /// The number of raindrops.
   @override
@@ -1927,7 +1929,7 @@ class _$_RainConfig implements _RainConfig {
   /// Specify the cloud widget. In this case, the fields [count] and
   /// [color], [lengthDrop], [widthDrop], and []  be ignored.
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Widget? widgetRainDrop;
 
   /// Minimum duration time of the fall effect (in milliseconds).
@@ -1977,13 +1979,13 @@ class _$_RainConfig implements _RainConfig {
 
   /// Animation curve for [SlideTransition].
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Curve slideCurve;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Curve fallCurve;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final Curve fadeCurve;
 
   @override
@@ -1995,7 +1997,7 @@ class _$_RainConfig implements _RainConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RainConfig &&
+            other is _$RainConfigImpl &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.lengthDrop, lengthDrop) ||
                 other.lengthDrop == lengthDrop) &&
@@ -2056,12 +2058,12 @@ class _$_RainConfig implements _RainConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RainConfigCopyWith<_$_RainConfig> get copyWith =>
-      __$$_RainConfigCopyWithImpl<_$_RainConfig>(this, _$identity);
+  _$$RainConfigImplCopyWith<_$RainConfigImpl> get copyWith =>
+      __$$RainConfigImplCopyWithImpl<_$RainConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RainConfigToJson(
+    return _$$RainConfigImplToJson(
       this,
     );
   }
@@ -2074,7 +2076,7 @@ abstract class _RainConfig implements RainConfig {
       final double widthDrop,
       final Color color,
       final bool isRoundedEndsDrop,
-      @JsonKey(ignore: true) final Widget? widgetRainDrop,
+      @ignoreJson final Widget? widgetRainDrop,
       final int fallRangeMinDurMill,
       final int fallRangeMaxDurMill,
       final double areaXStart,
@@ -2084,12 +2086,12 @@ abstract class _RainConfig implements RainConfig {
       final double slideX,
       final double slideY,
       final int slideDurMill,
-      @JsonKey(ignore: true) final Curve slideCurve,
-      @JsonKey(ignore: true) final Curve fallCurve,
-      @JsonKey(ignore: true) final Curve fadeCurve}) = _$_RainConfig;
+      @ignoreJson final Curve slideCurve,
+      @ignoreJson final Curve fallCurve,
+      @ignoreJson final Curve fadeCurve}) = _$RainConfigImpl;
 
   factory _RainConfig.fromJson(Map<String, dynamic> json) =
-      _$_RainConfig.fromJson;
+      _$RainConfigImpl.fromJson;
 
   @override
 
@@ -2115,7 +2117,7 @@ abstract class _RainConfig implements RainConfig {
 
   /// Specify the cloud widget. In this case, the fields [count] and
   /// [color], [lengthDrop], [widthDrop], and []  be ignored.
-  @JsonKey(ignore: true)
+  @ignoreJson
   Widget? get widgetRainDrop;
   @override
 
@@ -2156,17 +2158,17 @@ abstract class _RainConfig implements RainConfig {
   @override
 
   /// Animation curve for [SlideTransition].
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get slideCurve;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get fallCurve;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   Curve get fadeCurve;
   @override
   @JsonKey(ignore: true)
-  _$$_RainConfigCopyWith<_$_RainConfig> get copyWith =>
+  _$$RainConfigImplCopyWith<_$RainConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2178,14 +2180,14 @@ ThunderConfig _$ThunderConfigFromJson(Map<String, dynamic> json) {
 mixin _$ThunderConfig {
   double get thunderWidth => throw _privateConstructorUsedError;
   double get blurSigma => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+  @ignoreJson
   BlurStyle get blurStyle => throw _privateConstructorUsedError;
   Color get color => throw _privateConstructorUsedError;
   int get flashStartMill => throw _privateConstructorUsedError;
   int get flashEndMill => throw _privateConstructorUsedError;
   int get pauseStartMill => throw _privateConstructorUsedError;
   int get pauseEndMill => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+  @ignoreJson
   List<Offset> get points => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -2203,13 +2205,13 @@ abstract class $ThunderConfigCopyWith<$Res> {
   $Res call(
       {double thunderWidth,
       double blurSigma,
-      @JsonKey(ignore: true) BlurStyle blurStyle,
+      @ignoreJson BlurStyle blurStyle,
       Color color,
       int flashStartMill,
       int flashEndMill,
       int pauseStartMill,
       int pauseEndMill,
-      @JsonKey(ignore: true) List<Offset> points});
+      @ignoreJson List<Offset> points});
 }
 
 /// @nodoc
@@ -2277,31 +2279,31 @@ class _$ThunderConfigCopyWithImpl<$Res, $Val extends ThunderConfig>
 }
 
 /// @nodoc
-abstract class _$$_ThunderConfigCopyWith<$Res>
+abstract class _$$ThunderConfigImplCopyWith<$Res>
     implements $ThunderConfigCopyWith<$Res> {
-  factory _$$_ThunderConfigCopyWith(
-          _$_ThunderConfig value, $Res Function(_$_ThunderConfig) then) =
-      __$$_ThunderConfigCopyWithImpl<$Res>;
+  factory _$$ThunderConfigImplCopyWith(
+          _$ThunderConfigImpl value, $Res Function(_$ThunderConfigImpl) then) =
+      __$$ThunderConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {double thunderWidth,
       double blurSigma,
-      @JsonKey(ignore: true) BlurStyle blurStyle,
+      @ignoreJson BlurStyle blurStyle,
       Color color,
       int flashStartMill,
       int flashEndMill,
       int pauseStartMill,
       int pauseEndMill,
-      @JsonKey(ignore: true) List<Offset> points});
+      @ignoreJson List<Offset> points});
 }
 
 /// @nodoc
-class __$$_ThunderConfigCopyWithImpl<$Res>
-    extends _$ThunderConfigCopyWithImpl<$Res, _$_ThunderConfig>
-    implements _$$_ThunderConfigCopyWith<$Res> {
-  __$$_ThunderConfigCopyWithImpl(
-      _$_ThunderConfig _value, $Res Function(_$_ThunderConfig) _then)
+class __$$ThunderConfigImplCopyWithImpl<$Res>
+    extends _$ThunderConfigCopyWithImpl<$Res, _$ThunderConfigImpl>
+    implements _$$ThunderConfigImplCopyWith<$Res> {
+  __$$ThunderConfigImplCopyWithImpl(
+      _$ThunderConfigImpl _value, $Res Function(_$ThunderConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2317,7 +2319,7 @@ class __$$_ThunderConfigCopyWithImpl<$Res>
     Object? pauseEndMill = null,
     Object? points = null,
   }) {
-    return _then(_$_ThunderConfig(
+    return _then(_$ThunderConfigImpl(
       thunderWidth: null == thunderWidth
           ? _value.thunderWidth
           : thunderWidth // ignore: cast_nullable_to_non_nullable
@@ -2361,24 +2363,22 @@ class __$$_ThunderConfigCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(converters: [ColorSerializer()])
-class _$_ThunderConfig implements _ThunderConfig {
-  const _$_ThunderConfig(
+class _$ThunderConfigImpl implements _ThunderConfig {
+  const _$ThunderConfigImpl(
       {this.thunderWidth = 10.0,
       this.blurSigma = 13.0,
-      @JsonKey(ignore: true) this.blurStyle = BlurStyle.solid,
+      @ignoreJson this.blurStyle = BlurStyle.solid,
       this.color = const Color.fromARGB(153, 255, 238, 88),
       this.flashStartMill = 50,
       this.flashEndMill = 300,
       this.pauseStartMill = 50,
       this.pauseEndMill = 6000,
-      @JsonKey(ignore: true) final List<Offset> points = const [
-        Offset(110, 210),
-        Offset(120, 240)
-      ]})
+      @ignoreJson
+      final List<Offset> points = const [Offset(110, 210), Offset(120, 240)]})
       : _points = points;
 
-  factory _$_ThunderConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_ThunderConfigFromJson(json);
+  factory _$ThunderConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThunderConfigImplFromJson(json);
 
   @override
   @JsonKey()
@@ -2387,7 +2387,7 @@ class _$_ThunderConfig implements _ThunderConfig {
   @JsonKey()
   final double blurSigma;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final BlurStyle blurStyle;
   @override
   @JsonKey()
@@ -2406,8 +2406,9 @@ class _$_ThunderConfig implements _ThunderConfig {
   final int pauseEndMill;
   final List<Offset> _points;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   List<Offset> get points {
+    if (_points is EqualUnmodifiableListView) return _points;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_points);
   }
@@ -2421,7 +2422,7 @@ class _$_ThunderConfig implements _ThunderConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThunderConfig &&
+            other is _$ThunderConfigImpl &&
             (identical(other.thunderWidth, thunderWidth) ||
                 other.thunderWidth == thunderWidth) &&
             (identical(other.blurSigma, blurSigma) ||
@@ -2457,12 +2458,12 @@ class _$_ThunderConfig implements _ThunderConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThunderConfigCopyWith<_$_ThunderConfig> get copyWith =>
-      __$$_ThunderConfigCopyWithImpl<_$_ThunderConfig>(this, _$identity);
+  _$$ThunderConfigImplCopyWith<_$ThunderConfigImpl> get copyWith =>
+      __$$ThunderConfigImplCopyWithImpl<_$ThunderConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThunderConfigToJson(
+    return _$$ThunderConfigImplToJson(
       this,
     );
   }
@@ -2472,23 +2473,23 @@ abstract class _ThunderConfig implements ThunderConfig {
   const factory _ThunderConfig(
       {final double thunderWidth,
       final double blurSigma,
-      @JsonKey(ignore: true) final BlurStyle blurStyle,
+      @ignoreJson final BlurStyle blurStyle,
       final Color color,
       final int flashStartMill,
       final int flashEndMill,
       final int pauseStartMill,
       final int pauseEndMill,
-      @JsonKey(ignore: true) final List<Offset> points}) = _$_ThunderConfig;
+      @ignoreJson final List<Offset> points}) = _$ThunderConfigImpl;
 
   factory _ThunderConfig.fromJson(Map<String, dynamic> json) =
-      _$_ThunderConfig.fromJson;
+      _$ThunderConfigImpl.fromJson;
 
   @override
   double get thunderWidth;
   @override
   double get blurSigma;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   BlurStyle get blurStyle;
   @override
   Color get color;
@@ -2501,11 +2502,11 @@ abstract class _ThunderConfig implements ThunderConfig {
   @override
   int get pauseEndMill;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   List<Offset> get points;
   @override
   @JsonKey(ignore: true)
-  _$$_ThunderConfigCopyWith<_$_ThunderConfig> get copyWith =>
+  _$$ThunderConfigImplCopyWith<_$ThunderConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2525,7 +2526,7 @@ mixin _$WindConfig {
   int get pauseStartMill => throw _privateConstructorUsedError;
   int get pauseEndMill => throw _privateConstructorUsedError;
   int get slideDurMill => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+  @ignoreJson
   BlurStyle get blurStyle => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -2551,7 +2552,7 @@ abstract class $WindConfigCopyWith<$Res> {
       int pauseStartMill,
       int pauseEndMill,
       int slideDurMill,
-      @JsonKey(ignore: true) BlurStyle blurStyle});
+      @ignoreJson BlurStyle blurStyle});
 }
 
 /// @nodoc
@@ -2629,11 +2630,11 @@ class _$WindConfigCopyWithImpl<$Res, $Val extends WindConfig>
 }
 
 /// @nodoc
-abstract class _$$_WindConfigCopyWith<$Res>
+abstract class _$$WindConfigImplCopyWith<$Res>
     implements $WindConfigCopyWith<$Res> {
-  factory _$$_WindConfigCopyWith(
-          _$_WindConfig value, $Res Function(_$_WindConfig) then) =
-      __$$_WindConfigCopyWithImpl<$Res>;
+  factory _$$WindConfigImplCopyWith(
+          _$WindConfigImpl value, $Res Function(_$WindConfigImpl) then) =
+      __$$WindConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2647,15 +2648,15 @@ abstract class _$$_WindConfigCopyWith<$Res>
       int pauseStartMill,
       int pauseEndMill,
       int slideDurMill,
-      @JsonKey(ignore: true) BlurStyle blurStyle});
+      @ignoreJson BlurStyle blurStyle});
 }
 
 /// @nodoc
-class __$$_WindConfigCopyWithImpl<$Res>
-    extends _$WindConfigCopyWithImpl<$Res, _$_WindConfig>
-    implements _$$_WindConfigCopyWith<$Res> {
-  __$$_WindConfigCopyWithImpl(
-      _$_WindConfig _value, $Res Function(_$_WindConfig) _then)
+class __$$WindConfigImplCopyWithImpl<$Res>
+    extends _$WindConfigCopyWithImpl<$Res, _$WindConfigImpl>
+    implements _$$WindConfigImplCopyWith<$Res> {
+  __$$WindConfigImplCopyWithImpl(
+      _$WindConfigImpl _value, $Res Function(_$WindConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2673,7 +2674,7 @@ class __$$_WindConfigCopyWithImpl<$Res>
     Object? slideDurMill = null,
     Object? blurStyle = null,
   }) {
-    return _then(_$_WindConfig(
+    return _then(_$WindConfigImpl(
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -2725,8 +2726,8 @@ class __$$_WindConfigCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(converters: [ColorSerializer()])
-class _$_WindConfig implements _WindConfig {
-  const _$_WindConfig(
+class _$WindConfigImpl implements _WindConfig {
+  const _$WindConfigImpl(
       {this.width = 6.0,
       this.y = 300.0,
       this.windGap = 14.0,
@@ -2737,10 +2738,10 @@ class _$_WindConfig implements _WindConfig {
       this.pauseStartMill = 50,
       this.pauseEndMill = 6000,
       this.slideDurMill = 1000,
-      @JsonKey(ignore: true) this.blurStyle = BlurStyle.solid});
+      @ignoreJson this.blurStyle = BlurStyle.solid});
 
-  factory _$_WindConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_WindConfigFromJson(json);
+  factory _$WindConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WindConfigImplFromJson(json);
 
   @override
   @JsonKey()
@@ -2773,7 +2774,7 @@ class _$_WindConfig implements _WindConfig {
   @JsonKey()
   final int slideDurMill;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   final BlurStyle blurStyle;
 
   @override
@@ -2785,7 +2786,7 @@ class _$_WindConfig implements _WindConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WindConfig &&
+            other is _$WindConfigImpl &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.y, y) || other.y == y) &&
             (identical(other.windGap, windGap) || other.windGap == windGap) &&
@@ -2825,12 +2826,12 @@ class _$_WindConfig implements _WindConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WindConfigCopyWith<_$_WindConfig> get copyWith =>
-      __$$_WindConfigCopyWithImpl<_$_WindConfig>(this, _$identity);
+  _$$WindConfigImplCopyWith<_$WindConfigImpl> get copyWith =>
+      __$$WindConfigImplCopyWithImpl<_$WindConfigImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WindConfigToJson(
+    return _$$WindConfigImplToJson(
       this,
     );
   }
@@ -2848,10 +2849,10 @@ abstract class _WindConfig implements WindConfig {
       final int pauseStartMill,
       final int pauseEndMill,
       final int slideDurMill,
-      @JsonKey(ignore: true) final BlurStyle blurStyle}) = _$_WindConfig;
+      @ignoreJson final BlurStyle blurStyle}) = _$WindConfigImpl;
 
   factory _WindConfig.fromJson(Map<String, dynamic> json) =
-      _$_WindConfig.fromJson;
+      _$WindConfigImpl.fromJson;
 
   @override
   double get width;
@@ -2874,10 +2875,10 @@ abstract class _WindConfig implements WindConfig {
   @override
   int get slideDurMill;
   @override
-  @JsonKey(ignore: true)
+  @ignoreJson
   BlurStyle get blurStyle;
   @override
   @JsonKey(ignore: true)
-  _$$_WindConfigCopyWith<_$_WindConfig> get copyWith =>
+  _$$WindConfigImplCopyWith<_$WindConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

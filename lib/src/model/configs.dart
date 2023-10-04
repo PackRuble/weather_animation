@@ -4,8 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'configs.freezed.dart';
 part 'configs.g.dart';
 
-// ignore_for_file: invalid_annotation_target
-
 // After editing this file, run the script:
 // ```shell
 // flutter pub run build_runner build
@@ -13,6 +11,8 @@ part 'configs.g.dart';
 //
 // The `configs.freezed.dart` and `configs.g.dart` files should be version controlled
 // and should not be manually edited.
+
+const ignoreJson = JsonKey(includeToJson: false, includeFromJson: false);
 
 /// Convert [Color] to/from json.
 class ColorSerializer implements JsonConverter<Color, String> {
@@ -49,7 +49,7 @@ class SunConfig extends WeatherConfig with _$SunConfig {
     @Default(13.0) double blurSigma,
 
     /// The style argument controls the kind of effect to draw; see BlurStyle.
-    @JsonKey(ignore: true) @Default(BlurStyle.solid) BlurStyle blurStyle,
+    @ignoreJson @Default(BlurStyle.solid) BlurStyle blurStyle,
 
     /// The location of the sun on the screen. By default, the top left corner.
     /// Otherwise right.
@@ -93,11 +93,11 @@ class SnowConfig extends WeatherConfig with _$SnowConfig {
     @Default(Color.fromARGB(179, 255, 255, 255)) Color color,
 
     /// Snowflake icon. You can use a custom widget [widgetSnowflake].
-    @JsonKey(ignore: true) @Default(Icons.ac_unit_rounded) IconData icon,
+    @ignoreJson @Default(Icons.ac_unit_rounded) IconData icon,
 
     /// Specify the snowflake widget. In this case, the fields [sizeSnowflake],
     /// [snowColor] and [iconDataSnowflake] be ignored.
-    @JsonKey(ignore: true) Widget? widgetSnowflake,
+    @ignoreJson Widget? widgetSnowflake,
 
     /// The X-axis zone where the snowflakes start to fall (in pixels).
     @Default(90.0) double areaXStart,
@@ -124,11 +124,11 @@ class SnowConfig extends WeatherConfig with _$SnowConfig {
     @Default(20) int waveMaxSec,
 
     /// An parametric animation easing curve. Specify to create a wave effect.
-    @Default(Curves.easeInOutSine) @JsonKey(ignore: true) Curve waveCurve,
+    @Default(Curves.easeInOutSine) @ignoreJson Curve waveCurve,
 
     /// An parametric animation easing curve. Specify how fast the snowflakes will
     /// disappear.
-    @Default(Curves.easeInCirc) @JsonKey(ignore: true) Curve fadeCurve,
+    @Default(Curves.easeInCirc) @ignoreJson Curve fadeCurve,
 
     /// Minimum snowflake fall time (in seconds).
     @Default(10) int fallMinSec,
@@ -153,11 +153,11 @@ class CloudConfig extends WeatherConfig with _$CloudConfig {
     @Default(Color.fromARGB(170, 255, 255, 255)) Color color,
 
     /// Cloud icon. You can use a custom widget [widgetCloud].
-    @Default(Icons.cloud_rounded) @JsonKey(ignore: true) IconData icon,
+    @Default(Icons.cloud_rounded) @ignoreJson IconData icon,
 
     /// Specify the cloud widget. In this case, the fields [icon] and
     /// [color] be ignored.
-    @JsonKey(ignore: true) Widget? widgetCloud,
+    @ignoreJson Widget? widgetCloud,
 
     /// The coordinate of cloud displacement along the x-axis (in pixels).
     @Default(70.0) double x,
@@ -172,7 +172,7 @@ class CloudConfig extends WeatherConfig with _$CloudConfig {
     @Default(1.1) double scaleEnd,
 
     /// Animation curve for [ScaleTransition].
-    @Default(Curves.fastOutSlowIn) @JsonKey(ignore: true) Curve scaleCurve,
+    @Default(Curves.fastOutSlowIn) @ignoreJson Curve scaleCurve,
 
     /// Offset of the widget along the X-axis during the slide animation (in pixels).
     @Default(11.0) double slideX,
@@ -184,7 +184,7 @@ class CloudConfig extends WeatherConfig with _$CloudConfig {
     @Default(2000) int slideDurMill,
 
     /// Animation curve for [SlideTransition].
-    @Default(Curves.fastOutSlowIn) @JsonKey(ignore: true) Curve slideCurve,
+    @Default(Curves.fastOutSlowIn) @ignoreJson Curve slideCurve,
   }) = _CloudConfig;
 
   factory CloudConfig.fromJson(Map<String, dynamic> json) =>
@@ -213,7 +213,7 @@ class RainConfig extends WeatherConfig with _$RainConfig {
 
     /// Specify the cloud widget. In this case, the fields [count] and
     /// [color], [lengthDrop], [widthDrop], and []  be ignored.
-    @JsonKey(ignore: true) Widget? widgetRainDrop,
+    @ignoreJson Widget? widgetRainDrop,
 
     /// Minimum duration time of the fall effect (in milliseconds).
     @Default(500) int fallRangeMinDurMill,
@@ -243,9 +243,9 @@ class RainConfig extends WeatherConfig with _$RainConfig {
     @Default(2000) int slideDurMill,
 
     /// Animation curve for [SlideTransition].
-    @Default(Curves.fastOutSlowIn) @JsonKey(ignore: true) Curve slideCurve,
-    @Default(Curves.easeInQuad) @JsonKey(ignore: true) Curve fallCurve,
-    @Default(Curves.easeInExpo) @JsonKey(ignore: true) Curve fadeCurve,
+    @Default(Curves.fastOutSlowIn) @ignoreJson Curve slideCurve,
+    @Default(Curves.easeInQuad) @ignoreJson Curve fallCurve,
+    @Default(Curves.easeInExpo) @ignoreJson Curve fadeCurve,
   }) = _RainConfig;
 
   factory RainConfig.fromJson(Map<String, dynamic> json) =>
@@ -259,15 +259,15 @@ class ThunderConfig extends WeatherConfig with _$ThunderConfig {
   const factory ThunderConfig({
     @Default(10.0) double thunderWidth,
     @Default(13.0) double blurSigma,
-    @Default(BlurStyle.solid) @JsonKey(ignore: true) BlurStyle blurStyle,
+    @Default(BlurStyle.solid) @ignoreJson BlurStyle blurStyle,
     @Default(Color.fromARGB(153, 255, 238, 88)) Color color,
     @Default(50) int flashStartMill,
     @Default(300) int flashEndMill,
     @Default(50) int pauseStartMill,
     @Default(6000) int pauseEndMill,
     @Default([Offset(110, 210), Offset(120, 240)])
-    @JsonKey(ignore: true)
-        List<Offset> points,
+    @ignoreJson
+    List<Offset> points,
   }) = _ThunderConfig;
 
   factory ThunderConfig.fromJson(Map<String, dynamic> json) =>
@@ -289,7 +289,7 @@ class WindConfig extends WeatherConfig with _$WindConfig {
     @Default(50) int pauseStartMill,
     @Default(6000) int pauseEndMill,
     @Default(1000) int slideDurMill,
-    @Default(BlurStyle.solid) @JsonKey(ignore: true) BlurStyle blurStyle,
+    @Default(BlurStyle.solid) @ignoreJson BlurStyle blurStyle,
   }) = _WindConfig;
 
   factory WindConfig.fromJson(Map<String, dynamic> json) =>
