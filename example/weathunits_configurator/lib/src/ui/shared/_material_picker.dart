@@ -5,10 +5,15 @@
 // Original repository:
 // https://github.com/mchome/flutter_colorpicker
 
+// ignore_for_file: prefer_final_locals, prefer_final_in_for_each, require_trailing_commas, no_leading_underscores_for_local_identifiers, prefer_if_elements_to_conditional_expressions, curly_braces_in_flow_control_structures, avoid_redundant_argument_values, unnecessary_parenthesis
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart'
     show useWhiteForeground;
+
+export 'package:flutter_colorpicker/flutter_colorpicker.dart'
+    show ColorPickerSlider, TrackType;
 
 // The Color Picker which contains Material Design Color Palette.
 class MaterialPicker extends StatefulWidget {
@@ -153,7 +158,7 @@ class _MaterialPickerState extends State<MaterialPicker> {
                   return GestureDetector(
                     onTap: () {
                       if (widget.onPrimaryChanged != null)
-                        widget.onPrimaryChanged!(_colorType);
+                        widget.onPrimaryChanged!.call(_colorType);
                       setState(() => _currentColorType = _colors);
                     },
                     child: Container(

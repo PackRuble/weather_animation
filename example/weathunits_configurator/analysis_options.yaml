@@ -1,5 +1,5 @@
 
-include: package:lint/analysis_options.yaml
+include: package:lint/strict.yaml
 
 linter:
   # Instead of disabling a lint rule it can also be suppressed:
@@ -9,6 +9,7 @@ linter:
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
 
+    require_trailing_commas: false
     avoid_relative_lib_imports: false
     always_use_package_imports: false
     use_super_parameters: false

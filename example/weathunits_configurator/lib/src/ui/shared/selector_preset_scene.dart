@@ -45,7 +45,7 @@ class PresetScenesDropButton extends ConsumerWidget {
           }
 
           return [
-            for (var item in allScenes) wrap(item.name),
+            for (final item in allScenes) wrap(item.name),
             wrap('empty'),
           ];
         },

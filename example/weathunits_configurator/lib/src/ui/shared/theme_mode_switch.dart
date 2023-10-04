@@ -22,6 +22,7 @@ class ThemeModeSwitch extends ConsumerWidget {
 
 class _ThemeModeSwitch extends StatelessWidget {
   const _ThemeModeSwitch({
+    // ignore: unused_element
     super.key,
     required this.themeMode,
     required this.onChanged,

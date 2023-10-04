@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart'
-    show ColorPickerSlider, TrackType;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '_material_picker.dart';
@@ -32,8 +30,6 @@ class _ColorPickerWidgetState extends ConsumerState<ColorPickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
@@ -48,6 +44,7 @@ class _ColorPickerWidgetState extends ConsumerState<ColorPickerWidget> {
                 width: constr.maxWidth - 8,
                 child: ColorPickerSlider(
                   displayThumbColor: true,
+                  // ignore: avoid_redundant_argument_values
                   fullThumbColor: false,
                   TrackType.alpha,
                   HSVColor.fromColor(pickerColor),

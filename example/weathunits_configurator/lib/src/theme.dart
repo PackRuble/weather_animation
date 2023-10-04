@@ -15,6 +15,7 @@ class AppTheme {
   );
   static final darkTheme = FlexThemeData.dark(
     colors: FlexColor.schemes[FlexScheme.amber]!.light.defaultError
+        // ignore: avoid_redundant_argument_values
         .toDark(10, false),
     surfaceMode: FlexSurfaceMode.highScaffoldLevelSurface,
     blendLevel: 10,

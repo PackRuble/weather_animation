@@ -20,6 +20,7 @@ class BackgroundColorsNotifier extends StateNotifier<List<Color>> {
   BackgroundColorsNotifier(this._ref)
       : super(_ref.watch(MainController.selectedWidgetScene)?.colors ?? []);
 
+  // ignore: unused_field
   final Ref _ref;
 
   static final isLeftCornerGradient = StateProvider<bool>((ref) =>

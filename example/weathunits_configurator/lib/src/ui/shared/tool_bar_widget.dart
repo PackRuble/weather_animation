@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weathunits_configurator/src/ui/about/about_widget.dart';
 
 import '../../controllers/main_controller.dart';
 import '../../utils/code_generator.dart';
@@ -25,25 +26,27 @@ class ToolBarWidget extends ConsumerWidget {
             PointerDeviceKind.mouse,
           },
         ),
-        child: SingleChildScrollView(
+        child: const SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.all(4.0),
+          padding: EdgeInsets.all(4.0),
           child: Row(
             children: [
-              const SizedBox(width: 4.0),
+              SizedBox(width: 4.0),
               CContainer(
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     _CopyCodeButton(),
                     _FullscreenButton(),
                     _UpdateForceButton(),
                   ],
                 ),
               ),
-              const SizedBox(width: 8.0),
-              const CContainer(child: ThemeModeSwitch()),
-              const SizedBox(width: 4.0),
+              SizedBox(width: 8.0),
+              CContainer(child: AboutButton()),
+              SizedBox(width: 8.0),
+              CContainer(child: ThemeModeSwitch()),
+              SizedBox(width: 4.0),
             ],
           ),
         ),
@@ -59,14 +62,16 @@ class _FullscreenButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final onFullScreen = ref.watch(MainController.onFullScreen.state);
+    final onFullScreen = ref.watch(MainController.onFullScreen);
 
     return CTooltip(
       message: 'Expand/Collapse to full screen',
       child: IconButton(
-        onPressed: () => onFullScreen.update((state) => !state),
+        onPressed: () => ref
+            .read(MainController.onFullScreen.notifier)
+            .update((state) => !state),
         icon: Icon(
-          onFullScreen.state
+          onFullScreen
               ? Icons.close_fullscreen_rounded
               : Icons.open_in_full_rounded,
         ),

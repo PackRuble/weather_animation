@@ -52,9 +52,9 @@ String getCode(WidgetRef ref) {
     sizeCanvas: Size($width, $height),
     isLeftCornerGradient: $isLeftCornerGradient,
     colors: [
-      ${colorsList.toString()}],
+      $colorsList],
     children: [
-      ${unitsList.toString()}],
+      $unitsList],
   );
   ''';
 

@@ -1,5 +1,6 @@
 // Copy this code into your project and run
 
+import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:weather_animation/weather_animation.dart';
 
@@ -23,10 +24,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // If you want to see each scene separately
+    // return const AllScenes();
     return Scaffold(
       body: Row(
         children: [
-          for (var w in WeatherScene.values)
+          for (final w in WeatherScene.values)
             Flexible(
               child: Column(
                 children: [
@@ -36,6 +39,28 @@ class HomePage extends StatelessWidget {
               ),
             )
         ],
+      ),
+    );
+  }
+}
+
+// ignore_for_file: unreachable_from_main
+class AllScenes extends StatelessWidget {
+  const AllScenes({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          dragDevices: {
+            PointerDeviceKind.touch,
+            PointerDeviceKind.mouse,
+          },
+        ),
+        child: PageView(
+          children: WeatherScene.values.map((e) => e.getWeather()).toList(),
+        ),
       ),
     );
   }

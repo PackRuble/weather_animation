@@ -15,9 +15,9 @@ class SceneSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
+    return const Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Flexible(
           child: Padding(
             padding: EdgeInsets.all(6.0),
@@ -61,12 +61,12 @@ class _WeathersOnScene extends ConsumerWidget {
               border: isBeyondCanvas
                   ? Border.all(
                       color: Colors.red,
-                      strokeAlign: StrokeAlign.outside,
+                      strokeAlign: BorderSide.strokeAlignOutside,
                       width: 4.0,
                     )
                   : Border.all(
                       width: 0.5,
-                      strokeAlign: StrokeAlign.outside,
+                      strokeAlign: BorderSide.strokeAlignOutside,
                     ),
             ),
             children: [
@@ -114,10 +114,8 @@ class SizerWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final width = ref.watch(MainController.widthCanvas.state);
-    final height = ref.watch(MainController.heightCanvas.state);
-
-    final theme = Theme.of(context);
+    final width = ref.watch(MainController.widthCanvas);
+    final height = ref.watch(MainController.heightCanvas);
 
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -131,8 +129,10 @@ class SizerWidget extends ConsumerWidget {
               SliderWidget(
                 min: 0.0,
                 max: 3000.0,
-                value: width.state,
-                onChanged: (double value) => width.state = value,
+                value: width,
+                onChanged: (double value) => ref
+                    .read(MainController.widthCanvas.notifier)
+                    .update((_) => value),
                 isShowValue: true,
                 isShowReset: true,
                 onReset: () => ref.refresh(MainController.widthCanvas),
@@ -140,8 +140,10 @@ class SizerWidget extends ConsumerWidget {
               SliderWidget(
                 min: 0.0,
                 max: 3000.0,
-                value: height.state,
-                onChanged: (double value) => height.state = value,
+                value: height,
+                onChanged: (double value) => ref
+                    .read(MainController.heightCanvas.notifier)
+                    .update((_) => value),
                 isShowValue: true,
                 isShowReset: true,
                 onReset: () => ref.refresh(MainController.heightCanvas),

@@ -68,7 +68,7 @@ class ConfigSection extends ConsumerWidget {
             key: ValueKey(tEntry.key),
             value: tEntry.value,
             secondary: Text('<${tEntry.value.runtimeType}>'),
-            title: Text('${tEntry.key}: ${tEntry.value.toString()}'),
+            title: Text('${tEntry.key}: ${tEntry.value}'),
             onChanged: (bool value) {
               ref.read(listWeathunitProvider.notifier).updateRaw(
                     MapEntry(tEntry.key, value),
@@ -218,7 +218,7 @@ class _TileConfigWidget<T extends num> extends ConsumerWidget {
           minVerticalPadding: 0.0,
           visualDensity: VisualDensity.compact,
           leading: Text('<${value.runtimeType}>'),
-          title: Text('$field: ${value.toString()}'),
+          title: Text('$field: $value'),
           trailing: IconButton(
             icon: const Icon(Icons.copy_rounded),
             onPressed: () async {

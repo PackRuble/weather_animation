@@ -6,6 +6,7 @@ import 'package:weather_animation/weather_animation.dart';
 class MainController {
   MainController(this._ref);
 
+  // ignore: unused_field
   final Ref _ref;
 
   /// Instance of class [MainController].

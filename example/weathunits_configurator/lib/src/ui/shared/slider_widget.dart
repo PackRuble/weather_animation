@@ -310,26 +310,3 @@ class _ButtonSlider extends StatelessWidget {
     );
   }
 }
-
-void main() => runApp(const MaterialApp(home: TestSlider()));
-
-class TestSlider extends StatelessWidget {
-  const TestSlider({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: SliderWidget(
-          onChanged: null,
-          value: 5,
-          isShowReset: true,
-          onReset: () {},
-          isShowValue: true,
-          min: 0,
-          max: 120,
-        ),
-      ),
-    );
-  }
-}

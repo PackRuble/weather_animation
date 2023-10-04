@@ -40,7 +40,8 @@ class HomePage extends ConsumerWidget {
 
     if (onFullScreen) return const FullscreenView();
 
-    Widget child = MultiSplitView(
+    final Widget child = MultiSplitView(
+      // ignore: avoid_redundant_argument_values
       axis: Axis.horizontal,
       initialAreas: [
         Area(weight: .40, minimalWeight: .25),
@@ -60,6 +61,7 @@ class HomePage extends ConsumerWidget {
         dividerPainter: DividerPainters.grooved1(
           color: theme.colorScheme.primary,
           highlightedColor: theme.colorScheme.secondary,
+          // ignore: avoid_redundant_argument_values
           thickness: 2.0,
           size: 30.0,
           backgroundColor: theme.dividerColor,
@@ -80,8 +82,8 @@ class FullscreenView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
-      children: const [
+    return const Column(
+      children: [
         Flexible(child: SceneSection()),
         Divider(height: 0.0, thickness: 1.0),
         Padding(
