@@ -3,23 +3,29 @@ description: The package contains beautiful weather animations. Easy setup with 
 homepage: https://t.me/+AkGV73kZi_Q1YTMy
 repository: https://github.com/PackRuble/weather_animation
 
-version: 0.0.2
+version: 1.0.0
+
+dependency_overrides:
+  # todo: remove when updated build_runner
+  #  Error: The class 'FileSystemEvent' can't be extended, implemented,
+  #  or mixed in outside of its library because it's a sealed class.
+  watcher: 1.1.0
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  json_annotation: ^4.7.0
-  freezed_annotation: ^2.2.0
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
 
 dev_dependencies:
-  freezed: ^2.2.1
-  json_serializable: ^6.5.4
-  build_runner: ^2.3.2
-  lint: ^2.0.1
+  freezed: ^2.4.3
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.6
+  lint: ^2.1.2
 
 screenshots:
   - description: 'Preset weather scenes'
