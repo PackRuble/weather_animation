@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -41,16 +42,19 @@ class AboutWidget extends StatelessWidget {
               children: [
                 Label(
                   url: 'https://t.me/+AkGV73kZi_Q1YTMy',
+                  textForWeb: 'Telegram group',
                   imageLink:
                       'https://raster.shields.io/badge/telegram-❤️-252850?style=plastic&logo=telegram',
                 ),
                 Label(
                   url: 'https://pub.dev/packages/weather_animation',
+                  textForWeb: 'pub.dev',
                   imageLink:
                       'https://raster.shields.io/pub/v/weather_animation.svg?style=plastic',
                 ),
                 Label(
                   url: 'https://github.com/PackRuble/weather_animation',
+                  textForWeb: 'github.com',
                   imageLink:
                       'https://raster.shields.io/github/stars/PackRuble/weather_animation?style=plastic',
                 ),
@@ -79,13 +83,22 @@ You can say something in the author’s Telegram group (I’m waiting for hugs)!
 }
 
 class Label extends StatelessWidget {
-  const Label({super.key, required this.url, required this.imageLink});
+  const Label({
+    super.key,
+    required this.url,
+    required this.imageLink,
+    required this.textForWeb,
+  });
 
   final String url;
   final String imageLink;
+  final String textForWeb;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Tooltip(
       message: url,
       child: InkWell(
@@ -93,13 +106,20 @@ class Label extends StatelessWidget {
           Uri.parse(url),
           mode: LaunchMode.externalNonBrowserApplication,
         ),
-        child: Image.network(
-          imageLink,
-          semanticLabel: url,
-          errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-          filterQuality: FilterQuality.high,
-          isAntiAlias: true,
-        ),
+        child: kIsWeb
+            ? Text(
+                textForWeb,
+                semanticsLabel: url,
+                style:
+                    textTheme.titleSmall?.copyWith(color: theme.primaryColor),
+              )
+            : Image.network(
+                imageLink,
+                semanticLabel: url,
+                errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                filterQuality: FilterQuality.high,
+                isAntiAlias: true,
+              ),
       ),
     );
   }
