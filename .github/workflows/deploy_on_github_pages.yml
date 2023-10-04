@@ -2,6 +2,7 @@
 name: Build & Deploy weathunits_configurator
 
 on:
+  # we do this on purpose, since not every version needs a new build
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,7 +25,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.3.9
           cache: true
 
 #      - name: 'Show Dart SDK version'
