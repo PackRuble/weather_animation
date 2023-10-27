@@ -5,7 +5,7 @@
 [![license_badge]][license_link]
 [![code_size_badge]][repo_link]
 
-![all_scenes](images/all_scenes.gif)
+![all_scenes](https://github.com/PackRuble/weather_animation/blob/master/images/all_scenes.gif?raw=true)
 
 ## 🌇 weather_animation
 

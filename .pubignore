@@ -1,3 +1,6 @@
+# (NOTE) If a directory contains both a .pubignore file and a .gitignore file, then
+# dart pub publish doesn’t read that directory’s .gitignore file.
+
 # Miscellaneous
 *.class
 *.log
@@ -32,4 +35,5 @@ migrate_working_dir/
 .packages
 build/
 /tool.md
+/images/all_scenes.gif
 /images/all_scenes.wmv
