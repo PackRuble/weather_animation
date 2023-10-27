@@ -48,11 +48,19 @@ import 'package:weather_animation/weather_animation.dart';
 ### Use `WeatherScene`
 
 Check the provided list of ready-made weather scenes in the `WeatherScene` enumeration and select 
-the desired one:
+the desired one through the getter:
 ```dart
 @override
 Widget build(BuildContext context) {
-  return WeatherScene.sunset.getWeather();
+  return WeatherScene.sunset.sceneWidget;
+}
+```
+
+or use `WeatherSceneWidget`:
+```dart
+@override
+Widget build(BuildContext context) {
+  return WeatherSceneWidget(weatherScene: WeatherScene.sunset);
 }
 ```
 

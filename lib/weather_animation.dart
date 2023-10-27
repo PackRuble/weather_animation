@@ -11,7 +11,8 @@ export 'src/background_widget.dart';
 // models
 export 'src/model/configs.dart';
 // scenes
-export 'src/model/scenes.dart';
+export 'src/model/scenes.dart'
+    show WeatherScene, WeatherSceneWidget, getWeatherScene;
 // widgets
 export 'src/weather_widgets/all_widgets.dart';
 export 'src/wrapper_scene_widget.dart';

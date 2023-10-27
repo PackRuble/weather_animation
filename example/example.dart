@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           },
         ),
         child: PageView(
-          children: WeatherScene.values.map((e) => e.getWeather()).toList(),
+          children: [for (final w in WeatherScene.values) w.sceneWidget],
         ),
       ),
     );

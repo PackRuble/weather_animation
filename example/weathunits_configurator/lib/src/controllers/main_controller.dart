@@ -40,7 +40,7 @@ class MainController {
   );
 
   static final selectedWidgetScene = Provider<WrapperScene?>(
-      (ref) => ref.watch(selectedScene)?.getWeather() as WrapperScene?);
+      (ref) => ref.watch(selectedScene)?.sceneWidget as WrapperScene?);
 
   static final selectedScene =
       StateProvider<WeatherScene?>((_) => WeatherScene.sunset);

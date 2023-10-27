@@ -1,3 +1,7 @@
+## [1.0.1] - 27-10-2023
+- new: use getter `WeatherScene.sceneWidget` instead of `getWeather` method
+- new: use `WeatherSceneWidget` instead of `getWeatherScene` method
+
 ## [1.0.0] - 04-10-2023
 
 - upd: raise upper bound dart sdk: ">=2.17.0 <4.0.0"

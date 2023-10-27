@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(w.name),
-                  Expanded(child: w.getWeather()),
+                  Expanded(child: w.sceneWidget),
                 ],
               ),
             )
@@ -59,7 +59,7 @@ class AllScenes extends StatelessWidget {
           },
         ),
         child: PageView(
-          children: WeatherScene.values.map((e) => e.getWeather()).toList(),
+          children: [for (final w in WeatherScene.values) w.sceneWidget],
         ),
       ),
     );
