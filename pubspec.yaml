@@ -4,7 +4,7 @@ homepage: https://t.me/+AkGV73kZi_Q1YTMy
 repository: https://github.com/PackRuble/weather_animation
 issue_tracker: https://github.com/PackRuble/weather_animation/issues
 
-version: 1.0.0
+version: 1.0.1
 
 dependency_overrides:
   # todo: remove when updated build_runner
