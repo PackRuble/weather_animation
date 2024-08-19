@@ -12,7 +12,7 @@ part of 'configs.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SunConfig _$SunConfigFromJson(Map<String, dynamic> json) {
   return _SunConfig.fromJson(json);
@@ -55,8 +55,12 @@ mixin _$SunConfig {
   /// Time of animation of the outer ring of the sun (in milliseconds).
   int get animOutMill => throw _privateConstructorUsedError;
 
+  /// Serializes this SunConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SunConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SunConfigCopyWith<SunConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -88,6 +92,8 @@ class _$SunConfigCopyWithImpl<$Res, $Val extends SunConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SunConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,6 +176,8 @@ class __$$SunConfigImplCopyWithImpl<$Res>
       _$SunConfigImpl _value, $Res Function(_$SunConfigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SunConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -300,7 +308,7 @@ class _$SunConfigImpl implements _SunConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SunConfigImpl &&
@@ -323,12 +331,14 @@ class _$SunConfigImpl implements _SunConfig {
                 other.animOutMill == animOutMill));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, width, blurSigma, blurStyle,
       isLeftLocation, coreColor, midColor, outColor, animMidMill, animOutMill);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SunConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SunConfigImplCopyWith<_$SunConfigImpl> get copyWith =>
@@ -357,11 +367,9 @@ abstract class _SunConfig implements SunConfig {
   factory _SunConfig.fromJson(Map<String, dynamic> json) =
       _$SunConfigImpl.fromJson;
 
-  @override
-
   /// The width of the sun (in pixels).
-  double get width;
   @override
+  double get width;
 
   /// The sigma argument controls the size of the blur effect.
   ///
@@ -370,39 +378,43 @@ abstract class _SunConfig implements SunConfig {
   /// radius of the effect in pixels.
   ///
   /// More: [MaskFilter.blur]
-  double get blurSigma;
   @override
+  double get blurSigma;
 
   /// The style argument controls the kind of effect to draw; see BlurStyle.
+  @override
   @ignoreJson
   BlurStyle get blurStyle;
-  @override
 
   /// The location of the sun on the screen. By default, the top left corner.
   /// Otherwise right.
-  bool get isLeftLocation;
   @override
+  bool get isLeftLocation;
 
   /// The color of the sun's core.
-  Color get coreColor;
   @override
+  Color get coreColor;
 
   /// The color of the middle ring of the sun.
-  Color get midColor;
   @override
+  Color get midColor;
 
   /// The color of the outer ring of the sun.
-  Color get outColor;
   @override
+  Color get outColor;
 
   /// Time of animation of the middle ring of the sun (in milliseconds).
-  int get animMidMill;
   @override
+  int get animMidMill;
 
   /// Time of animation of the outer ring of the sun (in milliseconds).
-  int get animOutMill;
   @override
-  @JsonKey(ignore: true)
+  int get animOutMill;
+
+  /// Create a copy of SunConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SunConfigImplCopyWith<_$SunConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -470,8 +482,12 @@ mixin _$SnowConfig {
   /// Maximum snowflake fall time (in seconds).
   int get fallMaxSec => throw _privateConstructorUsedError;
 
+  /// Serializes this SnowConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SnowConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SnowConfigCopyWith<SnowConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -512,6 +528,8 @@ class _$SnowConfigCopyWithImpl<$Res, $Val extends SnowConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SnowConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -642,6 +660,8 @@ class __$$SnowflakeConfigImplCopyWithImpl<$Res>
       _$SnowflakeConfigImpl _value, $Res Function(_$SnowflakeConfigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SnowConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -858,7 +878,7 @@ class _$SnowflakeConfigImpl implements _SnowflakeConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SnowflakeConfigImpl &&
@@ -894,7 +914,7 @@ class _$SnowflakeConfigImpl implements _SnowflakeConfig {
                 other.fallMaxSec == fallMaxSec));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -916,7 +936,9 @@ class _$SnowflakeConfigImpl implements _SnowflakeConfig {
       fallMinSec,
       fallMaxSec);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SnowConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SnowflakeConfigImplCopyWith<_$SnowflakeConfigImpl> get copyWith =>
@@ -954,82 +976,84 @@ abstract class _SnowflakeConfig implements SnowConfig {
   factory _SnowflakeConfig.fromJson(Map<String, dynamic> json) =
       _$SnowflakeConfigImpl.fromJson;
 
-  @override
-
   /// Number of snowflakes.
-  int get count;
   @override
+  int get count;
 
   /// Snowflake size.
-  double get size;
   @override
+  double get size;
 
   /// Snowflake color.
-  Color get color;
   @override
+  Color get color;
 
   /// Snowflake icon. You can use a custom widget [widgetSnowflake].
+  @override
   @ignoreJson
   IconData get icon;
-  @override
 
   /// Specify the snowflake widget. In this case, the fields [sizeSnowflake],
   /// [snowColor] and [iconDataSnowflake] be ignored.
+  @override
   @ignoreJson
   Widget? get widgetSnowflake;
-  @override
 
   /// The X-axis zone where the snowflakes start to fall (in pixels).
-  double get areaXStart;
   @override
+  double get areaXStart;
 
   /// The X-axis zone where the snowflakes end to fall (in pixels).
-  double get areaXEnd;
   @override
+  double get areaXEnd;
 
   /// The Y-axis zone where the snowflakes start to fall (in pixels).
-  double get areaYStart;
   @override
+  double get areaYStart;
 
   /// The Y-axis zone where the snowflakes end to fall (in pixels).
-  double get areaYEnd;
   @override
+  double get areaYEnd;
 
   /// Minimum deviation from the direction of snowflake fall (in pixels).
-  double get waveRangeMin;
   @override
+  double get waveRangeMin;
 
   /// Maximum deviation from the direction of snowflake fall (in pixels).
-  double get waveRangeMax;
   @override
+  double get waveRangeMax;
 
   /// Minimum wave effect duration time (in seconds).
-  int get waveMinSec;
   @override
+  int get waveMinSec;
 
   /// Maximum wave effect duration time (in seconds).
-  int get waveMaxSec;
   @override
+  int get waveMaxSec;
 
   /// An parametric animation easing curve. Specify to create a wave effect.
+  @override
   @ignoreJson
   Curve get waveCurve;
-  @override
 
   /// An parametric animation easing curve. Specify how fast the snowflakes will
   /// disappear.
+  @override
   @ignoreJson
   Curve get fadeCurve;
-  @override
 
   /// Minimum snowflake fall time (in seconds).
-  int get fallMinSec;
   @override
+  int get fallMinSec;
 
   /// Maximum snowflake fall time (in seconds).
-  int get fallMaxSec;
   @override
-  @JsonKey(ignore: true)
+  int get fallMaxSec;
+
+  /// Create a copy of SnowConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SnowflakeConfigImplCopyWith<_$SnowflakeConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1084,8 +1108,12 @@ mixin _$CloudConfig {
   @ignoreJson
   Curve get slideCurve => throw _privateConstructorUsedError;
 
+  /// Serializes this CloudConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CloudConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CloudConfigCopyWith<CloudConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1122,6 +1150,8 @@ class _$CloudConfigCopyWithImpl<$Res, $Val extends CloudConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CloudConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1228,6 +1258,8 @@ class __$$CloudConfigImplCopyWithImpl<$Res>
       _$CloudConfigImpl _value, $Res Function(_$CloudConfigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CloudConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1396,7 +1428,7 @@ class _$CloudConfigImpl implements _CloudConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CloudConfigImpl &&
@@ -1421,7 +1453,7 @@ class _$CloudConfigImpl implements _CloudConfig {
                 other.slideCurve == slideCurve));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1439,7 +1471,9 @@ class _$CloudConfigImpl implements _CloudConfig {
       slideDurMill,
       slideCurve);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CloudConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CloudConfigImplCopyWith<_$CloudConfigImpl> get copyWith =>
@@ -1472,65 +1506,67 @@ abstract class _CloudConfig implements CloudConfig {
   factory _CloudConfig.fromJson(Map<String, dynamic> json) =
       _$CloudConfigImpl.fromJson;
 
-  @override
-
   /// Cloud size.
-  double get size;
   @override
+  double get size;
 
   /// The color of the cloud.
-  Color get color;
   @override
+  Color get color;
 
   /// Cloud icon. You can use a custom widget [widgetCloud].
+  @override
   @ignoreJson
   IconData get icon;
-  @override
 
   /// Specify the cloud widget. In this case, the fields [icon] and
   /// [color] be ignored.
+  @override
   @ignoreJson
   Widget? get widgetCloud;
-  @override
 
   /// The coordinate of cloud displacement along the x-axis (in pixels).
+  @override
   double get x;
-  @override
 
   /// The coordinate of cloud displacement along the x-axis (in pixels).
-  double get y;
   @override
+  double get y;
 
   /// The scale factor of the widget at the beginning of the animation.
-  double get scaleBegin;
   @override
+  double get scaleBegin;
 
   /// The scale factor of the widget at the end of the animation.
-  double get scaleEnd;
   @override
+  double get scaleEnd;
 
   /// Animation curve for [ScaleTransition].
+  @override
   @ignoreJson
   Curve get scaleCurve;
-  @override
 
   /// Offset of the widget along the X-axis during the slide animation (in pixels).
-  double get slideX;
   @override
+  double get slideX;
 
   /// Offset of the widget along the Y-axis during the slide animation (in pixels).
-  double get slideY;
   @override
+  double get slideY;
 
   /// Shift duration (in milliseconds).
-  int get slideDurMill;
   @override
+  int get slideDurMill;
 
   /// Animation curve for [SlideTransition].
+  @override
   @ignoreJson
   Curve get slideCurve;
+
+  /// Create a copy of CloudConfig
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CloudConfigImplCopyWith<_$CloudConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1596,8 +1632,12 @@ mixin _$RainConfig {
   @ignoreJson
   Curve get fadeCurve => throw _privateConstructorUsedError;
 
+  /// Serializes this RainConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RainConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RainConfigCopyWith<RainConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1639,6 +1679,8 @@ class _$RainConfigCopyWithImpl<$Res, $Val extends RainConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RainConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1775,6 +1817,8 @@ class __$$RainConfigImplCopyWithImpl<$Res>
       _$RainConfigImpl _value, $Res Function(_$RainConfigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RainConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1994,7 +2038,7 @@ class _$RainConfigImpl implements _RainConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RainConfigImpl &&
@@ -2032,7 +2076,7 @@ class _$RainConfigImpl implements _RainConfig {
                 other.fadeCurve == fadeCurve));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2055,7 +2099,9 @@ class _$RainConfigImpl implements _RainConfig {
       fallCurve,
       fadeCurve);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RainConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RainConfigImplCopyWith<_$RainConfigImpl> get copyWith =>
@@ -2093,71 +2139,70 @@ abstract class _RainConfig implements RainConfig {
   factory _RainConfig.fromJson(Map<String, dynamic> json) =
       _$RainConfigImpl.fromJson;
 
-  @override
-
   /// The number of raindrops.
-  int get count;
   @override
+  int get count;
 
   /// Raindrop length.
-  double get lengthDrop;
   @override
+  double get lengthDrop;
 
   /// Raindrop width.
-  double get widthDrop;
   @override
+  double get widthDrop;
 
   /// The color of a raindrop.
-  Color get color;
   @override
+  Color get color;
 
   /// Rounded drop ends. Otherwise, the ends be square.
-  bool get isRoundedEndsDrop;
   @override
+  bool get isRoundedEndsDrop;
 
   /// Specify the cloud widget. In this case, the fields [count] and
   /// [color], [lengthDrop], [widthDrop], and []  be ignored.
+  @override
   @ignoreJson
   Widget? get widgetRainDrop;
-  @override
 
   /// Minimum duration time of the fall effect (in milliseconds).
-  int get fallRangeMinDurMill;
   @override
+  int get fallRangeMinDurMill;
 
   /// Maximum duration time of the fall effect (in milliseconds).
-  int get fallRangeMaxDurMill;
   @override
+  int get fallRangeMaxDurMill;
 
   /// The X-axis zone where start to fall (in pixels).
-  double get areaXStart;
   @override
+  double get areaXStart;
 
   /// The X-axis zone where end to fall (in pixels).
-  double get areaXEnd;
   @override
+  double get areaXEnd;
 
   /// The Y-axis zone where to fall (in pixels).
-  double get areaYStart;
   @override
+  double get areaYStart;
 
   /// The Y-axis zone where end to fall (in pixels).
-  double get areaYEnd;
   @override
+  double get areaYEnd;
 
   /// Offset of the widget along the X-axis during the slide animation (in pixels).
-  double get slideX;
   @override
+  double get slideX;
 
   /// Offset of the widget along the Y-axis during the slide animation (in pixels).
-  double get slideY;
   @override
+  double get slideY;
 
   /// Shift duration (in milliseconds).
-  int get slideDurMill;
   @override
+  int get slideDurMill;
 
   /// Animation curve for [SlideTransition].
+  @override
   @ignoreJson
   Curve get slideCurve;
   @override
@@ -2166,8 +2211,11 @@ abstract class _RainConfig implements RainConfig {
   @override
   @ignoreJson
   Curve get fadeCurve;
+
+  /// Create a copy of RainConfig
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RainConfigImplCopyWith<_$RainConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2190,8 +2238,12 @@ mixin _$ThunderConfig {
   @ignoreJson
   List<Offset> get points => throw _privateConstructorUsedError;
 
+  /// Serializes this ThunderConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThunderConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ThunderConfigCopyWith<ThunderConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2224,6 +2276,8 @@ class _$ThunderConfigCopyWithImpl<$Res, $Val extends ThunderConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ThunderConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2306,6 +2360,8 @@ class __$$ThunderConfigImplCopyWithImpl<$Res>
       _$ThunderConfigImpl _value, $Res Function(_$ThunderConfigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThunderConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2419,7 +2475,7 @@ class _$ThunderConfigImpl implements _ThunderConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThunderConfigImpl &&
@@ -2441,7 +2497,7 @@ class _$ThunderConfigImpl implements _ThunderConfig {
             const DeepCollectionEquality().equals(other._points, _points));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2455,7 +2511,9 @@ class _$ThunderConfigImpl implements _ThunderConfig {
       pauseEndMill,
       const DeepCollectionEquality().hash(_points));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThunderConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ThunderConfigImplCopyWith<_$ThunderConfigImpl> get copyWith =>
@@ -2504,8 +2562,11 @@ abstract class _ThunderConfig implements ThunderConfig {
   @override
   @ignoreJson
   List<Offset> get points;
+
+  /// Create a copy of ThunderConfig
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ThunderConfigImplCopyWith<_$ThunderConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2529,8 +2590,12 @@ mixin _$WindConfig {
   @ignoreJson
   BlurStyle get blurStyle => throw _privateConstructorUsedError;
 
+  /// Serializes this WindConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of WindConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WindConfigCopyWith<WindConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2565,6 +2630,8 @@ class _$WindConfigCopyWithImpl<$Res, $Val extends WindConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of WindConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2659,6 +2726,8 @@ class __$$WindConfigImplCopyWithImpl<$Res>
       _$WindConfigImpl _value, $Res Function(_$WindConfigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WindConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2783,7 +2852,7 @@ class _$WindConfigImpl implements _WindConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WindConfigImpl &&
@@ -2807,7 +2876,7 @@ class _$WindConfigImpl implements _WindConfig {
                 other.blurStyle == blurStyle));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -2823,7 +2892,9 @@ class _$WindConfigImpl implements _WindConfig {
       slideDurMill,
       blurStyle);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WindConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WindConfigImplCopyWith<_$WindConfigImpl> get copyWith =>
@@ -2877,8 +2948,11 @@ abstract class _WindConfig implements WindConfig {
   @override
   @ignoreJson
   BlurStyle get blurStyle;
+
+  /// Create a copy of WindConfig
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WindConfigImplCopyWith<_$WindConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

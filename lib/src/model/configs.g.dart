@@ -20,8 +20,8 @@ _$SunConfigImpl _$$SunConfigImplFromJson(Map<String, dynamic> json) =>
       outColor: json['outColor'] == null
           ? const Color.fromARGB(255, 255, 167, 38)
           : const ColorSerializer().fromJson(json['outColor'] as String),
-      animMidMill: json['animMidMill'] as int? ?? 1500,
-      animOutMill: json['animOutMill'] as int? ?? 1500,
+      animMidMill: (json['animMidMill'] as num?)?.toInt() ?? 1500,
+      animOutMill: (json['animOutMill'] as num?)?.toInt() ?? 1500,
     );
 
 Map<String, dynamic> _$$SunConfigImplToJson(_$SunConfigImpl instance) =>
@@ -39,7 +39,7 @@ Map<String, dynamic> _$$SunConfigImplToJson(_$SunConfigImpl instance) =>
 _$SnowflakeConfigImpl _$$SnowflakeConfigImplFromJson(
         Map<String, dynamic> json) =>
     _$SnowflakeConfigImpl(
-      count: json['count'] as int? ?? 20,
+      count: (json['count'] as num?)?.toInt() ?? 20,
       size: (json['size'] as num?)?.toDouble() ?? 20.0,
       color: json['color'] == null
           ? const Color.fromARGB(179, 255, 255, 255)
@@ -50,10 +50,10 @@ _$SnowflakeConfigImpl _$$SnowflakeConfigImplFromJson(
       areaYEnd: (json['areaYEnd'] as num?)?.toDouble() ?? 540.0,
       waveRangeMin: (json['waveRangeMin'] as num?)?.toDouble() ?? 20.0,
       waveRangeMax: (json['waveRangeMax'] as num?)?.toDouble() ?? 110.0,
-      waveMinSec: json['waveMinSec'] as int? ?? 5,
-      waveMaxSec: json['waveMaxSec'] as int? ?? 20,
-      fallMinSec: json['fallMinSec'] as int? ?? 10,
-      fallMaxSec: json['fallMaxSec'] as int? ?? 60,
+      waveMinSec: (json['waveMinSec'] as num?)?.toInt() ?? 5,
+      waveMaxSec: (json['waveMaxSec'] as num?)?.toInt() ?? 20,
+      fallMinSec: (json['fallMinSec'] as num?)?.toInt() ?? 10,
+      fallMaxSec: (json['fallMaxSec'] as num?)?.toInt() ?? 60,
     );
 
 Map<String, dynamic> _$$SnowflakeConfigImplToJson(
@@ -86,7 +86,7 @@ _$CloudConfigImpl _$$CloudConfigImplFromJson(Map<String, dynamic> json) =>
       scaleEnd: (json['scaleEnd'] as num?)?.toDouble() ?? 1.1,
       slideX: (json['slideX'] as num?)?.toDouble() ?? 11.0,
       slideY: (json['slideY'] as num?)?.toDouble() ?? 5.0,
-      slideDurMill: json['slideDurMill'] as int? ?? 2000,
+      slideDurMill: (json['slideDurMill'] as num?)?.toInt() ?? 2000,
     );
 
 Map<String, dynamic> _$$CloudConfigImplToJson(_$CloudConfigImpl instance) =>
@@ -104,22 +104,24 @@ Map<String, dynamic> _$$CloudConfigImplToJson(_$CloudConfigImpl instance) =>
 
 _$RainConfigImpl _$$RainConfigImplFromJson(Map<String, dynamic> json) =>
     _$RainConfigImpl(
-      count: json['count'] as int? ?? 10,
+      count: (json['count'] as num?)?.toInt() ?? 10,
       lengthDrop: (json['lengthDrop'] as num?)?.toDouble() ?? 12.0,
       widthDrop: (json['widthDrop'] as num?)?.toDouble() ?? 4.0,
       color: json['color'] == null
           ? const Color.fromARGB(153, 120, 144, 156)
           : const ColorSerializer().fromJson(json['color'] as String),
       isRoundedEndsDrop: json['isRoundedEndsDrop'] as bool? ?? true,
-      fallRangeMinDurMill: json['fallRangeMinDurMill'] as int? ?? 500,
-      fallRangeMaxDurMill: json['fallRangeMaxDurMill'] as int? ?? 1500,
+      fallRangeMinDurMill:
+          (json['fallRangeMinDurMill'] as num?)?.toInt() ?? 500,
+      fallRangeMaxDurMill:
+          (json['fallRangeMaxDurMill'] as num?)?.toInt() ?? 1500,
       areaXStart: (json['areaXStart'] as num?)?.toDouble() ?? 120.0,
       areaXEnd: (json['areaXEnd'] as num?)?.toDouble() ?? 190.0,
       areaYStart: (json['areaYStart'] as num?)?.toDouble() ?? 215.0,
       areaYEnd: (json['areaYEnd'] as num?)?.toDouble() ?? 540.0,
       slideX: (json['slideX'] as num?)?.toDouble() ?? 2.0,
       slideY: (json['slideY'] as num?)?.toDouble() ?? 0.0,
-      slideDurMill: json['slideDurMill'] as int? ?? 2000,
+      slideDurMill: (json['slideDurMill'] as num?)?.toInt() ?? 2000,
     );
 
 Map<String, dynamic> _$$RainConfigImplToJson(_$RainConfigImpl instance) =>
@@ -147,10 +149,10 @@ _$ThunderConfigImpl _$$ThunderConfigImplFromJson(Map<String, dynamic> json) =>
       color: json['color'] == null
           ? const Color.fromARGB(153, 255, 238, 88)
           : const ColorSerializer().fromJson(json['color'] as String),
-      flashStartMill: json['flashStartMill'] as int? ?? 50,
-      flashEndMill: json['flashEndMill'] as int? ?? 300,
-      pauseStartMill: json['pauseStartMill'] as int? ?? 50,
-      pauseEndMill: json['pauseEndMill'] as int? ?? 6000,
+      flashStartMill: (json['flashStartMill'] as num?)?.toInt() ?? 50,
+      flashEndMill: (json['flashEndMill'] as num?)?.toInt() ?? 300,
+      pauseStartMill: (json['pauseStartMill'] as num?)?.toInt() ?? 50,
+      pauseEndMill: (json['pauseEndMill'] as num?)?.toInt() ?? 6000,
     );
 
 Map<String, dynamic> _$$ThunderConfigImplToJson(_$ThunderConfigImpl instance) =>
@@ -175,9 +177,9 @@ _$WindConfigImpl _$$WindConfigImplFromJson(Map<String, dynamic> json) =>
           : const ColorSerializer().fromJson(json['color'] as String),
       slideXStart: (json['slideXStart'] as num?)?.toDouble() ?? 0.0,
       slideXEnd: (json['slideXEnd'] as num?)?.toDouble() ?? 500.0,
-      pauseStartMill: json['pauseStartMill'] as int? ?? 50,
-      pauseEndMill: json['pauseEndMill'] as int? ?? 6000,
-      slideDurMill: json['slideDurMill'] as int? ?? 1000,
+      pauseStartMill: (json['pauseStartMill'] as num?)?.toInt() ?? 50,
+      pauseEndMill: (json['pauseEndMill'] as num?)?.toInt() ?? 6000,
+      slideDurMill: (json['slideDurMill'] as num?)?.toInt() ?? 1000,
     );
 
 Map<String, dynamic> _$$WindConfigImplToJson(_$WindConfigImpl instance) =>
