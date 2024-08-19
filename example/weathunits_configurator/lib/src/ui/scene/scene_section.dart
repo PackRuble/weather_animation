@@ -90,20 +90,15 @@ class _WeatherWidgetOnScene extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    switch (unit.type) {
-      case TypeWeather.sun:
-        return SunWidget(sunConfig: unit.config as SunConfig);
-      case TypeWeather.rain:
-        return RainWidget(rainConfig: unit.config as RainConfig);
-      case TypeWeather.thunder:
-        return ThunderWidget(thunderConfig: unit.config as ThunderConfig);
-      case TypeWeather.snow:
-        return SnowWidget(snowConfig: unit.config as SnowConfig);
-      case TypeWeather.cloud:
-        return CloudWidget(cloudConfig: unit.config as CloudConfig);
-      case TypeWeather.wind:
-        return WindWidget(windConfig: unit.config as WindConfig);
-    }
+    return switch (unit.type) {
+      TypeWeather.sun => SunWidget(sunConfig: unit.config as SunConfig),
+      TypeWeather.rain => RainWidget(rainConfig: unit.config as RainConfig),
+      TypeWeather.thunder =>
+        ThunderWidget(thunderConfig: unit.config as ThunderConfig),
+      TypeWeather.snow => SnowWidget(snowConfig: unit.config as SnowConfig),
+      TypeWeather.cloud => CloudWidget(cloudConfig: unit.config as CloudConfig),
+      TypeWeather.wind => WindWidget(windConfig: unit.config as WindConfig)
+    };
   }
 }
 

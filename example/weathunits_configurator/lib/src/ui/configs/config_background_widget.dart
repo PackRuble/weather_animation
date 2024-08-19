@@ -200,9 +200,8 @@ class _PickerWidget extends ConsumerWidget {
               .update(selectedTileIndex, color);
         }
 
-        ref.watch(_selectedPickerProvider.notifier).state = color;
+        ref.read(_selectedPickerProvider.notifier).state = color;
       },
-      // color: item,
     );
   }
 }

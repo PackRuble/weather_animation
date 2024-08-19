@@ -40,29 +40,14 @@ class HomePage extends ConsumerWidget {
 
     if (onFullScreen) return const FullscreenView();
 
-    final Widget child = MultiSplitView(
-      // ignore: avoid_redundant_argument_values
-      axis: Axis.horizontal,
-      initialAreas: [
-        Area(weight: .40, minimalWeight: .25),
-        Area(weight: .28, minimalWeight: .20),
-        Area(weight: .32, minimalWeight: .25),
-      ],
-      children: const [
-        SceneSection(),
-        WeathunitSection(),
-        ConfigSection(),
-      ],
-    );
-
     return MultiSplitViewTheme(
       data: MultiSplitViewThemeData(
-        dividerThickness: 4.0,
+        dividerThickness: 6.0,
         dividerPainter: DividerPainters.grooved1(
           color: theme.colorScheme.primary,
           highlightedColor: theme.colorScheme.secondary,
           // ignore: avoid_redundant_argument_values
-          thickness: 2.0,
+          thickness: 4.0,
           size: 30.0,
           backgroundColor: theme.dividerColor,
           highlightedBackgroundColor: theme.dividerColor.withOpacity(.3),
@@ -70,7 +55,20 @@ class HomePage extends ConsumerWidget {
           highlightedSize: 65.0,
         ),
       ),
-      child: child,
+      child: MultiSplitView(
+        // ignore: avoid_redundant_argument_values
+        axis: Axis.horizontal,
+        initialAreas: [
+          Area(flex: .40, min: .25),
+          Area(flex: .28, min: .20),
+          Area(flex: .32, min: .25),
+        ],
+        builder: (context, area) => const [
+          SceneSection(),
+          WeathunitSection(),
+          ConfigSection(),
+        ][area.index],
+      ),
     );
   }
 }

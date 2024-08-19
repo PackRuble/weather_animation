@@ -120,241 +120,207 @@ class _MaterialPickerState extends State<MaterialPicker> {
 
   @override
   Widget build(BuildContext context) {
-    bool _isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait ||
-            widget.portraitOnly;
+    final theme = Theme.of(context);
+    final orientation = MediaQuery.orientationOf(context);
 
-    Widget _colorList() {
-      return Container(
-        clipBehavior: Clip.hardEdge,
-        decoration: const BoxDecoration(),
-        child: Container(
-          margin: _isPortrait
-              ? const EdgeInsets.only(right: 10)
-              : const EdgeInsets.only(bottom: 10),
-          width: _isPortrait ? 60 : null,
-          height: _isPortrait ? null : 60,
-          decoration: BoxDecoration(
-            // color: Theme.of(context).cardColor,
-            // boxShadow: [BoxShadow(color: Colors.grey[300]!, blurRadius: 10)],
-            border:
-                // _isPortrait
-                //     ? Border(right: BorderSide(color: Colors.grey[300]!, width: 1))
-                //     : Border(top: BorderSide(color: Colors.grey[300]!, width: 1)),
-                Border(
-                    bottom: BorderSide(color: Theme.of(context).dividerColor)),
-          ),
-          child: ScrollConfiguration(
-            behavior: ScrollConfiguration.of(context)
-                .copyWith(dragDevices: PointerDeviceKind.values.toSet()),
-            child: ListView(
-              scrollDirection: _isPortrait ? Axis.vertical : Axis.horizontal,
-              children: [
-                _isPortrait
-                    ? const Padding(padding: EdgeInsets.only(top: 7))
-                    : const Padding(padding: EdgeInsets.only(left: 7)),
-                ..._colorTypes.map((List<Color> _colors) {
-                  Color _colorType = _colors[0];
-                  return GestureDetector(
-                    onTap: () {
-                      if (widget.onPrimaryChanged != null)
-                        widget.onPrimaryChanged!.call(_colorType);
-                      setState(() => _currentColorType = _colors);
-                    },
-                    child: Container(
-                      color: const Color(0x00000000),
-                      padding: _isPortrait
-                          ? const EdgeInsets.fromLTRB(0, 7, 0, 7)
-                          : const EdgeInsets.fromLTRB(7, 0, 7, 0),
-                      child: Align(
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          width: 25,
-                          height: 25,
-                          decoration: BoxDecoration(
-                            color: _colorType,
-                            shape: BoxShape.circle,
-                            boxShadow: _currentColorType == _colors
-                                ? [
-                                    _colorType == Theme.of(context).cardColor
-                                        ? BoxShadow(
-                                            color: Colors.grey[300]!,
-                                            blurRadius: 10,
-                                          )
-                                        : BoxShadow(
-                                            color: _colorType,
-                                            blurRadius: 10,
-                                          ),
-                                  ]
-                                : null,
-                            border: _colorType == Theme.of(context).cardColor
-                                ? Border.all(color: Colors.grey[300]!, width: 1)
-                                : null,
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-                _isPortrait
-                    ? const Padding(padding: EdgeInsets.only(top: 5))
-                    : const Padding(padding: EdgeInsets.only(left: 5)),
-              ],
-            ),
-          ),
+    final isPortrait =
+        orientation == Orientation.portrait || widget.portraitOnly;
+
+    final colorsSection = Container(
+      clipBehavior: Clip.hardEdge,
+      decoration: const BoxDecoration(),
+      child: Container(
+        margin: isPortrait
+            ? const EdgeInsets.only(right: 10)
+            : const EdgeInsets.only(bottom: 10),
+        width: isPortrait ? 60 : null,
+        height: isPortrait ? null : 60,
+        decoration: BoxDecoration(
+          border: Border(bottom: BorderSide(color: theme.dividerColor)),
         ),
-      );
-    }
-
-    Widget _shadingList() {
-      return ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context)
-            .copyWith(dragDevices: PointerDeviceKind.values.toSet()),
         child: ListView(
-          scrollDirection: _isPortrait ? Axis.vertical : Axis.horizontal,
+          scrollDirection: isPortrait ? Axis.vertical : Axis.horizontal,
           children: [
-            _isPortrait
-                ? const Padding(padding: EdgeInsets.only(top: 15))
-                : const Padding(padding: EdgeInsets.only(left: 15)),
-            ..._shadingTypes(_currentColorType).map((Map<Color, String> color) {
-              final Color _color = color.keys.first;
-              return GestureDetector(
+            isPortrait
+                ? const Padding(padding: EdgeInsets.only(top: 7))
+                : const Padding(padding: EdgeInsets.only(left: 7)),
+            for (final (index, [_colorType, ...]) in _colorTypes.indexed)
+              GestureDetector(
                 onTap: () {
-                  setState(() => _currentShading = _color);
-                  widget.onColorChanged(_color);
+                  widget.onPrimaryChanged?.call(_colorType);
+                  setState(() => _currentColorType = _colorTypes[index]);
                 },
                 child: Container(
                   color: const Color(0x00000000),
-                  margin: _isPortrait
-                      ? const EdgeInsets.only(right: 10)
-                      : const EdgeInsets.only(bottom: 10),
-                  padding: _isPortrait
+                  padding: isPortrait
                       ? const EdgeInsets.fromLTRB(0, 7, 0, 7)
                       : const EdgeInsets.fromLTRB(7, 0, 7, 0),
                   child: Align(
                     child: AnimatedContainer(
-                      curve: Curves.fastOutSlowIn,
-                      duration: const Duration(milliseconds: 500),
-                      width: _isPortrait
-                          ? (_currentShading == _color ? 250 : 230)
-                          : (_currentShading == _color ? 50 : 30),
-                      height: _isPortrait ? 50 : 220,
+                      duration: const Duration(milliseconds: 300),
+                      width: 25,
+                      height: 25,
                       decoration: BoxDecoration(
-                        color: _color,
-                        boxShadow: _currentShading == _color
+                        color: _colorType,
+                        shape: BoxShape.circle,
+                        boxShadow: _currentColorType == _colorTypes[index]
                             ? [
-                                (_color == Colors.white) ||
-                                        (_color == Colors.black)
-                                    ? BoxShadow(
-                                        color: Colors.grey[300]!,
-                                        blurRadius: 10,
-                                      )
-                                    : BoxShadow(
-                                        color: _color,
-                                        blurRadius: 10,
-                                      ),
+                                BoxShadow(
+                                  color: _colorType == theme.cardColor
+                                      ? Colors.grey[300]!
+                                      : _colorType,
+                                  blurRadius: 10,
+                                ),
                               ]
                             : null,
-                        border:
-                            (_color == Colors.white) || (_color == Colors.black)
-                                ? Border.all(color: Colors.grey[300]!, width: 1)
-                                : null,
+                        border: _colorType == theme.cardColor
+                            ? Border.all(color: Colors.grey[300]!, width: 1)
+                            : null,
                       ),
-                      child: widget.enableLabel
-                          ? _isPortrait
-                              ? Row(
-                                  children: [
-                                    Text(
-                                      '  ${color.values.first}',
-                                      style: TextStyle(
-                                          color: useWhiteForeground(_color)
-                                              ? Colors.white
-                                              : Colors.black),
-                                    ),
-                                    Expanded(
-                                      child: Align(
-                                        alignment: Alignment.centerRight,
-                                        child: Text(
-                                          '#${(_color.toString().replaceFirst('Color(0xff', '').replaceFirst(')', '')).toUpperCase()}  ',
-                                          style: TextStyle(
-                                            color: useWhiteForeground(_color)
-                                                ? Colors.white
-                                                : Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              : AnimatedOpacity(
-                                  duration: const Duration(milliseconds: 300),
-                                  opacity: _currentShading == _color ? 1 : 0,
-                                  child: Container(
-                                    padding: const EdgeInsets.only(top: 16),
-                                    alignment: Alignment.topCenter,
+                    ),
+                  ),
+                ),
+              ),
+            SizedBox(
+              height: isPortrait ? 5 : null,
+              width: isPortrait ? null : 5,
+            ),
+          ],
+        ),
+      ),
+    );
+
+    final shadingsSection = ListView(
+      scrollDirection: isPortrait ? Axis.vertical : Axis.horizontal,
+      children: [
+        isPortrait
+            ? const Padding(padding: EdgeInsets.only(top: 15))
+            : const Padding(padding: EdgeInsets.only(left: 15)),
+        ..._shadingTypes(_currentColorType).map((Map<Color, String> color) {
+          final Color _color = color.keys.first;
+          return GestureDetector(
+            onTap: () {
+              setState(() => _currentShading = _color);
+              widget.onColorChanged(_color);
+            },
+            child: Container(
+              color: const Color(0x00000000),
+              margin: isPortrait
+                  ? const EdgeInsets.only(right: 10)
+                  : const EdgeInsets.only(bottom: 10),
+              padding: isPortrait
+                  ? const EdgeInsets.fromLTRB(0, 7, 0, 7)
+                  : const EdgeInsets.fromLTRB(7, 0, 7, 0),
+              child: Align(
+                child: AnimatedContainer(
+                  curve: Curves.fastOutSlowIn,
+                  duration: const Duration(milliseconds: 500),
+                  width: isPortrait
+                      ? (_currentShading == _color ? 250 : 230)
+                      : (_currentShading == _color ? 50 : 30),
+                  height: isPortrait ? 50 : 220,
+                  decoration: BoxDecoration(
+                    color: _color,
+                    boxShadow: _currentShading == _color
+                        ? [
+                            BoxShadow(
+                              color: _currentShading == _color
+                                  ? Colors.grey[300]!
+                                  : _color,
+                              blurRadius: 10,
+                            ),
+                          ]
+                        : null,
+                    border: (_color == Colors.white) || (_color == Colors.black)
+                        ? Border.all(color: Colors.grey[300]!, width: 1)
+                        : null,
+                  ),
+                  child: widget.enableLabel
+                      ? isPortrait
+                          ? Row(
+                              children: [
+                                Text(
+                                  '  ${color.values.first}',
+                                  style: TextStyle(
+                                    color: useWhiteForeground(_color)
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
                                     child: Text(
-                                      color.values.first,
+                                      '#${(_color.toString().replaceFirst('Color(0xff', '').replaceFirst(')', '')).toUpperCase()}  ',
                                       style: TextStyle(
                                         color: useWhiteForeground(_color)
                                             ? Colors.white
                                             : Colors.black,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 14,
                                       ),
-                                      softWrap: false,
                                     ),
                                   ),
-                                )
-                          : const SizedBox(),
-                    ),
-                  ),
+                                ),
+                              ],
+                            )
+                          : AnimatedOpacity(
+                              duration: const Duration(milliseconds: 300),
+                              opacity: _currentShading == _color ? 1 : 0,
+                              child: Container(
+                                padding: const EdgeInsets.only(top: 16),
+                                alignment: Alignment.topCenter,
+                                child: Text(
+                                  color.values.first,
+                                  style: TextStyle(
+                                    color: useWhiteForeground(_color)
+                                        ? Colors.white
+                                        : Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                  ),
+                                  softWrap: false,
+                                ),
+                              ),
+                            )
+                      : null,
                 ),
-              );
-            }),
-            _isPortrait
-                ? const Padding(padding: EdgeInsets.only(top: 15))
-                : const Padding(padding: EdgeInsets.only(left: 15)),
-          ],
-        ),
-      );
-    }
-
-    if (_isPortrait) {
-      return SizedBox(
-        width: 350,
-        height: 500,
-        child: Row(
-          children: <Widget>[
-            _colorList(),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: _shadingList(),
               ),
             ),
-          ],
+          );
+        }),
+        SizedBox(
+          height: isPortrait ? 15 : null,
+          width: isPortrait ? null : 15,
         ),
-      );
-    } else {
-      return SizedBox(
-        // width: 500,
-        height: 300,
-        child: Column(
+      ],
+    );
+
+    return ScrollConfiguration(
+      behavior: ScrollConfiguration.of(context)
+          .copyWith(dragDevices: PointerDeviceKind.values.toSet()),
+      child: SizedBox(
+        width: isPortrait ? 350 : null,
+        height: isPortrait ? null : 300,
+        child: Flex(
+          direction: isPortrait ? Axis.horizontal : Axis.vertical,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: _colorList(),
+              padding: isPortrait
+                  ? EdgeInsets.zero
+                  : const EdgeInsets.symmetric(horizontal: 4.0),
+              child: colorsSection,
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                child: _shadingList(),
+                padding: EdgeInsets.symmetric(
+                  horizontal: isPortrait ? 12.0 : 4.0,
+                ),
+                child: shadingsSection,
               ),
             ),
           ],
         ),
-      );
-    }
+      ),
+    );
   }
 }

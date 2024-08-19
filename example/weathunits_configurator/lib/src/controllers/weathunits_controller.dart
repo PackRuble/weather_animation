@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_locals
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nanoid/nanoid.dart';
 import 'package:weather_animation/weather_animation.dart';
@@ -29,22 +31,14 @@ class ListWeathunitNotifier extends StateNotifier<List<Weathunit>> {
   void updateRaw(MapEntry<String, dynamic> entry, Weathunit unit) {
     final newJsonConfig = unit.config.toJson()..[entry.key] = entry.value;
 
-    final newConfig = () {
-      switch (unit.type) {
-        case TypeWeather.sun:
-          return SunConfig.fromJson(newJsonConfig);
-        case TypeWeather.rain:
-          return RainConfig.fromJson(newJsonConfig);
-        case TypeWeather.thunder:
-          return ThunderConfig.fromJson(newJsonConfig);
-        case TypeWeather.snow:
-          return SnowConfig.fromJson(newJsonConfig);
-        case TypeWeather.cloud:
-          return CloudConfig.fromJson(newJsonConfig);
-        case TypeWeather.wind:
-          return WindConfig.fromJson(newJsonConfig);
-      }
-    }();
+    final newConfig = switch (unit.type) {
+      TypeWeather.sun => SunConfig.fromJson(newJsonConfig),
+      TypeWeather.rain => RainConfig.fromJson(newJsonConfig),
+      TypeWeather.thunder => ThunderConfig.fromJson(newJsonConfig),
+      TypeWeather.snow => SnowConfig.fromJson(newJsonConfig),
+      TypeWeather.cloud => CloudConfig.fromJson(newJsonConfig),
+      TypeWeather.wind => WindConfig.fromJson(newJsonConfig)
+    };
 
     final newUnit = unit.copyWith(config: newConfig);
 
@@ -58,46 +52,18 @@ class ListWeathunitNotifier extends StateNotifier<List<Weathunit>> {
   }
 
   Weathunit _getWeather(TypeWeather type) {
-    final id = nanoid();
-
-    switch (type) {
-      case TypeWeather.sun:
-        return Weathunit(
-          type: type,
-          config: const SunConfig(),
-          id: id,
-        );
-      case TypeWeather.rain:
-        return Weathunit(
-          type: type,
-          config: const RainConfig(),
-          id: id,
-        );
-      case TypeWeather.thunder:
-        return Weathunit(
-          type: type,
-          config: const ThunderConfig(),
-          id: id,
-        );
-      case TypeWeather.snow:
-        return Weathunit(
-          type: type,
-          config: const SnowConfig(),
-          id: id,
-        );
-      case TypeWeather.cloud:
-        return Weathunit(
-          type: type,
-          config: const CloudConfig(),
-          id: id,
-        );
-      case TypeWeather.wind:
-        return Weathunit(
-          type: type,
-          config: const WindConfig(),
-          id: id,
-        );
-    }
+    return Weathunit(
+      type: type,
+      config: switch (type) {
+        TypeWeather.sun => const SunConfig(),
+        TypeWeather.rain => const RainConfig(),
+        TypeWeather.thunder => const ThunderConfig(),
+        TypeWeather.snow => const SnowConfig(),
+        TypeWeather.cloud => const CloudConfig(),
+        TypeWeather.wind => const WindConfig(),
+      },
+      id: nanoid(),
+    );
   }
 
   void copyAdd(int index, Weathunit item) {
@@ -135,53 +101,40 @@ class ListWeathunitNotifier extends StateNotifier<List<Weathunit>> {
 }
 
 List<Weathunit> _parseWeathunit(WrapperScene scene) {
-  final result = <Weathunit>[];
-  for (final item in scene.children) {
-    final unit = () {
+  return [
+    for (final item in scene.children)
       switch (item.runtimeType) {
-        case SunWidget:
-          return Weathunit(
+        const (SunWidget) => Weathunit(
             type: TypeWeather.sun,
             config: (item as SunWidget).sunConfig,
             id: nanoid(),
-          );
-        case RainWidget:
-          return Weathunit(
+          ),
+        const (RainWidget) => Weathunit(
             type: TypeWeather.rain,
             config: (item as RainWidget).rainConfig,
             id: nanoid(),
-          );
-        case ThunderWidget:
-          return Weathunit(
+          ),
+        const (ThunderWidget) => Weathunit(
             type: TypeWeather.thunder,
             config: (item as ThunderWidget).thunderConfig,
             id: nanoid(),
-          );
-        case SnowWidget:
-          return Weathunit(
+          ),
+        const (SnowWidget) => Weathunit(
             type: TypeWeather.snow,
             config: (item as SnowWidget).snowConfig,
             id: nanoid(),
-          );
-        case CloudWidget:
-          return Weathunit(
+          ),
+        const (CloudWidget) => Weathunit(
             type: TypeWeather.cloud,
             config: (item as CloudWidget).cloudConfig,
             id: nanoid(),
-          );
-        case WindWidget:
-          return Weathunit(
+          ),
+        const (WindWidget) => Weathunit(
             type: TypeWeather.wind,
             config: (item as WindWidget).windConfig,
             id: nanoid(),
-          );
+          ),
+        _ => throw '',
       }
-    }();
-
-    if (unit != null) {
-      result.add(unit);
-    }
-  }
-
-  return result;
+  ];
 }

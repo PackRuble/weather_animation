@@ -39,8 +39,10 @@ class MainController {
     name: 'heightCanvas',
   );
 
-  static final selectedWidgetScene = Provider<WrapperScene?>(
-      (ref) => ref.watch(selectedScene)?.sceneWidget as WrapperScene?);
+  static final selectedWidgetScene = Provider<WrapperScene?>((ref) {
+    final scene = ref.watch(selectedScene);
+    return scene != null ? WrapperScene.weather(scene: scene) : null;
+  });
 
   static final selectedScene =
       StateProvider<WeatherScene?>((_) => WeatherScene.sunset);
