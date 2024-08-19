@@ -6,27 +6,26 @@ issue_tracker: https://github.com/PackRuble/weather_animation/issues
 
 version: 1.0.1
 
-dependency_overrides:
-  # todo: remove when updated build_runner
-  #  Error: The class 'FileSystemEvent' can't be extended, implemented,
-  #  or mixed in outside of its library because it's a sealed class.
-  watcher: 1.1.0
-
 environment:
-  sdk: ">=2.17.0 <4.0.0"
+  sdk: ^3.0.0
+
+dependency_overrides:
+  # todo: [[url_launcher] The windows demo is breaking `build_runner` builds because of `pigeon` · Issue #147909 · flutter/flutter](https://github.com/flutter/flutter/issues/147909)
+  pigeon: ^21.2.0
 
 dependencies:
   flutter:
     sdk: flutter
 
-  json_annotation: ^4.8.1
-  freezed_annotation: ^2.4.1
+  json_annotation: ^4.9.0
+  freezed_annotation: ^2.4.4
+
 
 dev_dependencies:
-  freezed: ^2.4.3
-  json_serializable: ^6.7.1
-  build_runner: ^2.4.6
-  lint: ^2.1.2
+  freezed: ^2.5.7
+  json_serializable: ^6.8.0
+  build_runner: ^2.4.12
+  lint: ^2.3.0
 
 screenshots:
   - description: 'Preset weather scenes'
