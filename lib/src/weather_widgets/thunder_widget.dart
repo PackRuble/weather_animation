@@ -5,12 +5,16 @@ import 'package:flutter/material.dart';
 
 import '../model/configs.dart';
 
+/// Multiple lightning widget and example of use with the [Stack] widget.
+///
+/// To create a complex version of a thunderstorm, use [SingleThunderWidget].
 class ThunderWidget extends StatelessWidget {
   const ThunderWidget({
-    Key? key,
-    this.thunderConfig = const ThunderConfig(),
-  }) : super(key: key);
+    super.key,
+    ThunderConfig? thunderConfig,
+  }) : thunderConfig = thunderConfig ?? const ThunderConfig();
 
+  /// Using [ThunderConfig.points] has no effect.
   final ThunderConfig thunderConfig;
 
   @override
@@ -26,7 +30,7 @@ class ThunderWidget extends StatelessWidget {
               Offset(156, 260),
               Offset(183, 340),
               Offset(155, 348),
-              Offset(170, 400)
+              Offset(170, 400),
             ],
           ),
         ),
@@ -36,7 +40,7 @@ class ThunderWidget extends StatelessWidget {
               Offset(230, 215),
               Offset(248, 285),
               Offset(232, 295),
-              Offset(245, 335)
+              Offset(245, 335),
             ],
           ),
         ),
@@ -47,9 +51,9 @@ class ThunderWidget extends StatelessWidget {
 
 class SingleThunderWidget extends StatefulWidget {
   const SingleThunderWidget({
-    Key? key,
-    this.thunderConfig = const ThunderConfig(),
-  }) : super(key: key);
+    super.key,
+    ThunderConfig? thunderConfig,
+  }) : thunderConfig = thunderConfig ?? const ThunderConfig();
 
   final ThunderConfig thunderConfig;
 
@@ -89,8 +93,9 @@ class SingleThunderWidgetState extends State<SingleThunderWidget>
     fadeController.duration = Duration(milliseconds: randomFlashDuration);
     pauseController.duration = Duration(milliseconds: randomPause);
 
-    fadeAnimation = Tween(begin: 0.0, end: 1.0)
-        .animate(CurvedAnimation(parent: fadeController, curve: Curves.linear));
+    fadeAnimation = Tween(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: fadeController, curve: Curves.linear),
+    );
     pauseAnimation = Tween(begin: 0.0, end: 1.0).animate(pauseController);
 
     fadeController.forward();
@@ -109,27 +114,22 @@ class SingleThunderWidgetState extends State<SingleThunderWidget>
         fadeController.forward();
       }
     });
+
     fadeAnimation.addStatusListener((status) {
-      switch (status) {
-        case AnimationStatus.completed:
-          fadeController.reverse();
-          break;
-        case AnimationStatus.dismissed:
-          randomFlashDuration = _random(poolStart: fStart, poolEnd: fEnd);
-          fadeController.duration = Duration(milliseconds: randomFlashDuration);
-          pauseController.reset();
-          fadeController.reset();
-          pauseController.forward();
-          break;
-        default:
-          break;
+      if (status == AnimationStatus.completed) {
+        fadeController.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        randomFlashDuration = _random(poolStart: fStart, poolEnd: fEnd);
+        fadeController.duration = Duration(milliseconds: randomFlashDuration);
+        pauseController.reset();
+        fadeController.reset();
+        pauseController.forward();
       }
     });
   }
 
-  int _random({required num poolStart, required num poolEnd}) {
-    return ((math.Random().nextDouble() * poolEnd) + poolStart).toInt();
-  }
+  int _random({required num poolStart, required num poolEnd}) =>
+      ((math.Random().nextDouble() * poolEnd) + poolStart).toInt();
 
   @override
   Widget build(BuildContext context) {
@@ -179,13 +179,7 @@ class SingleThunderWidgetState extends State<SingleThunderWidget>
 }
 
 class _ThunderPainter extends CustomPainter {
-  final Paint _paint = Paint();
-  List<Offset> points;
-  final Color color;
-  final BlurStyle blurStyle;
-  final double width, blurSigma;
-
-  _ThunderPainter({
+  const _ThunderPainter({
     required this.blurStyle,
     required this.blurSigma,
     required this.points,
@@ -193,15 +187,23 @@ class _ThunderPainter extends CustomPainter {
     required this.width,
   });
 
+  final List<Offset> points;
+  final Color color;
+  final BlurStyle blurStyle;
+  final double width, blurSigma;
+
   @override
   void paint(Canvas canvas, Size size) {
-    _paint.color = color;
-    _paint.strokeWidth = width;
-    _paint.maskFilter = MaskFilter.blur(blurStyle, blurSigma);
-    _paint.style = PaintingStyle.stroke;
-    _paint.strokeCap = StrokeCap.round;
-
-    canvas.drawPoints(PointMode.lines, points, _paint);
+    canvas.drawPoints(
+      PointMode.lines,
+      points,
+      Paint()
+        ..color = color
+        ..strokeWidth = width
+        ..maskFilter = MaskFilter.blur(blurStyle, blurSigma)
+        ..style = PaintingStyle.stroke
+        ..strokeCap = StrokeCap.round,
+    );
   }
 
   @override

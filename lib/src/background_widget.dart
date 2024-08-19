@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 /// The widget is used to customize the background of the weathers widget scene.
 class BackgroundWidget extends StatelessWidget {
   const BackgroundWidget({
-    Key? key,
+    super.key,
     required this.colors,
     required this.child,
     bool? isLeftCorner,
-  })  : isLeftCorner = isLeftCorner ?? false,
-        super(key: key);
+  }) : isLeftCorner = isLeftCorner ?? false;
 
   /// List of colors for creating a linear gradient.
   final List<Color> colors;
@@ -20,28 +19,19 @@ class BackgroundWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget widget = () {
-      switch (colors.length) {
-        case 0:
-          return child;
-        case 1:
-          return ColoredBox(color: colors.first, child: child);
-        case 2:
-        default:
-          return DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: colors,
-                begin: isLeftCorner ? Alignment.topRight : Alignment.topLeft,
-                end:
-                    isLeftCorner ? Alignment.bottomLeft : Alignment.bottomRight,
-              ),
+    return switch (colors.length) {
+      0 => child,
+      1 => ColoredBox(color: colors.first, child: child),
+      _ => DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: colors,
+              begin: isLeftCorner ? Alignment.topRight : Alignment.topLeft,
+              end: isLeftCorner ? Alignment.bottomLeft : Alignment.bottomRight,
             ),
-            child: child,
-          );
-      }
-    }();
-
-    return widget;
+          ),
+          child: child,
+        ),
+    };
   }
 }

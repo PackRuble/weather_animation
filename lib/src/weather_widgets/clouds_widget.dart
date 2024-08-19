@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import '../model/configs.dart';
 
 class CloudWidget extends StatefulWidget {
-  const CloudWidget({Key? key, this.cloudConfig = const CloudConfig()})
-      : super(key: key);
+  const CloudWidget({
+    super.key,
+    CloudConfig? cloudConfig,
+  }) : cloudConfig = cloudConfig ?? const CloudConfig();
 
   final CloudConfig cloudConfig;
 
@@ -56,7 +58,7 @@ class _CloudWidgetState extends State<CloudWidget>
             position: slideAnimation,
             child: ScaleTransition(
               scale: scaleAnimation,
-              child: _config.widgetCloud ?? // todo correct size widget
+              child: _config.widgetCloud ??
                   Icon(
                     _config.icon,
                     color: _config.color,

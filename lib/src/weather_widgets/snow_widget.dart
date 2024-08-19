@@ -6,8 +6,10 @@ import '../model/configs.dart';
 
 /// A class represents the snow widget. Use [snowConfig] for deep customization.
 class SnowWidget extends StatelessWidget {
-  const SnowWidget({Key? key, this.snowConfig = const SnowConfig()})
-      : super(key: key);
+  const SnowWidget({
+    super.key,
+    SnowConfig? snowConfig,
+  }) : snowConfig = snowConfig ?? const SnowConfig();
 
   final SnowConfig snowConfig;
 
@@ -18,9 +20,7 @@ class SnowWidget extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         for (int i = 0; i < snowConfig.count; i++)
-          SnowflakeWidget(
-            snowflakeConfig: snowConfig,
-          )
+          SnowflakeWidget(snowflakeConfig: snowConfig)
       ],
     );
   }
@@ -29,9 +29,9 @@ class SnowWidget extends StatelessWidget {
 /// A class represents a single snow widget (i.e. snowflakes).
 class SnowflakeWidget extends StatefulWidget {
   const SnowflakeWidget({
-    Key? key,
-    required this.snowflakeConfig,
-  }) : super(key: key);
+    super.key,
+    SnowConfig? snowflakeConfig,
+  }) : snowflakeConfig = snowflakeConfig ?? const SnowConfig();
 
   final SnowConfig snowflakeConfig;
 
@@ -68,12 +68,10 @@ class _SnowflakeWidgetState extends State<SnowflakeWidget>
     _config = widget.snowflakeConfig;
 
     // We want the snow to be distributed throughout the Y area.
-    double? areaYStartInit;
-    if (!isReload) {
-      areaYStartInit =
-          _randomSnow(poolStart: _config.areaYStart, poolEnd: _config.areaYEnd)
-              .toDouble();
-    }
+    final areaYStartInit = isReload
+        ? _config.areaYStart
+        : _randomSnow(poolStart: _config.areaYStart, poolEnd: _config.areaYEnd)
+            .toDouble();
 
     _setRandomData();
 
@@ -82,8 +80,11 @@ class _SnowflakeWidgetState extends State<SnowflakeWidget>
     fadeController.duration = Duration(seconds: randomSnowFallDuration);
 
     fallAnimation = Tween(
-            begin: areaYStartInit ?? _config.areaYStart, end: _config.areaYEnd)
-        .animate(CurvedAnimation(parent: fallController, curve: Curves.linear));
+      begin: areaYStartInit,
+      end: _config.areaYEnd,
+    ).animate(
+      CurvedAnimation(parent: fallController, curve: Curves.linear),
+    );
 
     y = fallAnimation.value;
 
@@ -95,12 +96,17 @@ class _SnowflakeWidgetState extends State<SnowflakeWidget>
           ? randomSnowX + randomSnowWave
           : randomSnowX,
     ).animate(
-        CurvedAnimation(parent: waveController, curve: _config.waveCurve));
+      CurvedAnimation(parent: waveController, curve: _config.waveCurve),
+    );
 
     x = waveAnimation.value;
 
-    fadeAnimation = Tween(begin: 1.0, end: 0.0).animate(
-        CurvedAnimation(parent: fadeController, curve: _config.fadeCurve));
+    fadeAnimation = Tween(
+      begin: 1.0,
+      end: 0.0,
+    ).animate(
+      CurvedAnimation(parent: fadeController, curve: _config.fadeCurve),
+    );
 
     fallController.forward();
     fadeController.forward();
@@ -109,17 +115,17 @@ class _SnowflakeWidgetState extends State<SnowflakeWidget>
 
   void _addListeners() {
     fallAnimation.addListener(() => setState(() => y = fallAnimation.value));
-
     waveAnimation.addListener(() => setState(() => x = waveAnimation.value));
-
     fallAnimation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         _setRandomData();
         fallController.duration = Duration(seconds: randomSnowFallDuration);
         waveController.duration = Duration(seconds: randomSnowWaveDuration);
         fadeController.duration = Duration(seconds: randomSnowFallDuration);
-        fallAnimation =
-            Tween(begin: _config.areaYStart, end: _config.areaYEnd).animate(
+        fallAnimation = Tween(
+          begin: _config.areaYStart,
+          end: _config.areaYEnd,
+        ).animate(
           CurvedAnimation(parent: fallController, curve: Curves.linear),
         );
         waveAnimation = Tween(
@@ -130,7 +136,8 @@ class _SnowflakeWidgetState extends State<SnowflakeWidget>
               ? randomSnowX + randomSnowWave
               : randomSnowX,
         ).animate(
-            CurvedAnimation(parent: waveController, curve: _config.waveCurve));
+          CurvedAnimation(parent: waveController, curve: _config.waveCurve),
+        );
         waveController.reset();
         fallController.reset();
         fadeController.reset();
@@ -163,27 +170,23 @@ class _SnowflakeWidgetState extends State<SnowflakeWidget>
     );
   }
 
-  int _randomSnow({required num poolStart, required num poolEnd}) {
-    return Random().nextInt(poolEnd.toInt() - poolStart.toInt() + 1) +
-        poolStart.toInt();
-  }
+  int _randomSnow({required num poolStart, required num poolEnd}) =>
+      Random().nextInt(poolEnd.toInt() - poolStart.toInt() + 1) +
+      poolStart.toInt();
 
   @override
   Widget build(BuildContext context) {
-    final widgetSnowflake = (_config.widgetSnowflake != null)
-        ? _config.widgetSnowflake
-        : Icon(
-            _config.icon,
-            color: _config.color,
-            size: _config.size,
-          );
-
     return Positioned(
       left: x,
       top: y,
       child: FadeTransition(
         opacity: fadeAnimation,
-        child: widgetSnowflake,
+        child: _config.widgetSnowflake ??
+            Icon(
+              _config.icon,
+              color: _config.color,
+              size: _config.size,
+            ),
       ),
     );
   }

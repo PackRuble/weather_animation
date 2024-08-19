@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import '../model/configs.dart';
 
 class RainWidget extends StatelessWidget {
-  const RainWidget({Key? key, this.rainConfig = const RainConfig()})
-      : super(key: key);
+  const RainWidget({
+    super.key,
+    RainConfig? rainConfig,
+  }) : rainConfig = rainConfig ?? const RainConfig();
 
   final RainConfig rainConfig;
 
@@ -17,17 +19,17 @@ class RainWidget extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         for (int i = 0; i < rainConfig.count; i++)
-          RainDropWidget(
-            rainConfig: rainConfig,
-          )
+          RainDropWidget(rainConfig: rainConfig)
       ],
     );
   }
 }
 
 class RainDropWidget extends StatefulWidget {
-  const RainDropWidget({Key? key, this.rainConfig = const RainConfig()})
-      : super(key: key);
+  const RainDropWidget({
+    super.key,
+    RainConfig? rainConfig,
+  }) : rainConfig = rainConfig ?? const RainConfig();
 
   final RainConfig rainConfig;
 
@@ -67,9 +69,7 @@ class _RainDropWidgetState extends State<RainDropWidget>
   void _initMainState([bool isReload = false]) {
     _config = widget.rainConfig;
 
-    if (!isReload) {
-      y = _config.areaYStart;
-    }
+    if (!isReload) y = _config.areaYStart;
 
     _setData();
 
@@ -86,26 +86,29 @@ class _RainDropWidgetState extends State<RainDropWidget>
   }
 
   void _setData() {
-    randomX =
-        _randomRain(poolStart: _config.areaXStart, poolEnd: _config.areaXEnd)
-            .toDouble();
+    randomX = _randomRain(
+      poolStart: _config.areaXStart,
+      poolEnd: _config.areaXEnd,
+    ).toDouble();
     randomRainDuration = _randomRain(
-        poolStart: _config.fallRangeMinDurMill.toDouble(),
-        poolEnd: _config.fallRangeMaxDurMill.toDouble());
+      poolStart: _config.fallRangeMinDurMill,
+      poolEnd: _config.fallRangeMaxDurMill,
+    );
 
     slideController.duration = Duration(milliseconds: randomRainDuration);
     fallController.duration = Duration(milliseconds: randomRainDuration);
     fadeController.duration = Duration(milliseconds: randomRainDuration);
 
-    fallAnimation = Tween(begin: _config.areaYStart, end: _config.areaYEnd)
-        .animate(
-            CurvedAnimation(parent: fallController, curve: _config.fallCurve));
+    fallAnimation = Tween(
+      begin: _config.areaYStart,
+      end: _config.areaYEnd,
+    ).animate(
+      CurvedAnimation(parent: fallController, curve: _config.fallCurve),
+    );
   }
 
   void _addListeners() {
     fallAnimation.addListener(() => setState(() => y = fallAnimation.value));
-
-    // fadeAnimation.addListener(() => setState(() => y = fallAnimation.value));
 
     fallAnimation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -120,22 +123,11 @@ class _RainDropWidgetState extends State<RainDropWidget>
     });
   }
 
-  int _randomRain({required num poolStart, required num poolEnd}) {
-    return ((math.Random().nextDouble() * poolEnd) + poolStart).toInt();
-  }
+  int _randomRain({required num poolStart, required num poolEnd}) =>
+      ((math.Random().nextDouble() * poolEnd) + poolStart).toInt();
 
   @override
   Widget build(BuildContext context) {
-    final widget = _config.widgetRainDrop ??
-        CustomPaint(
-          painter: _RainPainter(
-            color: _config.color,
-            dropLength: _config.lengthDrop,
-            dropWidth: _config.widthDrop,
-            isRoundedEnds: _config.isRoundedEndsDrop,
-          ),
-        );
-
     return Positioned(
       left: randomX,
       top: y,
@@ -143,7 +135,15 @@ class _RainDropWidgetState extends State<RainDropWidget>
         position: slideAnimation,
         child: FadeTransition(
           opacity: fadeAnimation,
-          child: widget,
+          child: _config.widgetRainDrop ??
+              CustomPaint(
+                painter: _RainPainter(
+                  color: _config.color,
+                  dropLength: _config.lengthDrop,
+                  dropWidth: _config.widthDrop,
+                  isRoundedEnds: _config.isRoundedEndsDrop,
+                ),
+              ),
         ),
       ),
     );
@@ -183,35 +183,30 @@ class _RainDropWidgetState extends State<RainDropWidget>
 }
 
 class _RainPainter extends CustomPainter {
-  final Paint _paint = Paint();
-
-  final double dropLength;
-  final double dropWidth;
-  final Color color;
-  final bool isRoundedEnds;
-
-  _RainPainter({
+  const _RainPainter({
     required this.dropLength,
     required this.dropWidth,
     required this.color,
     required this.isRoundedEnds,
   });
 
+  final double dropLength;
+  final double dropWidth;
+  final Color color;
+  final bool isRoundedEnds;
+
   @override
   void paint(Canvas canvas, Size size) {
-    final Path path = Path();
-
-    path.lineTo(0, dropLength);
-
-    _paint.color = color;
-    _paint.style = PaintingStyle.stroke;
-    _paint.strokeCap = isRoundedEnds ? StrokeCap.round : StrokeCap.butt;
-    _paint.strokeWidth = dropWidth;
-    canvas.drawPath(path, _paint);
+    canvas.drawPath(
+      Path()..lineTo(0, dropLength),
+      Paint()
+        ..color = color
+        ..style = PaintingStyle.stroke
+        ..strokeCap = isRoundedEnds ? StrokeCap.round : StrokeCap.butt
+        ..strokeWidth = dropWidth,
+    );
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
-  }
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }

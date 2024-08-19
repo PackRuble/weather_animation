@@ -6,10 +6,9 @@ import '../model/configs.dart';
 
 class SunWidget extends StatefulWidget {
   const SunWidget({
-    Key? key,
+    super.key,
     SunConfig? sunConfig,
-  })  : sunConfig = sunConfig ?? const SunConfig(),
-        super(key: key);
+  }) : sunConfig = sunConfig ?? const SunConfig();
 
   final SunConfig sunConfig;
 
@@ -56,73 +55,43 @@ class _SunWidgetState extends State<SunWidget> with TickerProviderStateMixin {
     inController.repeat(reverse: true);
   }
 
-  List<Widget> _buildPaints() {
-    final List<Widget> paints = [];
-
-    final Color core = _config.coreColor;
-    final Color middle = _config.midColor;
-    final Color outside = _config.outColor;
-
-    for (int i = 0; i < 3; i++) {
-      Color color;
-      switch (i) {
-        case 0:
-          color = core;
-          break;
-        case 1:
-          color = middle;
-          break;
-        case 2:
-          color = outside;
-          break;
-        default:
-          color = core;
-          break;
-      }
-
-      double radius;
-      if (i == 2) {
-        radius = _sunWidth * (1 / 2);
-      } else {
-        radius = _sunWidth * ((2.7 - (-i + 1) * 1.5) / 7);
-      }
-
-      paints.add(
-        Transform.scale(
-          scaleX: widget.sunConfig.isLeftLocation ? 1 : -1,
-          child: CustomPaint(
-            painter: _SunPainter(
-              color: color,
-              radius: radius,
-              width: _sunWidth * (2 / 9),
-              repaintListener: i == 0
-                  ? null
-                  : i == 1
-                      ? inController
-                      : outController,
-              animationWidth: i == 0
-                  ? null
-                  : i == 1
-                      ? inAnimation
-                      : outAnimation,
-              blurStyle: _config.blurStyle,
-              blurSigma: _config.blurSigma,
-              useFill: i == 0 ? true : false,
-              useCenter: i == 0 ? true : false,
-            ),
-            // size: widget.size,
-          ),
-        ),
-      );
-    }
-    return paints;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
-      children: _buildPaints(),
+      children: [
+        for (final (i, color) in [
+          _config.coreColor,
+          _config.midColor,
+          _config.outColor,
+        ].indexed)
+          Transform.scale(
+            scaleX: widget.sunConfig.isLeftLocation ? 1 : -1,
+            child: CustomPaint(
+              painter: _SunPainter(
+                color: color,
+                radius: _sunWidth *
+                    (i == 2 ? (1 / 2) : ((2.7 - (-i + 1) * 1.5) / 7)),
+                width: _sunWidth * (2 / 9),
+                repaint: switch (i) {
+                  0 => null,
+                  1 => inController,
+                  2 || _ => outController,
+                },
+                animationWidth: switch (i) {
+                  0 => null,
+                  1 => inAnimation,
+                  2 || _ => outAnimation,
+                },
+                blurStyle: _config.blurStyle,
+                blurSigma: _config.blurSigma,
+                useFill: i == 0,
+                useCenter: i == 0,
+              ),
+              // size: widget.size,
+            ),
+          ),
+      ],
     );
   }
 
@@ -156,6 +125,18 @@ class _SunWidgetState extends State<SunWidget> with TickerProviderStateMixin {
 }
 
 class _SunPainter extends CustomPainter {
+  const _SunPainter({
+    required this.useFill,
+    this.useCenter = false,
+    super.repaint,
+    required this.color,
+    required this.radius,
+    required this.width,
+    required this.animationWidth,
+    required this.blurStyle,
+    required this.blurSigma,
+  });
+
   final bool useCenter;
   final Color color;
   final double radius;
@@ -164,37 +145,20 @@ class _SunPainter extends CustomPainter {
   final Animation<double>? animationWidth;
   final BlurStyle blurStyle;
   final double blurSigma;
-  final _paint = Paint();
-
-  _SunPainter({
-    required this.useFill,
-    this.useCenter = false,
-    Listenable? repaintListener,
-    required this.color,
-    required this.radius,
-    required this.width,
-    required this.animationWidth,
-    required this.blurStyle,
-    required this.blurSigma,
-  }) : super(repaint: repaintListener);
 
   @override
   void paint(Canvas canvas, Size size) {
-    final rect = Rect.fromCircle(center: Offset.zero, radius: radius);
-
-    _paint.color = color;
-    if (useFill) {
-      _paint.style = PaintingStyle.fill;
-    } else {
-      _paint.style = PaintingStyle.stroke;
-    }
-    _paint.maskFilter = MaskFilter.blur(blurStyle, blurSigma);
-    if (animationWidth != null) {
-      _paint.strokeWidth = animationWidth!.value;
-    } else {
-      _paint.strokeWidth = width;
-    }
-    canvas.drawArc(rect, 0, pi / 2, useCenter, _paint);
+    canvas.drawArc(
+      Rect.fromCircle(center: Offset.zero, radius: radius),
+      0,
+      pi / 2,
+      useCenter,
+      Paint()
+        ..color = color
+        ..style = useFill ? PaintingStyle.fill : PaintingStyle.stroke
+        ..maskFilter = MaskFilter.blur(blurStyle, blurSigma)
+        ..strokeWidth = animationWidth != null ? animationWidth!.value : width,
+    );
   }
 
   @override

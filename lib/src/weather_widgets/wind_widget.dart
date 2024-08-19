@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import '../model/configs.dart';
 
 class WindWidget extends StatefulWidget {
-  const WindWidget({Key? key, this.windConfig = const WindConfig()})
-      : super(key: key);
+  const WindWidget({
+    super.key,
+    WindConfig? windConfig,
+  }) : windConfig = windConfig ?? const WindConfig();
 
   final WindConfig windConfig;
 
@@ -47,7 +49,9 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
     sEnd = _config.slideXEnd;
 
     randomPause = _randomWind(
-        poolStart: _config.pauseStartMill, poolEnd: _config.pauseEndMill);
+      poolStart: _config.pauseStartMill,
+      poolEnd: _config.pauseEndMill,
+    );
 
     slideController.duration = Duration(milliseconds: _config.slideDurMill);
     fadeController.duration = Duration(milliseconds: _config.slideDurMill ~/ 2);
@@ -65,7 +69,9 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
     pauseAnimation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         randomPause = _randomWind(
-            poolStart: _config.pauseStartMill, poolEnd: _config.pauseEndMill);
+          poolStart: _config.pauseStartMill,
+          poolEnd: _config.pauseEndMill,
+        );
         pauseController.duration = Duration(milliseconds: randomPause);
         fadeController.reset();
         slideController.reset();
@@ -73,9 +79,11 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
         slideController.forward();
       }
     });
+
     fadeAnimation.addStatusListener((status) {
       if (status == AnimationStatus.completed) fadeController.reverse();
     });
+
     slideAnimation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         pauseController.reset();
@@ -84,9 +92,8 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
     });
   }
 
-  int _randomWind({required num poolStart, required num poolEnd}) {
-    return ((math.Random().nextDouble() * poolEnd) + poolStart).toInt();
-  }
+  int _randomWind({required num poolStart, required num poolEnd}) =>
+      ((math.Random().nextDouble() * poolEnd) + poolStart).toInt();
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +101,7 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
       opacity: fadeAnimation,
       child: CustomPaint(
         painter: _WindPainter(
-          listenable: slideAnimation,
+          repaint: slideAnimation,
           point: slideAnimation,
           windColor: _config.color,
           windGust: _config.windGap,
@@ -141,14 +148,8 @@ class _WindWidgetState extends State<WindWidget> with TickerProviderStateMixin {
 }
 
 class _WindPainter extends CustomPainter {
-  final Paint _paint = Paint();
-  Animation<double> point;
-  double windGust, windSlideY, windWidth, blurSigma;
-  BlurStyle blurStyle;
-  Color windColor;
-
   _WindPainter({
-    required Listenable listenable,
+    required super.repaint,
     required this.point,
     required this.windGust,
     required this.windSlideY,
@@ -156,23 +157,33 @@ class _WindPainter extends CustomPainter {
     required this.windColor,
     required this.blurSigma,
     required this.blurStyle,
-  }) : super(repaint: listenable);
+  });
+
+  Animation<double> point;
+  double windGust, windSlideY, windWidth, blurSigma;
+  BlurStyle blurStyle;
+  Color windColor;
 
   @override
   void paint(Canvas canvas, Size size) {
-    _paint.color = windColor;
-    _paint.strokeWidth = windWidth;
-    _paint.maskFilter = MaskFilter.blur(blurStyle, blurSigma);
-    _paint.style = PaintingStyle.stroke;
-    final List<Offset> points = [
-      Offset(point.value + 10 + (point.value / 10), windSlideY),
-      Offset(point.value + 120 - (point.value / 10), windSlideY),
-      Offset(point.value - (point.value / 10), windSlideY + windGust),
-      Offset(point.value + 133 + (point.value / 10), windSlideY + windGust),
-      Offset(point.value + 2 + (point.value / 10), windSlideY + windGust * 2),
-      Offset(point.value + 110 + (point.value / 10), windSlideY + windGust * 2)
-    ];
-    canvas.drawPoints(PointMode.lines, points, _paint);
+    final p = point.value;
+
+    canvas.drawPoints(
+      PointMode.lines,
+      [
+        Offset(p + 10 + (p / 10), windSlideY),
+        Offset(p + 120 - (p / 10), windSlideY),
+        Offset(p - (p / 10), windSlideY + windGust),
+        Offset(p + 133 + (p / 10), windSlideY + windGust),
+        Offset(p + 2 + (p / 10), windSlideY + windGust * 2),
+        Offset(p + 110 + (p / 10), windSlideY + windGust * 2),
+      ],
+      Paint()
+        ..color = windColor
+        ..strokeWidth = windWidth
+        ..maskFilter = MaskFilter.blur(blurStyle, blurSigma)
+        ..style = PaintingStyle.stroke,
+    );
   }
 
   @override
