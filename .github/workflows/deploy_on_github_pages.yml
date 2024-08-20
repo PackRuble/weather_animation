@@ -33,18 +33,18 @@ jobs:
       - name: 'Flutter enable Web'
         run: flutter config --enable-web
 
+      - name: 'Flutter clean before build'
+        run: |
+          flutter clean
+          cd 'example/weathunits_configurator'
+          flutter clean
+
       - name: 'Get dependencies'
         run: flutter pub get
         working-directory: example/weathunits_configurator
 
       - name: 'Show outdated packages'
         run: flutter pub outdated
-
-      - name: 'Flutter clean before build'
-        run: |
-          flutter clean
-          cd 'example/weathunits_configurator'
-          flutter clean
 
       - name: 'Build web app'
         run: |

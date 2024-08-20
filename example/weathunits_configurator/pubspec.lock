@@ -235,10 +235,12 @@ packages:
   weather_animation:
     dependency: "direct main"
     description:
-      path: "../.."
-      relative: true
-    source: path
-    version: "1.0.1"
+      path: "."
+      ref: HEAD
+      resolved-ref: "63b6b36d22dc73f432dd3f5ff43c8791034ece27"
+      url: "https://github.com/PackRuble/weather_animation"
+    source: git
+    version: "1.1.0"
   web:
     dependency: transitive
     description:
