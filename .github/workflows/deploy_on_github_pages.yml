@@ -49,7 +49,7 @@ jobs:
       - name: 'Build web app'
         run: |
           cd example/weathunits_configurator
-          flutter build web --base-href='/weather_animation/' --web-renderer=skwasm
+          flutter build web --base-href='/weather_animation/' --web-renderer=auto
 
       - name: 'Deploy web app'
         uses: JamesIves/github-pages-deploy-action@v4
