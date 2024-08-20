@@ -4,6 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'configs.freezed.dart';
 part 'configs.g.dart';
 
+// ignore_for_file: invalid_annotation_target
+
 // After editing this file, run the script:
 // ```shell
 // flutter pub run build_runner build

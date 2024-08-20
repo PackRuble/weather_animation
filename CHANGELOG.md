@@ -1,3 +1,10 @@
+## [1.1.0] - 20-08-2024
+- 🧨del: `WeatherScene.getWeather` and `getWeatherScene`
+- 🧨add: use `WrapperScene.weather` instead of `WeatherSceneWidget`
+- add: all weather widgets can accept `null`-config as a parameter
+- upd: all weather widgets have been refactored and optimized
+- upd: dart sdk `^3.0.0`
+
 ## [1.0.1] - 27-10-2023
 - new: use getter `WeatherScene.sceneWidget` instead of `getWeather` method
 - new: use `WeatherSceneWidget` instead of `getWeatherScene` method

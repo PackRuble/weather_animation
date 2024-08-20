@@ -4,14 +4,15 @@ homepage: https://t.me/+AkGV73kZi_Q1YTMy
 repository: https://github.com/PackRuble/weather_animation
 issue_tracker: https://github.com/PackRuble/weather_animation/issues
 
-version: 1.0.1
+version: 1.1.0
 
 environment:
   sdk: ^3.0.0
 
-dependency_overrides:
-  # todo: [[url_launcher] The windows demo is breaking `build_runner` builds because of `pigeon` · Issue #147909 · flutter/flutter](https://github.com/flutter/flutter/issues/147909)
-  pigeon: ^21.2.0
+#dependency_overrides:
+# todo: [[url_launcher] The windows demo is breaking `build_runner` builds because of `pigeon` · Issue #147909 · flutter/flutter](https://github.com/flutter/flutter/issues/147909)
+# needed exclusively for generating models
+#  pigeon: ^21.2.0
 
 dependencies:
   flutter:
@@ -19,7 +20,6 @@ dependencies:
 
   json_annotation: ^4.9.0
   freezed_annotation: ^2.4.4
-
 
 dev_dependencies:
   freezed: ^2.5.7

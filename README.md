@@ -24,17 +24,18 @@ Try the [Weathunits configurator][configurator_link] for setting weather scenes 
 ## Table of Contents
 
 <!-- TOC -->
-  * [🌇 weather_animation](#-weatheranimation)
+  * [🌇 weather_animation](#-weather_animation)
   * [Motivation](#motivation)
   * [Table of Contents](#table-of-contents)
   * [How to use simply?](#how-to-use-simply)
     * [Use `WeatherScene`](#use-weatherscene)
     * [Use `WrapperScene`](#use-wrapperscene)
-    * [Use `weather_configurator` app](#use-weatherconfigurator-app)
+    * [Use `weather_configurator` app](#use-weather_configurator-app)
   * [Library structure](#library-structure)
     * [Configuration files `...Config`](#configuration-files-config)
     * [About `WrapperScene`](#about-wrapperscene)
     * [About `BackgroundWidget`](#about-backgroundwidget)
+  * [Author](#author)
   * [Additional information](#additional-information)
 <!-- TOC -->
 
@@ -56,11 +57,11 @@ Widget build(BuildContext context) {
 }
 ```
 
-or use `WeatherSceneWidget`:
+or for more customization, use `WrapperScene.weather`:
 ```dart
 @override
 Widget build(BuildContext context) {
-  return WeatherSceneWidget(weatherScene: WeatherScene.sunset);
+  return WrapperScene.weather(scene: WeatherScene.sunset);
 }
 ```
 
@@ -86,7 +87,7 @@ Widget build(BuildContext context) {
 
 If necessary, specify a configuration file to fine-tune the weather widget:
 ```dart
-...
+// ...
 SunWidget(
   sunConfig: SunConfig(
     width: 262.0,
@@ -100,7 +101,7 @@ SunWidget(
     animOutMill: 1800,
   ),
 ),
-...
+// ...
 ```
 
 ### Use `weather_configurator` app
@@ -148,8 +149,26 @@ weather scene relative to the specified canvas dimensions. Has a clipper and sce
 The `BackgroundWidget` class allows you to create a color background in the form of a linear gradient.
 Specify the desired colors and you're done.
 
+## Author
+
+You can contact me or check out my activities on the following platforms:
+
+- [Github](https://github.com/PackRuble)
+- [Telegram](https://t.me/+AkGV73kZi_Q1YTMy)
+- [StackOverflow](https://stackoverflow.com/users/17991131/ruble)
+- [Medium](https://medium.com/@pack.ruble)
+- [Habr](https://habr.com/ru/users/PackRuble)
+
 ## Additional information
+
 Made with ❤️. Enjoy it!
+
+
+---
+
+<h6>
+🏷 tags: weather, animation, weather conditions, weather scenes
+</h6>
 
 
 <!-- Links -->
@@ -168,11 +187,5 @@ Made with ❤️. Enjoy it!
 [repo_star_badge]: https://img.shields.io/github/stars/PackRuble/weather_animation?style=plastic
 [repo_star_link]: https://github.com/PackRuble/weather_animation/network/dependents
 
-[configurator_badge]: https://img.shields.io/badge/🎄playground-web%E2%80%90app-CB6586?style=plastic
+[configurator_badge]: https://img.shields.io/badge/🎄playground-web_app-CB6586?style=plastic
 [configurator_link]: https://packruble.github.io/weather_animation/
-
----
-
-<h6>
-🏷 tags: weather, animation, weather conditions, weather scenes
-</h6>
