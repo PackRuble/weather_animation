@@ -22,7 +22,7 @@ int _getCountDecimal(num value) {
 
 class SliderWidget extends StatefulWidget {
   const SliderWidget({
-    Key? key,
+    super.key,
     required this.onChanged,
     this.onChangeEnd,
     required this.value,
@@ -42,8 +42,7 @@ class SliderWidget extends StatefulWidget {
             'then `onReset` cannot be null'),
         assert(max != null || autoMax != null,
             'The maximum value must be specified, in the only way'),
-        assert((autoMax ?? 2) > 1),
-        super(key: key);
+        assert((autoMax ?? 2) > 1);
 
   final double value;
   final double min;
@@ -276,12 +275,12 @@ class _SliderWidgetState extends State<SliderWidget> {
 
 class _ButtonSlider extends StatelessWidget {
   const _ButtonSlider({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.onLongPress,
     required this.onLongPressUp,
     required this.iconData,
-  }) : super(key: key);
+  });
 
   final IconData iconData;
 

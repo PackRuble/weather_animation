@@ -7,8 +7,8 @@ class ColorPickerWidget extends ConsumerStatefulWidget {
   const ColorPickerWidget({
     this.onColorChanged,
     this.color,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final ValueChanged<Color>? onColorChanged;
 

@@ -1,8 +1,8 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
-//ignore_for_file: avoid_classes_with_only_static_members
-
 class AppTheme {
+  const AppTheme._();
+
   static final theme = FlexThemeData.light(
     scheme: FlexScheme.amber,
     surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
@@ -11,7 +11,6 @@ class AppTheme {
     appBarOpacity: 0.95,
     tooltipsMatchBackground: true,
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
-    useMaterial3: true,
   );
   static final darkTheme = FlexThemeData.dark(
     colors: FlexColor.schemes[FlexScheme.amber]!.light.defaultError
@@ -23,6 +22,5 @@ class AppTheme {
     appBarOpacity: 0.90,
     tooltipsMatchBackground: true,
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
-    useMaterial3: true,
   );
 }

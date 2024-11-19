@@ -10,8 +10,8 @@ import '../shared/slider_widget.dart';
 
 class SceneSection extends ConsumerWidget {
   const SceneSection({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,7 +35,7 @@ class SceneSection extends ConsumerWidget {
 }
 
 class _WeathersOnScene extends ConsumerWidget {
-  const _WeathersOnScene({Key? key}) : super(key: key);
+  const _WeathersOnScene({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -83,8 +83,8 @@ class _WeathersOnScene extends ConsumerWidget {
 class _WeatherWidgetOnScene extends ConsumerWidget {
   const _WeatherWidgetOnScene(
     this.unit, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Weathunit unit;
 
@@ -104,8 +104,8 @@ class _WeatherWidgetOnScene extends ConsumerWidget {
 
 class SizerWidget extends ConsumerWidget {
   const SizerWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -153,8 +153,8 @@ class SizerWidget extends ConsumerWidget {
 
 class _AspectRatioWidget extends ConsumerWidget {
   const _AspectRatioWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -59,8 +59,8 @@ class BackgroundColorsNotifier extends StateNotifier<List<Color>> {
 
 class BackgroundConfigWidget extends ConsumerWidget {
   const BackgroundConfigWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -181,8 +181,8 @@ class BackgroundConfigWidget extends ConsumerWidget {
 
 class _PickerWidget extends ConsumerWidget {
   const _PickerWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -207,8 +207,7 @@ class _PickerWidget extends ConsumerWidget {
 }
 
 class _AnimatedIconDelete extends StatefulWidget {
-  const _AnimatedIconDelete({required this.onPressed, Key? key})
-      : super(key: key);
+  const _AnimatedIconDelete({required this.onPressed, super.key});
 
   final Function() onPressed;
 

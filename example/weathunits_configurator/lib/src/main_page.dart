@@ -30,7 +30,7 @@ class EditorScenesApp extends ConsumerWidget {
 }
 
 class HomePage extends ConsumerWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -75,8 +75,8 @@ class HomePage extends ConsumerWidget {
 
 class FullscreenView extends ConsumerWidget {
   const FullscreenView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

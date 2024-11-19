@@ -11,8 +11,8 @@ import 'config_background_widget.dart';
 
 class ConfigSection extends ConsumerWidget {
   const ConfigSection({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -147,8 +147,8 @@ class _ColorPick extends ConsumerWidget {
   const _ColorPick({
     this.onColorChanged,
     required this.entry,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final ValueChanged<Color>? onColorChanged;
 
@@ -200,8 +200,8 @@ class _TileConfigWidget<T extends num> extends ConsumerWidget {
   const _TileConfigWidget({
     required this.entry,
     required this.onChanged,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final MapEntry<String, T> entry;
   final void Function(double)? onChanged;

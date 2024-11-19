@@ -12,8 +12,8 @@ import 'tooltip_widget.dart';
 
 class ToolBarWidget extends ConsumerWidget {
   const ToolBarWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -57,8 +57,8 @@ class ToolBarWidget extends ConsumerWidget {
 
 class _FullscreenButton extends ConsumerWidget {
   const _FullscreenButton({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -82,8 +82,8 @@ class _FullscreenButton extends ConsumerWidget {
 
 class _CopyCodeButton extends ConsumerWidget {
   const _CopyCodeButton({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -110,8 +110,8 @@ class _CopyCodeButton extends ConsumerWidget {
 
 class _UpdateForceButton extends ConsumerWidget {
   const _UpdateForceButton({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

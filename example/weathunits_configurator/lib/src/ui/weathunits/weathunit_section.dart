@@ -8,8 +8,8 @@ import '../shared/tool_bar_widget.dart';
 
 class WeathunitSection extends ConsumerWidget {
   const WeathunitSection({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -95,8 +95,8 @@ class WeathunitSection extends ConsumerWidget {
 
 class _TileBgWidget extends ConsumerWidget {
   const _TileBgWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -127,8 +127,8 @@ class _TileSceneWidget extends ConsumerWidget {
   const _TileSceneWidget(
     this.index,
     this.item, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final int index;
 

@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CTooltip extends ConsumerWidget {
   const CTooltip({
-    Key? key,
+    super.key,
     required this.child,
     required this.message,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final String message;
