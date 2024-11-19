@@ -22,12 +22,15 @@ class WrapperScene extends StatelessWidget {
     required this.colors,
   }) : super(key: key);
 
+  /// Weather scene widget using [WeatherScene] presets.
+  ///
+  /// Select the desired [scene] and adjust other parameters.
   factory WrapperScene.weather({
     required WeatherScene scene,
     Key? key,
     Size? sizeCanvas,
-    Decoration? decoration,
-    Clip? clip,
+    Decoration? decoration = const BoxDecoration(),
+    Clip? clip = Clip.antiAlias,
     bool? isLeftCornerGradient,
     List<Color>? colors,
   }) {
@@ -40,7 +43,11 @@ class WrapperScene extends StatelessWidget {
             _ => true,
           },
       decoration: decoration,
-      clip: clip ?? Clip.antiAlias,
+      clip: clip ??
+          switch (decoration) {
+            null => Clip.none,
+            _ => Clip.antiAlias,
+          },
       colors: colors ??
           switch (scene) {
             WeatherScene.scorchingSun => [
