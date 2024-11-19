@@ -2,7 +2,7 @@
 
 - fix: in `WrapperScene.weather` now `decoration` parameter defaults to `BoxDecoration()`, and `clip=Clip.antiAlias`. Close [#15](https://github.com/PackRuble/weather_animation/issues/15)
 - add: application `weather_scenes` as example for easy launch:
-  - `dart pub unpack weather_animation:1.1.1: --output=archives` (available in dart ^3.4)
+  - `dart pub unpack weather_animation:1.1.1 --output=archives` (available in dart ^3.4)
   - `cd .\archives\weather_animation-1.1.1\example\weather_scenes\`
   - `flutter run` (select device)
 
