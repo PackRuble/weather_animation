@@ -54,11 +54,7 @@ class _HomePageState extends State<HomePage> {
                   Stack(
                     fit: StackFit.expand,
                     children: [
-                      WrapperScene.weather(
-                        scene: w,
-                        decoration: BoxDecoration(),
-                        clip: Clip.hardEdge,
-                      ),
+                      WrapperScene.weather(scene: w),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Padding(
@@ -82,13 +78,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Text(w.name),
-                        Expanded(
-                          child: WrapperScene.weather(
-                            scene: w,
-                            decoration: BoxDecoration(),
-                            clip: Clip.hardEdge,
-                          ),
-                        ),
+                        Expanded(child: w.sceneWidget),
                       ],
                     ),
                   ),
