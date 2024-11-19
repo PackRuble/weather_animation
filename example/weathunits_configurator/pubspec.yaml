@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
 
   weather_animation:
-#      path: ../../../weather_animation # for development
+#    path: ../../../weather_animation # for development
     git:
       url: https://github.com/PackRuble/weather_animation
 

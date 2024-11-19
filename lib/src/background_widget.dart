@@ -15,6 +15,7 @@ class BackgroundWidget extends StatelessWidget {
   /// Gradient direction.
   final bool isLeftCorner;
 
+  /// Widget to which you need to add a background.
   final Widget child;
 
   @override

@@ -12,15 +12,19 @@ import 'weather_widgets/all_widgets.dart';
 /// on it. Applies smart scaling so that your weather widgets are placed evenly
 /// across the screen parameters provided.
 class WrapperScene extends StatelessWidget {
+  /// Create your own scene. Specify widgets in [children] that will populate scene.
+  ///
+  /// Keep in mind that `assert(decoration != null || clipBehavior == Clip.none)`,
+  /// since this is a standard and logical limitation of the [Container] widget.
   const WrapperScene({
-    Key? key,
+    super.key,
     this.sizeCanvas = const Size(350.0, 540.0),
     this.decoration = const BoxDecoration(),
     this.clip = Clip.antiAlias,
     this.isLeftCornerGradient,
     required this.children,
     required this.colors,
-  }) : super(key: key);
+  });
 
   /// Weather scene widget using [WeatherScene] presets.
   ///
@@ -695,25 +699,25 @@ class WrapperScene extends StatelessWidget {
       constraints: BoxConstraints.tight(sizeCanvas),
       clipBehavior: clip,
       decoration: decoration,
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final sizeConstraints = constraints.biggest;
+      child: BackgroundWidget(
+        colors: colors,
+        isLeftCorner: isLeftCornerGradient,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final sizeConstraints = constraints.biggest;
 
-          final scaleTrue = math.min(
-            sizeConstraints.height / sizeCanvas.height,
-            sizeConstraints.width / sizeCanvas.width,
-          );
+            final scaleTrue = math.min(
+              sizeConstraints.height / sizeCanvas.height,
+              sizeConstraints.width / sizeCanvas.width,
+            );
 
-          return BackgroundWidget(
-            colors: colors,
-            isLeftCorner: isLeftCornerGradient,
-            child: Transform.scale(
+            return Transform.scale(
               alignment: Alignment.topLeft,
               scale: scaleTrue,
               child: Stack(children: children),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

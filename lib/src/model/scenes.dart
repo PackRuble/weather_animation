@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_redundant_argument_values
-
 import 'package:flutter/widgets.dart';
 
 import '../weather_widgets/all_widgets.dart';
