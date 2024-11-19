@@ -9,11 +9,6 @@ version: 1.1.0
 environment:
   sdk: ^3.0.0
 
-#dependency_overrides:
-# todo: [[url_launcher] The windows demo is breaking `build_runner` builds because of `pigeon` · Issue #147909 · flutter/flutter](https://github.com/flutter/flutter/issues/147909)
-# needed exclusively for generating models
-#  pigeon: ^21.2.0
-
 dependencies:
   flutter:
     sdk: flutter
@@ -24,7 +19,7 @@ dependencies:
 dev_dependencies:
   freezed: ^2.5.7
   json_serializable: ^6.8.0
-  build_runner: ^2.4.12
+  build_runner: ^2.4.13
   lint: ^2.3.0
 
 screenshots:
