@@ -13,6 +13,8 @@ Create weather scenes and animate as your heart desires. Simple and free.
 
 Try the [Weathunits configurator][configurator_link] for setting weather scenes directly in the WEB!
 
+> Put a ![][pub_like_icon] on [Pub][pub_link] and favorite ⭐ on [Github][repo_link] to keep up with changes and not miss new releases!
+
 ## Motivation
 
 - 🎨 colorful weather scenes without using gif/png and stuff source
@@ -174,6 +176,7 @@ Made with ❤️. Enjoy it!
 <!-- Links -->
 [pub_badge]: https://img.shields.io/pub/v/weather_animation.svg?style=plastic
 [pub_link]: https://pub.dev/packages/weather_animation
+[pub_like_icon]: https://pub.dev/static/hash-ffjootqp/img/like-active.svg
 
 [license_badge]: https://img.shields.io/github/license/PackRuble/weather_animation?style=plastic
 [license_link]: https://github.com/PackRuble/weather_animation/blob/master/LICENSE
