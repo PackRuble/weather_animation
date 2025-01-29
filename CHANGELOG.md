@@ -1,3 +1,7 @@
+## [1.1.2] - 29-01-2025
+
+- fix: weatherunits configurator - when click "Copy the code to the clipboard" the world "minified" is wrongfully inserted [#18](https://github.com/PackRuble/weather_animation/issues/18)
+
 ## [1.1.1] - 19-11-2024
 
 - fix: in `WrapperScene.weather` now `decoration` parameter defaults to `BoxDecoration()`, and `clip=Clip.antiAlias`. Close [#15](https://github.com/PackRuble/weather_animation/issues/15)
