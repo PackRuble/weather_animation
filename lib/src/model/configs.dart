@@ -24,7 +24,10 @@ class ColorSerializer implements JsonConverter<Color, String> {
   Color fromJson(String json) => Color(int.parse(json));
 
   @override
-  String toJson(Color color) => color.value.toString();
+  String toJson(Color color) =>
+      // todo(29.01.2025): [`Color.value` is deprecated and broken generated color code · Issue #19 · PackRuble/weather_animation](https://github.com/PackRuble/weather_animation/issues/19)
+      // ignore: deprecated_member_use
+      color.value.toString();
 }
 
 /// Represents all weather configurations.

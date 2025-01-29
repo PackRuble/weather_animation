@@ -17,9 +17,9 @@ dependencies:
   freezed_annotation: ^2.4.4
 
 dev_dependencies:
-  freezed: ^2.5.7
-  json_serializable: ^6.8.0
-  build_runner: ^2.4.13
+  freezed: ^2.5.8
+  json_serializable: ^6.9.3
+  build_runner: ^2.4.14
   lint: ^2.3.0
 
 screenshots:
