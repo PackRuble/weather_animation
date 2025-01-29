@@ -13,7 +13,7 @@ class AboutButton extends StatelessWidget {
           context: context,
           applicationName: 'Weather Configurator',
           applicationVersion: 'stable version',
-          applicationLegalese: 'Copyright 2022-2024 PackRuble',
+          applicationLegalese: 'Copyright 2022-2025 PackRuble',
           children: [const AboutWidget()],
         );
       },

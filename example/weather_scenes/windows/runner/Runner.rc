@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "weather_scenes" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "weather_scenes" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.rublepack. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 com.rublepack. All rights reserved." "\0"
             VALUE "OriginalFilename", "weather_scenes.exe" "\0"
             VALUE "ProductName", "weather_scenes" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
