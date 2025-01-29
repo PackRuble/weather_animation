@@ -62,7 +62,8 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             '<- Swipe ->',
                             style: headlineStyle?.copyWith(
-                              color: headlineStyle.color?.withOpacity(0.2),
+                              color:
+                                  headlineStyle.color?.withValues(alpha: 0.2),
                             ),
                           ),
                         ),
