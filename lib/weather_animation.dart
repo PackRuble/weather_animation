@@ -1,4 +1,4 @@
-// Copyright (c) 2022-2025 PackRuble
+// Copyright (c) 2022-2026 PackRuble
 //
 // Use of this source code is governed by the license found in the LICENSE file.
 
