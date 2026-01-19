@@ -43,6 +43,7 @@ String getCode(WidgetRef ref) {
   final height = ref.read(MainController.heightCanvas);
 
   final String content = '''
+  // ignore_for_file: avoid_redundant_argument_values
   return const WrapperScene(
     sizeCanvas: Size($width, $height),
     isLeftCornerGradient: $isLeftCornerGradient,
