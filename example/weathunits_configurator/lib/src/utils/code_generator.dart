@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:weathunits_configurator/src/extension/hex_color.dart';
 
 import '../controllers/main_controller.dart';
 import '../controllers/weathunits_controller.dart';
@@ -28,7 +27,12 @@ String getCode(WidgetRef ref) {
 
   final StringBuffer colorsList = StringBuffer();
   for (final color in ref.read(backgroundColorsProvider)) {
-    colorsList.write('Color(${color.hexMaterial}),\n');
+    colorsList.write('Color.from('
+        'alpha: ${color.a.toStringAsFixed(4)}, '
+        'red: ${color.r.toStringAsFixed(4)}, '
+        'green: ${color.g.toStringAsFixed(4)}, '
+        'blue:${color.b.toStringAsFixed(4)}),'
+        '\n');
   }
 
   ref.read(BackgroundColorsNotifier.isLeftCornerGradient);
@@ -49,8 +53,11 @@ String getCode(WidgetRef ref) {
   );
   ''';
 
-  return content.replaceAllMapped(RegExp(r'IconData\([A-Z0-9+]*\)'), (match) {
-    final code = match[0]!.split('+')[1].replaceFirst(')', '');
-    return "IconData(${int.parse(code, radix: 16)}, fontFamily: 'MaterialIcons')";
-  });
+  return content
+      .replaceAllMapped(RegExp(r'IconData\([A-Z0-9+]*\)'), (match) {
+        final code = match[0]!.split('+')[1].replaceFirst(')', '');
+        return "IconData(${int.parse(code, radix: 16)}, fontFamily: 'MaterialIcons')";
+      })
+      .replaceAll('Color(', 'Color.from(')
+      .replaceAll(', colorSpace: ColorSpace.sRGB)', ')');
 }
