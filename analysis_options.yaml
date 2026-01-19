@@ -17,3 +17,7 @@ linter:
     avoid_relative_lib_imports: false
     always_use_package_imports: false
     avoid_multiple_declarations_per_line: false
+
+formatter:
+  page_width: 80
+  trailing_commas: preserve

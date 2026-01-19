@@ -16,3 +16,7 @@ linter:
     always_use_package_imports: false
     use_super_parameters: true
     sort_pub_dependencies: false
+
+formatter:
+  page_width: 80
+  trailing_commas: preserve
