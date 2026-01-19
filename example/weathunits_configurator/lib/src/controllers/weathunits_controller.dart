@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_final_locals
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import 'package:nanoid/nanoid.dart';
 import 'package:weather_animation/weather_animation.dart';
 import 'package:weathunits_configurator/src/controllers/main_controller.dart';

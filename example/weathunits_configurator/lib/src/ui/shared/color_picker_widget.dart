@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -22,7 +23,7 @@ class _ColorPickerWidgetState extends ConsumerState<ColorPickerWidget> {
   late Color pickerColor = widget.color ?? Colors.amber.shade100;
 
   void onColorChanged(Color color, [int? alpha]) {
-    final Color newColor = color.withAlpha(alpha ?? pickerColor.alpha);
+    final Color newColor = color.withAlpha(alpha ?? pickerColor.alpha8bit);
 
     setState(() => pickerColor = newColor);
     widget.onColorChanged?.call(newColor);
@@ -50,7 +51,7 @@ class _ColorPickerWidgetState extends ConsumerState<ColorPickerWidget> {
                   HSVColor.fromColor(pickerColor),
                   (HSVColor color) {
                     final newColor = color.toColor();
-                    onColorChanged(newColor, newColor.alpha);
+                    onColorChanged(newColor, newColor.alpha8bit);
                   },
                 ),
               );

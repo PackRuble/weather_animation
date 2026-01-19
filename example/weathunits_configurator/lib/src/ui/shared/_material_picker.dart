@@ -7,6 +7,7 @@
 
 // ignore_for_file: prefer_final_locals, prefer_final_in_for_each, require_trailing_commas, no_leading_underscores_for_local_identifiers, prefer_if_elements_to_conditional_expressions, curly_braces_in_flow_control_structures, avoid_redundant_argument_values, unnecessary_parenthesis
 
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart'
@@ -107,7 +108,7 @@ class _MaterialPickerState extends State<MaterialPicker> {
   void initState() {
     for (List<Color> _colors in _colorTypes) {
       _shadingTypes(_colors).forEach((Map<Color, String> color) {
-        if (widget.pickerColor.value == color.keys.first.value) {
+        if (widget.pickerColor.value32bit == color.keys.first.value32bit) {
           return setState(() {
             _currentColorType = _colors;
             _currentShading = color.keys.first;

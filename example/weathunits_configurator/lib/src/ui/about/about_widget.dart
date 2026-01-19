@@ -8,7 +8,7 @@ class AboutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () async {
+      onPressed: () {
         showAboutDialog(
           context: context,
           applicationName: 'Weather Configurator',

@@ -50,7 +50,7 @@ class HomePage extends ConsumerWidget {
           thickness: 4.0,
           size: 30.0,
           backgroundColor: theme.dividerColor,
-          highlightedBackgroundColor: theme.dividerColor.withOpacity(.3),
+          highlightedBackgroundColor: theme.dividerColor.withValues(alpha: .3),
           highlightedThickness: 3.0,
           highlightedSize: 65.0,
         ),

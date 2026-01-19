@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -85,7 +86,7 @@ class ConfigSection extends ConsumerWidget {
             entry: tEntry,
             onColorChanged: (Color color) {
               ref.read(listWeathunitProvider.notifier).updateRaw(
-                    MapEntry(tEntry.key, color.value.toString()),
+                    MapEntry(tEntry.key, color.value32bit.toString()),
                     currentConfig,
                   );
             },

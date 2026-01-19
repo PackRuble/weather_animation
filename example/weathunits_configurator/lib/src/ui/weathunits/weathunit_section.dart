@@ -108,7 +108,7 @@ class _TileBgWidget extends ConsumerWidget {
       padding: const EdgeInsets.all(2.0),
       child: ListTile(
         selected: selected,
-        selectedTileColor: theme.primaryColor.withOpacity(0.3),
+        selectedTileColor: theme.primaryColor.withValues(alpha: 0.3),
         onTap: () {
           // at null we show backgroundConfig
           ref.read(selectedWeathunitProvider.notifier).state = null;
@@ -148,7 +148,7 @@ class _TileSceneWidget extends ConsumerWidget {
         ),
       ),
       selected: isSelected,
-      selectedTileColor: theme.primaryColor.withOpacity(0.3),
+      selectedTileColor: theme.primaryColor.withValues(alpha: 0.3),
       onTap: () => ref.read(selectedWeathunitProvider.notifier).state = item,
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
