@@ -14,19 +14,19 @@ dependencies:
     sdk: flutter
 
   json_annotation: ^4.9.0
-  freezed_annotation: ^2.4.4
+  freezed_annotation: ^3.1.0
 
 dev_dependencies:
-  freezed: ^2.5.8
-  json_serializable: ^6.9.3
-  build_runner: ^2.4.14
-  lint: ^2.3.0
+  freezed: ^3.2.4
+  json_serializable: ^6.11.4
+  build_runner: ^2.10.5
+  lint: ^2.8.0
 
 screenshots:
-  - description: 'Preset weather scenes'
-    path: images/all_scenes_scr.png
   - description: 'Weather configurator'
     path: example/weathunits_configurator/assets/weather_configurator_screen.png
+  - description: 'Preset weather scenes'
+    path: images/all_scenes_scr.png
 
 funding:
   - https://t.me/+AkGV73kZi_Q1YTMy

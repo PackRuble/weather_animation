@@ -38,7 +38,7 @@ abstract class WeatherConfig {
 
 /// Configuration of the sun.
 @freezed
-class SunConfig extends WeatherConfig with _$SunConfig {
+abstract class SunConfig extends WeatherConfig with _$SunConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   const factory SunConfig({
     /// The width of the sun (in pixels).
@@ -78,11 +78,13 @@ class SunConfig extends WeatherConfig with _$SunConfig {
 
   factory SunConfig.fromJson(Map<String, dynamic> json) =>
       _$SunConfigFromJson(json);
+
+  const SunConfig._();
 }
 
 /// Configuration of the Snow.
 @freezed
-class SnowConfig extends WeatherConfig with _$SnowConfig {
+abstract class SnowConfig extends WeatherConfig with _$SnowConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   @Assert('waveRangeMin > 0', 'waveRangeMin must be greater than 0')
   @Assert('waveRangeMax >= waveRangeMin',
@@ -144,11 +146,13 @@ class SnowConfig extends WeatherConfig with _$SnowConfig {
 
   factory SnowConfig.fromJson(Map<String, dynamic> json) =>
       _$SnowConfigFromJson(json);
+
+  const SnowConfig._();
 }
 
 /// Configuration of the Cloud.
 @freezed
-class CloudConfig extends WeatherConfig with _$CloudConfig {
+abstract class CloudConfig extends WeatherConfig with _$CloudConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   const factory CloudConfig({
     /// Cloud size.
@@ -194,11 +198,13 @@ class CloudConfig extends WeatherConfig with _$CloudConfig {
 
   factory CloudConfig.fromJson(Map<String, dynamic> json) =>
       _$CloudConfigFromJson(json);
+
+  const CloudConfig._();
 }
 
 /// Configuration of the Rain.
 @freezed
-class RainConfig extends WeatherConfig with _$RainConfig {
+abstract class RainConfig extends WeatherConfig with _$RainConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   const factory RainConfig({
     /// The number of raindrops.
@@ -255,11 +261,13 @@ class RainConfig extends WeatherConfig with _$RainConfig {
 
   factory RainConfig.fromJson(Map<String, dynamic> json) =>
       _$RainConfigFromJson(json);
+
+  const RainConfig._();
 }
 
 /// Configuration of the Thunder.
 @freezed
-class ThunderConfig extends WeatherConfig with _$ThunderConfig {
+abstract class ThunderConfig extends WeatherConfig with _$ThunderConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   const factory ThunderConfig({
     @Default(10.0) double thunderWidth,
@@ -277,11 +285,13 @@ class ThunderConfig extends WeatherConfig with _$ThunderConfig {
 
   factory ThunderConfig.fromJson(Map<String, dynamic> json) =>
       _$ThunderConfigFromJson(json);
+
+  const ThunderConfig._();
 }
 
 /// Configuration of the Wind.
 @freezed
-class WindConfig extends WeatherConfig with _$WindConfig {
+abstract class WindConfig extends WeatherConfig with _$WindConfig {
   @JsonSerializable(converters: [ColorSerializer()])
   const factory WindConfig({
     @Default(6.0) double width,
@@ -299,4 +309,6 @@ class WindConfig extends WeatherConfig with _$WindConfig {
 
   factory WindConfig.fromJson(Map<String, dynamic> json) =>
       _$WindConfigFromJson(json);
+
+  const WindConfig._();
 }

@@ -6,8 +6,7 @@ part of 'configs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SunConfigImpl _$$SunConfigImplFromJson(Map<String, dynamic> json) =>
-    _$SunConfigImpl(
+_SunConfig _$SunConfigFromJson(Map<String, dynamic> json) => _SunConfig(
       width: (json['width'] as num?)?.toDouble() ?? 360.0,
       blurSigma: (json['blurSigma'] as num?)?.toDouble() ?? 13.0,
       isLeftLocation: json['isLeftLocation'] as bool? ?? true,
@@ -24,7 +23,7 @@ _$SunConfigImpl _$$SunConfigImplFromJson(Map<String, dynamic> json) =>
       animOutMill: (json['animOutMill'] as num?)?.toInt() ?? 1500,
     );
 
-Map<String, dynamic> _$$SunConfigImplToJson(_$SunConfigImpl instance) =>
+Map<String, dynamic> _$SunConfigToJson(_SunConfig instance) =>
     <String, dynamic>{
       'width': instance.width,
       'blurSigma': instance.blurSigma,
@@ -36,9 +35,8 @@ Map<String, dynamic> _$$SunConfigImplToJson(_$SunConfigImpl instance) =>
       'animOutMill': instance.animOutMill,
     };
 
-_$SnowflakeConfigImpl _$$SnowflakeConfigImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SnowflakeConfigImpl(
+_SnowflakeConfig _$SnowflakeConfigFromJson(Map<String, dynamic> json) =>
+    _SnowflakeConfig(
       count: (json['count'] as num?)?.toInt() ?? 20,
       size: (json['size'] as num?)?.toDouble() ?? 20.0,
       color: json['color'] == null
@@ -56,8 +54,7 @@ _$SnowflakeConfigImpl _$$SnowflakeConfigImplFromJson(
       fallMaxSec: (json['fallMaxSec'] as num?)?.toInt() ?? 60,
     );
 
-Map<String, dynamic> _$$SnowflakeConfigImplToJson(
-        _$SnowflakeConfigImpl instance) =>
+Map<String, dynamic> _$SnowflakeConfigToJson(_SnowflakeConfig instance) =>
     <String, dynamic>{
       'count': instance.count,
       'size': instance.size,
@@ -74,8 +71,7 @@ Map<String, dynamic> _$$SnowflakeConfigImplToJson(
       'fallMaxSec': instance.fallMaxSec,
     };
 
-_$CloudConfigImpl _$$CloudConfigImplFromJson(Map<String, dynamic> json) =>
-    _$CloudConfigImpl(
+_CloudConfig _$CloudConfigFromJson(Map<String, dynamic> json) => _CloudConfig(
       size: (json['size'] as num?)?.toDouble() ?? 250.0,
       color: json['color'] == null
           ? const Color.fromARGB(170, 255, 255, 255)
@@ -89,7 +85,7 @@ _$CloudConfigImpl _$$CloudConfigImplFromJson(Map<String, dynamic> json) =>
       slideDurMill: (json['slideDurMill'] as num?)?.toInt() ?? 2000,
     );
 
-Map<String, dynamic> _$$CloudConfigImplToJson(_$CloudConfigImpl instance) =>
+Map<String, dynamic> _$CloudConfigToJson(_CloudConfig instance) =>
     <String, dynamic>{
       'size': instance.size,
       'color': const ColorSerializer().toJson(instance.color),
@@ -102,8 +98,7 @@ Map<String, dynamic> _$$CloudConfigImplToJson(_$CloudConfigImpl instance) =>
       'slideDurMill': instance.slideDurMill,
     };
 
-_$RainConfigImpl _$$RainConfigImplFromJson(Map<String, dynamic> json) =>
-    _$RainConfigImpl(
+_RainConfig _$RainConfigFromJson(Map<String, dynamic> json) => _RainConfig(
       count: (json['count'] as num?)?.toInt() ?? 10,
       lengthDrop: (json['lengthDrop'] as num?)?.toDouble() ?? 12.0,
       widthDrop: (json['widthDrop'] as num?)?.toDouble() ?? 4.0,
@@ -124,7 +119,7 @@ _$RainConfigImpl _$$RainConfigImplFromJson(Map<String, dynamic> json) =>
       slideDurMill: (json['slideDurMill'] as num?)?.toInt() ?? 2000,
     );
 
-Map<String, dynamic> _$$RainConfigImplToJson(_$RainConfigImpl instance) =>
+Map<String, dynamic> _$RainConfigToJson(_RainConfig instance) =>
     <String, dynamic>{
       'count': instance.count,
       'lengthDrop': instance.lengthDrop,
@@ -142,8 +137,8 @@ Map<String, dynamic> _$$RainConfigImplToJson(_$RainConfigImpl instance) =>
       'slideDurMill': instance.slideDurMill,
     };
 
-_$ThunderConfigImpl _$$ThunderConfigImplFromJson(Map<String, dynamic> json) =>
-    _$ThunderConfigImpl(
+_ThunderConfig _$ThunderConfigFromJson(Map<String, dynamic> json) =>
+    _ThunderConfig(
       thunderWidth: (json['thunderWidth'] as num?)?.toDouble() ?? 10.0,
       blurSigma: (json['blurSigma'] as num?)?.toDouble() ?? 13.0,
       color: json['color'] == null
@@ -155,7 +150,7 @@ _$ThunderConfigImpl _$$ThunderConfigImplFromJson(Map<String, dynamic> json) =>
       pauseEndMill: (json['pauseEndMill'] as num?)?.toInt() ?? 6000,
     );
 
-Map<String, dynamic> _$$ThunderConfigImplToJson(_$ThunderConfigImpl instance) =>
+Map<String, dynamic> _$ThunderConfigToJson(_ThunderConfig instance) =>
     <String, dynamic>{
       'thunderWidth': instance.thunderWidth,
       'blurSigma': instance.blurSigma,
@@ -166,8 +161,7 @@ Map<String, dynamic> _$$ThunderConfigImplToJson(_$ThunderConfigImpl instance) =>
       'pauseEndMill': instance.pauseEndMill,
     };
 
-_$WindConfigImpl _$$WindConfigImplFromJson(Map<String, dynamic> json) =>
-    _$WindConfigImpl(
+_WindConfig _$WindConfigFromJson(Map<String, dynamic> json) => _WindConfig(
       width: (json['width'] as num?)?.toDouble() ?? 6.0,
       y: (json['y'] as num?)?.toDouble() ?? 300.0,
       windGap: (json['windGap'] as num?)?.toDouble() ?? 14.0,
@@ -182,7 +176,7 @@ _$WindConfigImpl _$$WindConfigImplFromJson(Map<String, dynamic> json) =>
       slideDurMill: (json['slideDurMill'] as num?)?.toInt() ?? 1000,
     );
 
-Map<String, dynamic> _$$WindConfigImplToJson(_$WindConfigImpl instance) =>
+Map<String, dynamic> _$WindConfigToJson(_WindConfig instance) =>
     <String, dynamic>{
       'width': instance.width,
       'y': instance.y,
