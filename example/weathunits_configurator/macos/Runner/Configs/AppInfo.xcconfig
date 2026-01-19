@@ -8,7 +8,7 @@
 PRODUCT_NAME = weathunits_configurator
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.weathunitsConfigurator
+PRODUCT_BUNDLE_IDENTIFIER = com.rublepack.weathunitsConfigurator
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 com.rublepack. All rights reserved.
