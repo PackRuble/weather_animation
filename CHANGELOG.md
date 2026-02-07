@@ -1,7 +1,7 @@
 ## [1.2.0] - 07-02-2026
 
 - fix: use `Color.from` instead of `Color` [#19](https://github.com/PackRuble/weather_animation/issues/19)
-- fix: generation of incorrect fields in Weathunits configurator in web [#19](https://github.com/PackRuble/weather_animation/issues/14)
+- fix: generation of incorrect fields in Weathunits configurator in web [#14](https://github.com/PackRuble/weather_animation/issues/14)
 - upd: dependencies to the latest versions and fix lints
 
 ## [1.1.2] - 29-01-2025
