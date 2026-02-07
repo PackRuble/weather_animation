@@ -4,7 +4,7 @@ homepage: https://t.me/+AkGV73kZi_Q1YTMy
 repository: https://github.com/PackRuble/weather_animation
 issue_tracker: https://github.com/PackRuble/weather_animation/issues
 
-version: 1.1.2
+version: 1.2.0
 
 environment:
   sdk: ^3.0.0

@@ -13,7 +13,7 @@ Create weather scenes and animate as your heart desires. Simple and free.
 
 Try the [Weathunits configurator][configurator_link] for setting weather scenes directly in the WEB!
 
-> Put a ![][pub_like_icon] on [Pub][pub_link] and favorite ⭐ on [Github][repo_link] to keep up with changes and not miss new releases!
+> Put an ![][pub_like_icon] on [Pub][pub_link] and favorite ⭐ on [GitHub][repo_link] to keep up with changes and not miss new releases!
 
 ## Motivation
 
@@ -108,7 +108,7 @@ SunWidget(
 
 ### Use `weather_configurator` app
 
-- online in web --> [Weathunits configurator][configurator_link]
+- online in web → [Weathunits configurator][configurator_link]
 - offline after build project on your gadget (path `example/weathunits_configurator`. Learn more [here](https://github.com/PackRuble/weather_animation/tree/master/example/weathunits_configurator/))
 
 ![](example/weathunits_configurator/assets/weather_configurator_screen.png)
